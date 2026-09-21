@@ -1,0 +1,49 @@
+bioma,fase,lag,n,media,ic_inf,ic_sup,p_vs_neutro
+Mata Atlântica,El Niño,0,76,-4.028,-6.836,-1.117,0.008
+Mata Atlântica,El Niño,1,76,-4.681,-7.616,-1.684,0.002
+Mata Atlântica,El Niño,2,76,-3.862,-6.873,-0.867,0.006
+Mata Atlântica,El Niño,3,76,-4.263,-7.271,-1.367,0.002
+Mata Atlântica,El Niño,4,76,-4.118,-7.111,-1.102,0.003
+Mata Atlântica,El Niño,6,76,-3.155,-5.994,-0.267,0.017
+Mata Atlântica,El Niño,9,76,-1.968,-4.194,0.295,0.043
+Mata Atlântica,El Niño,12,76,-2.659,-5.37,-0.083,0.019
+Mata Atlântica,La Niña,0,72,1.334,-1.036,3.748,0.82
+Mata Atlântica,La Niña,1,72,1.738,-0.501,4.113,0.979
+Mata Atlântica,La Niña,2,72,2.438,0.261,4.714,0.656
+Mata Atlântica,La Niña,3,72,1.018,-1.221,3.492,0.559
+Mata Atlântica,La Niña,4,72,0.735,-1.379,2.913,0.498
+Mata Atlântica,La Niña,6,72,0.367,-1.762,2.465,0.384
+Mata Atlântica,La Niña,9,72,0.307,-2.002,2.682,0.333
+Mata Atlântica,La Niña,12,72,-0.587,-3.599,2.55,0.176
+Cerrado,El Niño,0,76,1.069,-5.946,8.328,0.399
+Cerrado,El Niño,1,76,-0.34,-6.849,6.218,0.542
+Cerrado,El Niño,2,76,-1.187,-6.888,4.642,0.489
+Cerrado,El Niño,3,76,-2.713,-8.702,2.964,0.671
+Cerrado,El Niño,4,76,-2.961,-8.033,2.305,0.758
+Cerrado,El Niño,6,76,-0.826,-6.262,4.851,0.418
+Cerrado,El Niño,9,76,-2.786,-8.562,3.109,0.795
+Cerrado,El Niño,12,76,-6.402,-11.673,-0.884,0.43
+Cerrado,La Niña,0,72,7.551,1.344,13.279,0.0
+Cerrado,La Niña,1,72,7.821,2.172,13.312,0.0
+Cerrado,La Niña,2,72,7.061,1.692,12.091,0.001
+Cerrado,La Niña,3,72,5.364,0.8,9.751,0.003
+Cerrado,La Niña,4,72,5.341,0.302,9.99,0.002
+Cerrado,La Niña,6,72,8.111,1.382,14.409,0.002
+Cerrado,La Niña,9,72,10.378,3.391,17.777,0.001
+Cerrado,La Niña,12,72,4.046,-2.609,10.506,0.011
+Caatinga,El Niño,0,76,-4.976,-10.514,0.569,0.38
+Caatinga,El Niño,1,76,-4.731,-10.466,0.928,0.441
+Caatinga,El Niño,2,76,-3.863,-9.373,1.425,0.686
+Caatinga,El Niño,3,76,-3.756,-9.388,1.835,0.631
+Caatinga,El Niño,4,76,-4.046,-9.261,1.307,0.662
+Caatinga,El Niño,6,76,-1.048,-6.141,4.358,0.456
+Caatinga,El Niño,9,76,-2.1,-6.861,2.631,0.665
+Caatinga,El Niño,12,76,-5.037,-10.333,0.324,0.356
+Caatinga,La Niña,0,72,8.754,3.629,14.018,0.001
+Caatinga,La Niña,1,72,9.046,4.18,14.211,0.001
+Caatinga,La Niña,2,72,8.603,3.532,14.015,0.001
+Caatinga,La Niña,3,72,6.118,0.704,11.474,0.009
+Caatinga,La Niña,4,72,5.353,0.19,10.711,0.02
+Caatinga,La Niña,6,72,4.429,-0.955,9.742,0.058
+Caatinga,La Niña,9,72,6.189,0.585,11.904,0.033
+Caatinga,La Niña,12,72,2.068,-4.338,8.198,0.265

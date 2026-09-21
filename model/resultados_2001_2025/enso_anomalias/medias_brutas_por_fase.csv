@@ -1,0 +1,16 @@
+bioma,variavel,media_EN,media_N,media_LN
+Mata Atlântica,PSN,128.57,136.0,135.27
+Mata Atlântica,EV,100.35,99.42,104.79
+Mata Atlântica,PRE,86.56,85.98,97.21
+Mata Atlântica,TST,29.68,27.1,28.75
+Mata Atlântica,WAI,0.5,0.55,0.53
+Cerrado,PSN,92.93,93.78,104.22
+Cerrado,EV,74.67,64.64,83.2
+Cerrado,PRE,106.64,58.99,123.25
+Cerrado,TST,33.51,31.91,32.36
+Cerrado,WAI,0.37,0.33,0.43
+Caatinga,PSN,79.72,87.02,94.21
+Caatinga,EV,58.98,55.83,69.41
+Caatinga,PRE,65.66,45.88,73.44
+Caatinga,TST,33.74,31.53,32.36
+Caatinga,WAI,0.28,0.28,0.33

@@ -1,0 +1,7 @@
+bioma,conjunto,r2_treino,r2_teste,gap_pp,rmse
+Mata Atlântica,EV+TST+WAI+SAZsin+SAZcos,78.8,73.6,5.2,7.97
+Mata Atlântica,EV+TST+WAI (sem sazonalidade),55.7,51.9,3.8,10.78
+Cerrado,EV+PRE+WAI+SAZsin+SAZcos,97.3,96.7,0.6,6.74
+Cerrado,EV+PRE+WAI (sem sazonalidade),94.7,93.7,1.0,9.28
+Caatinga,EV+PRE+TST+SAZsin+SAZcos,95.2,94.2,1.0,6.69
+Caatinga,EV+PRE+TST (sem sazonalidade),92.8,91.8,1.1,7.96

@@ -1,0 +1,1650 @@
+
+===== PREPARAÇÃO DA BASE (a partir do CSV) =====
+Arquivo lido: base_final_2001_2025_plan1_excel_ptbr.csv
+Linhas originais: 300
+Linhas removidas (precipitação ausente — dado ainda não publicado pela NASA):
+ ANO  MÊS
+2025   10
+2025   11
+2025   12
+Linhas finais usadas no modelo: 297
+Base atualizada salva em Dados_base_nova_2001_2025.xlsx
+
+>>> Rodando 3 biomas EM PARALELO (MA, CE, CA) — um processo por núcleo.
+>>> Os prints de cada bioma podem aparecer intercalados no console;
+>>> isso não afeta o resultado — cada bioma calcula de forma independente.
+
+===== RODANDO MODELO RIDGE - MATA ATLÂNTICA =====
+Variável resposta : PSN_MA
+Preditores        : ['EV_MA', 'PRE_MA', 'TST_MA', 'saz_sin', 'saz_cos']
+
+===== RODANDO MODELO RIDGE - CAATINGA =====
+Variável resposta : PSN_CA
+Preditores        : ['EV_CA', 'PRE_CA', 'TST_CA', 'saz_sin', 'saz_cos']
+
+===== RODANDO MODELO RIDGE - CERRADO =====
+Variável resposta : PSN_CE
+Preditores        : ['EV_CE', 'PRE_CE', 'WAI_CE', 'saz_sin', 'saz_cos']
+
+R2 de Treino = 78.38
+R2 de Teste = 56.27
+
+R2 de Treino = 95.48
+R2 de Teste = 93.65
+
+R2 de Treino = 97.22
+R2 de Teste = 97.23
+
+R2 de Treino = 74.92
+R2 de Teste = 80.14
+
+R2 de Treino = 97.33
+R2 de Teste = 96.68
+
+R2 de Treino = 95.22
+R2 de Teste = 93.96
+
+R2 de Treino = 75.13
+R2 de Teste = 76.04
+
+R2 de Treino = 97.24
+R2 de Teste = 96.81
+
+R2 de Treino = 94.72
+R2 de Teste = 95.89
+
+R2 de Treino = 74.12
+R2 de Teste = 70.68
+
+R2 de Treino = 97.42
+R2 de Teste = 96.54
+
+R2 de Treino = 94.69
+R2 de Teste = 96.22
+
+R2 de Treino = 78.12
+R2 de Teste = 63.0
+
+R2 de Treino = 97.07
+R2 de Teste = 97.07
+
+R2 de Treino = 95.63
+R2 de Teste = 91.98
+
+R2 de Treino = 76.28
+R2 de Teste = 74.38
+
+R2 de Treino = 97.24
+R2 de Teste = 96.87
+
+R2 de Treino = 95.45
+R2 de Teste = 93.41
+
+R2 de Treino = 78.46
+R2 de Teste = 56.6
+
+R2 de Treino = 97.49
+R2 de Teste = 96.02
+
+R2 de Treino = 95.65
+R2 de Teste = 92.46
+
+R2 de Treino = 76.15
+R2 de Teste = 72.16
+
+R2 de Treino = 94.93
+R2 de Teste = 95.07
+
+R2 de Treino = 97.26
+R2 de Teste = 95.9
+
+R2 de Treino = 72.93
+R2 de Teste = 78.12
+
+R2 de Treino = 94.74
+R2 de Teste = 96.06
+
+R2 de Treino = 97.05
+R2 de Teste = 97.46
+
+R2 de Treino = 76.95
+R2 de Teste = 73.21
+
+R2 de Treino = 95.09
+R2 de Teste = 95.02
+
+R2 de Treino = 97.17
+R2 de Teste = 97.07
+
+R2 de Treino = 73.09
+R2 de Teste = 77.59
+
+R2 de Treino = 96.14
+R2 de Teste = 90.51
+
+R2 de Treino = 97.17
+R2 de Teste = 96.98
+
+R2 de Treino = 95.05
+R2 de Teste = 94.92
+
+R2 de Treino = 76.85
+R2 de Teste = 66.99
+
+R2 de Treino = 97.48
+R2 de Teste = 95.4
+
+R2 de Treino = 94.75
+R2 de Teste = 96.04
+
+R2 de Treino = 74.04
+R2 de Teste = 78.84
+
+R2 de Treino = 97.19
+R2 de Teste = 96.84
+
+R2 de Treino = 95.34
+R2 de Teste = 93.36
+
+R2 de Treino = 97.12
+R2 de Teste = 98.16
+
+R2 de Treino = 78.34
+R2 de Teste = 63.74
+
+R2 de Treino = 94.77
+R2 de Teste = 96.05
+
+R2 de Treino = 97.29
+R2 de Teste = 96.35
+
+R2 de Treino = 76.97
+R2 de Teste = 63.67
+
+R2 de Treino = 95.07
+R2 de Teste = 94.9
+
+R2 de Treino = 97.1
+R2 de Teste = 97.18
+
+R2 de Treino = 75.35
+R2 de Teste = 67.61
+
+R2 de Treino = 95.36
+R2 de Teste = 93.61
+
+R2 de Treino = 97.53
+R2 de Teste = 94.92
+
+R2 de Treino = 77.41
+R2 de Teste = 67.46
+
+R2 de Treino = 95.71
+R2 de Teste = 91.64
+
+R2 de Treino = 97.14
+R2 de Teste = 97.43
+
+R2 de Treino = 77.73
+R2 de Teste = 67.54
+
+R2 de Treino = 95.3
+R2 de Teste = 93.48
+
+R2 de Treino = 97.2
+R2 de Teste = 96.7
+
+R2 de Treino = 76.16
+R2 de Teste = 74.58
+
+R2 de Treino = 94.57
+R2 de Teste = 95.98
+
+R2 de Treino = 97.35
+R2 de Teste = 96.51
+
+R2 de Treino = 72.64
+R2 de Teste = 74.6
+
+R2 de Treino = 95.22
+R2 de Teste = 94.32
+
+R2 de Treino = 97.41
+R2 de Teste = 95.84
+
+R2 de Treino = 76.59
+R2 de Teste = 62.68
+
+R2 de Treino = 95.48
+R2 de Teste = 92.41
+
+R2 de Treino = 97.43
+R2 de Teste = 95.94
+
+R2 de Treino = 77.04
+R2 de Teste = 69.63
+
+R2 de Treino = 95.02
+R2 de Teste = 94.96
+
+R2 de Treino = 97.27
+R2 de Teste = 96.95
+
+R2 de Treino = 76.34
+R2 de Teste = 68.24
+
+R2 de Treino = 97.17
+R2 de Teste = 97.02
+
+R2 de Treino = 95.29
+R2 de Teste = 94.32
+
+R2 de Treino = 74.91
+R2 de Teste = 78.26
+
+R2 de Treino = 97.03
+R2 de Teste = 97.48
+
+R2 de Treino = 94.9
+R2 de Teste = 95.56
+
+R2 de Treino = 74.54
+R2 de Teste = 77.34
+
+R2 de Treino = 97.37
+R2 de Teste = 96.21
+
+R2 de Treino = 94.98
+R2 de Teste = 95.18
+
+R2 de Treino = 76.5
+R2 de Teste = 68.35
+
+R2 de Treino = 97.36
+R2 de Teste = 96.06
+
+R2 de Treino = 95.26
+R2 de Teste = 93.96
+
+R2 de Treino = 75.1
+R2 de Teste = 78.73
+
+R2 de Treino = 97.28
+R2 de Teste = 96.6
+
+R2 de Treino = 95.45
+R2 de Teste = 92.67
+
+R2 de Treino = 77.38
+R2 de Teste = 69.45
+
+R2 de Treino = 97.01
+R2 de Teste = 97.91
+
+R2 de Treino = 95.26
+R2 de Teste = 94.27
+
+R2 de Treino = 72.78
+R2 de Teste = 78.86
+
+R2 de Treino = 97.31
+R2 de Teste = 97.11
+
+R2 de Treino = 94.94
+R2 de Teste = 95.6
+
+R2 de Treino = 77.55
+R2 de Teste = 67.05
+
+R2 de Treino = 97.42
+R2 de Teste = 96.03
+
+R2 de Treino = 95.28
+R2 de Teste = 94.11
+
+R2 de Treino = 75.07
+R2 de Teste = 79.71
+
+R2 de Treino = 97.28
+R2 de Teste = 96.78
+
+R2 de Treino = 95.43
+R2 de Teste = 93.2
+
+R2 de Treino = 75.85
+R2 de Teste = 75.08
+
+R2 de Treino = 97.24
+R2 de Teste = 96.8
+
+R2 de Treino = 95.03
+R2 de Teste = 94.91
+
+R2 de Treino = 97.17
+R2 de Teste = 97.61
+
+R2 de Treino = 94.83
+R2 de Teste = 95.65
+
+R2 de Treino = 74.55
+R2 de Teste = 78.07
+
+R2 de Treino = 97.11
+R2 de Teste = 96.51
+
+R2 de Treino = 95.43
+R2 de Teste = 93.59
+
+R2 de Treino = 75.83
+R2 de Teste = 68.95
+
+R2 de Treino = 97.11
+R2 de Teste = 97.47
+
+R2 de Treino = 95.03
+R2 de Teste = 94.86
+
+R2 de Treino = 79.81
+R2 de Teste = 56.41
+
+R2 de Treino = 97.28
+R2 de Teste = 96.69
+
+R2 de Treino = 94.72
+R2 de Teste = 96.13
+
+R2 de Treino = 76.08
+R2 de Teste = 72.37
+
+R2 de Treino = 95.14
+R2 de Teste = 94.16
+
+R2 de Treino = 76.33
+R2 de Teste = 74.16
+
+R2 de Treino = 97.44
+R2 de Teste = 95.77
+
+R2 de Treino = 95.65
+R2 de Teste = 91.11
+
+R2 de Treino = 74.1
+R2 de Teste = 72.88
+
+R2 de Treino = 97.36
+R2 de Teste = 96.01
+
+R2 de Treino = 95.5
+R2 de Teste = 93.29
+
+R2 de Treino = 78.04
+R2 de Teste = 65.93
+
+R2 de Treino = 96.99
+R2 de Teste = 96.89
+
+R2 de Treino = 95.13
+R2 de Teste = 94.61
+
+R2 de Treino = 74.7
+R2 de Teste = 77.18
+
+R2 de Treino = 97.39
+R2 de Teste = 95.9
+
+R2 de Treino = 95.89
+R2 de Teste = 90.79
+
+R2 de Treino = 76.5
+R2 de Teste = 72.49
+
+R2 de Treino = 97.06
+R2 de Teste = 96.89
+
+R2 de Treino = 95.32
+R2 de Teste = 93.91
+
+R2 de Treino = 78.61
+R2 de Teste = 62.66
+
+R2 de Treino = 97.26
+R2 de Teste = 96.84
+
+R2 de Treino = 94.68
+R2 de Teste = 96.35
+
+R2 de Treino = 75.83
+R2 de Teste = 77.53
+
+R2 de Treino = 97.14
+R2 de Teste = 97.68
+
+R2 de Treino = 94.74
+R2 de Teste = 96.07
+
+R2 de Treino = 74.56
+R2 de Teste = 82.97
+
+R2 de Treino = 97.45
+R2 de Teste = 96.05
+
+R2 de Treino = 94.86
+R2 de Teste = 95.95
+
+R2 de Treino = 76.06
+R2 de Teste = 70.31
+
+R2 de Treino = 97.18
+R2 de Teste = 96.71
+
+R2 de Treino = 95.29
+R2 de Teste = 94.0
+
+R2 de Treino = 72.39
+R2 de Teste = 79.47
+
+R2 de Treino = 97.09
+R2 de Teste = 96.71
+
+R2 de Treino = 95.75
+R2 de Teste = 90.79
+
+R2 de Treino = 76.02
+R2 de Teste = 68.77
+
+R2 de Treino = 97.4
+R2 de Teste = 96.21
+
+R2 de Treino = 95.07
+R2 de Teste = 94.72
+
+R2 de Treino = 77.65
+R2 de Teste = 63.91
+
+R2 de Treino = 97.17
+R2 de Teste = 96.59
+
+R2 de Treino = 95.13
+R2 de Teste = 94.83
+
+R2 de Treino = 77.65
+R2 de Teste = 68.42
+
+R2 de Treino = 97.47
+R2 de Teste = 96.82
+
+R2 de Treino = 95.21
+R2 de Teste = 94.01
+
+R2 de Treino = 76.88
+R2 de Teste = 71.9
+
+R2 de Treino = 97.13
+R2 de Teste = 97.14
+
+R2 de Treino = 95.24
+R2 de Teste = 94.13
+
+R2 de Treino = 74.13
+R2 de Teste = 74.36
+
+R2 de Treino = 97.05
+R2 de Teste = 97.94
+
+R2 de Treino = 95.33
+R2 de Teste = 94.31
+
+R2 de Treino = 77.79
+R2 de Teste = 65.39
+
+R2 de Treino = 97.09
+R2 de Teste = 96.62
+
+R2 de Treino = 94.81
+R2 de Teste = 95.56
+
+R2 de Treino = 76.49
+R2 de Teste = 71.08
+
+R2 de Treino = 97.42
+R2 de Teste = 96.06
+
+R2 de Treino = 95.24
+R2 de Teste = 94.48
+
+R2 de Treino = 78.58
+R2 de Teste = 68.43
+
+R2 de Treino = 97.53
+R2 de Teste = 95.56
+
+R2 de Treino = 95.32
+R2 de Teste = 93.57
+
+R2 de Treino = 75.25
+R2 de Teste = 71.58
+
+R2 de Treino = 97.38
+R2 de Teste = 95.97
+
+R2 de Treino = 95.13
+R2 de Teste = 94.65
+
+R2 de Treino = 76.2
+R2 de Teste = 62.38
+
+R2 de Treino = 97.52
+R2 de Teste = 95.41
+
+R2 de Treino = 94.84
+R2 de Teste = 95.49
+
+R2 de Treino = 97.04
+R2 de Teste = 97.4
+
+R2 de Treino = 77.93
+R2 de Teste = 70.81
+
+R2 de Treino = 95.2
+R2 de Teste = 94.24
+
+R2 de Treino = 97.28
+R2 de Teste = 96.58
+
+R2 de Treino = 74.55
+R2 de Teste = 71.47
+
+R2 de Treino = 95.58
+R2 de Teste = 92.58
+
+R2 de Treino = 96.96
+R2 de Teste = 97.31
+
+R2 de Treino = 73.77
+R2 de Teste = 77.48
+
+R2 de Treino = 95.11
+R2 de Teste = 94.63
+
+R2 de Treino = 97.46
+R2 de Teste = 95.77
+
+R2 de Treino = 77.4
+R2 de Teste = 68.73
+
+R2 de Treino = 95.79
+R2 de Teste = 90.46
+
+R2 de Treino = 97.38
+R2 de Teste = 96.04
+
+R2 de Treino = 75.06
+R2 de Teste = 72.08
+
+R2 de Treino = 95.05
+R2 de Teste = 93.83
+
+R2 de Treino = 97.2
+R2 de Teste = 97.01
+
+R2 de Treino = 76.76
+R2 de Teste = 66.78
+
+R2 de Treino = 95.14
+R2 de Teste = 94.5
+
+R2 de Treino = 97.11
+R2 de Teste = 97.53
+
+R2 de Treino = 76.54
+R2 de Teste = 76.78
+
+R2 de Treino = 94.91
+R2 de Teste = 95.57
+
+R2 de Treino = 97.22
+R2 de Teste = 97.37
+
+R2 de Treino = 74.88
+R2 de Teste = 72.36
+
+R2 de Treino = 94.86
+R2 de Teste = 95.12
+
+R2 de Treino = 97.27
+R2 de Teste = 96.46
+
+R2 de Treino = 76.81
+R2 de Teste = 72.48
+
+R2 de Treino = 97.3
+R2 de Teste = 96.61
+
+R2 de Treino = 95.31
+R2 de Teste = 93.88
+
+R2 de Treino = 77.57
+R2 de Teste = 67.63
+
+R2 de Treino = 97.34
+R2 de Teste = 96.77
+
+R2 de Treino = 95.36
+R2 de Teste = 92.83
+
+R2 de Treino = 74.85
+R2 de Teste = 75.18
+
+R2 de Treino = 97.14
+R2 de Teste = 96.92
+
+R2 de Treino = 74.86
+R2 de Teste = 76.85
+
+R2 de Treino = 94.8
+R2 de Teste = 95.91
+
+R2 de Treino = 95.55
+R2 de Teste = 91.89
+
+R2 de Treino = 78.94
+R2 de Teste = 57.73
+
+R2 de Treino = 97.27
+R2 de Teste = 96.27
+
+R2 de Treino = 75.11
+R2 de Teste = 80.03
+R2 de Treino = 95.26
+R2 de Teste = 94.01
+
+R2 de Treino = 97.27
+R2 de Teste = 96.97
+
+R2 de Treino = 97.21
+R2 de Teste = 96.9
+
+R2 de Treino = 94.93
+R2 de Teste = 95.34
+
+R2 de Treino = 76.55
+R2 de Teste = 73.61
+
+R2 de Treino = 97.38
+R2 de Teste = 96.17
+
+R2 de Treino = 75.2
+R2 de Teste = 76.67
+
+R2 de Treino = 95.53
+R2 de Teste = 92.13
+
+R2 de Treino = 97.03
+R2 de Teste = 97.46
+
+R2 de Treino = 77.39
+R2 de Teste = 74.51
+
+R2 de Treino = 94.85
+R2 de Teste = 95.56
+
+R2 de Treino = 97.33
+R2 de Teste = 96.31
+
+R2 de Treino = 75.95
+R2 de Teste = 70.4
+
+R2 de Treino = 95.53
+R2 de Teste = 92.56
+
+R2 de Treino = 97.12
+R2 de Teste = 97.15
+
+R2 de Treino = 78.08
+R2 de Teste = 55.67
+
+R2 de Treino = 95.1
+R2 de Teste = 94.78
+
+R2 de Treino = 97.49
+R2 de Teste = 95.52
+
+R2 de Treino = 74.35
+R2 de Teste = 71.6
+
+R2 de Treino = 95.18
+R2 de Teste = 94.06
+
+R2 de Treino = 97.3
+R2 de Teste = 96.95
+
+R2 de Treino = 75.32
+R2 de Teste = 70.18
+
+R2 de Treino = 95.45
+R2 de Teste = 93.15
+
+R2 de Treino = 74.99
+R2 de Teste = 73.43
+
+R2 de Treino = 97.23
+R2 de Teste = 96.81
+
+R2 de Treino = 95.08
+R2 de Teste = 94.88
+
+R2 de Treino = 77.28
+R2 de Teste = 66.53
+
+R2 de Treino = 97.19
+R2 de Teste = 96.9
+
+R2 de Treino = 95.1
+R2 de Teste = 94.89
+
+R2 de Treino = 77.26
+R2 de Teste = 69.83
+
+R2 de Treino = 97.32
+R2 de Teste = 96.37
+
+R2 de Treino = 95.32
+R2 de Teste = 93.3
+
+R2 de Treino = 76.85
+R2 de Teste = 75.09
+
+R2 de Treino = 97.27
+R2 de Teste = 96.55
+
+R2 de Treino = 95.35
+R2 de Teste = 92.97
+
+R2 de Treino = 75.29
+R2 de Teste = 74.84
+
+R2 de Treino = 97.27
+R2 de Teste = 96.99
+
+R2 de Treino = 95.34
+R2 de Teste = 93.9
+
+R2 de Treino = 75.11
+R2 de Teste = 70.53
+
+R2 de Treino = 96.76
+R2 de Teste = 97.2
+
+R2 de Treino = 94.59
+R2 de Teste = 96.57
+
+R2 de Treino = 74.61
+R2 de Teste = 72.39
+
+R2 de Treino = 97.5
+R2 de Teste = 95.68
+
+R2 de Treino = 95.35
+R2 de Teste = 93.76
+
+R2 de Treino = 79.0
+R2 de Teste = 58.0
+
+R2 de Treino = 97.29
+R2 de Teste = 96.37
+
+R2 de Treino = 95.12
+R2 de Teste = 94.62
+
+R2 de Treino = 75.16
+R2 de Teste = 80.33
+
+R2 de Treino = 97.32
+R2 de Teste = 96.65
+
+R2 de Treino = 94.95
+R2 de Teste = 95.24
+
+R2 de Treino = 76.84
+R2 de Teste = 68.65
+
+R2 de Treino = 97.42
+R2 de Teste = 96.02
+
+R2 de Treino = 95.44
+R2 de Teste = 93.07
+
+R2 de Treino = 72.72
+R2 de Teste = 80.75
+
+R2 de Treino = 97.13
+R2 de Teste = 97.17
+
+R2 de Treino = 94.88
+R2 de Teste = 95.51
+
+R2 de Treino = 77.81
+R2 de Teste = 64.71
+
+R2 de Treino = 97.08
+R2 de Teste = 97.38
+
+R2 de Treino = 95.5
+R2 de Teste = 93.31
+
+R2 de Treino = 77.91
+R2 de Teste = 65.03
+
+R2 de Treino = 97.34
+R2 de Teste = 96.72
+
+R2 de Treino = 94.77
+R2 de Teste = 95.45
+
+R2 de Treino = 73.85
+R2 de Teste = 79.11
+
+R2 de Treino = 97.04
+R2 de Teste = 97.23
+
+R2 de Treino = 94.56
+R2 de Teste = 95.59
+
+R2 de Treino = 70.67
+R2 de Teste = 76.21
+
+R2 de Treino = 97.42
+R2 de Teste = 95.7
+
+R2 de Treino = 96.07
+R2 de Teste = 88.39
+
+R2 de Treino = 78.36
+R2 de Teste = 64.91
+
+R2 de Treino = 97.46
+R2 de Teste = 95.39
+
+R2 de Treino = 95.63
+R2 de Teste = 92.02
+
+R2 de Treino = 78.62
+R2 de Teste = 56.23
+
+R2 de Treino = 97.05
+R2 de Teste = 97.27
+
+R2 de Treino = 94.9
+R2 de Teste = 95.68
+
+R2 de Treino = 77.97
+R2 de Teste = 64.15
+
+R2 de Treino = 97.26
+R2 de Teste = 96.82
+
+R2 de Treino = 95.6
+R2 de Teste = 91.88
+
+R2 de Treino = 76.79
+R2 de Teste = 69.69
+
+R2 de Treino = 97.37
+R2 de Teste = 96.14
+
+R2 de Treino = 95.35
+R2 de Teste = 93.7
+
+R2 de Treino = 76.96
+R2 de Teste = 66.19
+
+R2 de Treino = 97.13
+R2 de Teste = 97.61
+
+R2 de Treino = 94.87
+R2 de Teste = 95.94
+
+R2 de Treino = 73.94
+R2 de Teste = 76.83
+
+R2 de Treino = 97.27
+R2 de Teste = 96.93
+
+R2 de Treino = 95.07
+R2 de Teste = 95.11
+
+R2 de Treino = 74.67
+R2 de Teste = 73.84
+
+R2 de Treino = 97.24
+R2 de Teste = 96.67
+
+R2 de Treino = 95.29
+R2 de Teste = 93.78
+
+R2 de Treino = 77.58
+R2 de Teste = 70.39
+
+R2 de Treino = 97.14
+R2 de Teste = 97.57
+
+R2 de Treino = 94.84
+R2 de Teste = 95.1
+
+R2 de Treino = 77.0
+R2 de Teste = 69.43
+
+R2 de Treino = 97.32
+R2 de Teste = 96.6
+
+R2 de Treino = 94.94
+R2 de Teste = 96.19
+
+R2 de Treino = 74.41
+R2 de Teste = 81.17
+
+R2 de Treino = 97.14
+R2 de Teste = 97.16
+
+R2 de Treino = 95.03
+R2 de Teste = 94.59
+
+R2 de Treino = 75.92
+R2 de Teste = 70.18
+
+R2 de Treino = 97.14
+R2 de Teste = 96.64
+
+R2 de Treino = 95.54
+R2 de Teste = 92.84
+
+R2 de Treino = 75.95
+R2 de Teste = 69.37
+
+R2 de Treino = 97.48
+R2 de Teste = 95.68
+
+R2 de Treino = 95.63
+R2 de Teste = 92.27
+
+R2 de Treino = 75.93
+R2 de Teste = 74.17
+
+R2 de Treino = 97.11
+R2 de Teste = 97.2
+
+R2 de Treino = 94.96
+R2 de Teste = 94.93
+
+R2 de Treino = 74.44
+R2 de Teste = 77.29
+
+R2 de Treino = 97.39
+R2 de Teste = 96.0
+
+R2 de Treino = 95.27
+R2 de Teste = 94.26
+
+R2 de Treino = 74.15
+R2 de Teste = 78.06
+
+R2 de Treino = 97.5
+R2 de Teste = 95.62
+
+R2 de Treino = 95.27
+R2 de Teste = 93.88
+
+R2 de Treino = 79.8
+R2 de Teste = 57.39
+
+R2 de Treino = 97.23
+R2 de Teste = 96.52
+
+R2 de Treino = 95.58
+R2 de Teste = 92.65
+
+R2 de Treino = 77.4
+R2 de Teste = 66.61
+
+R2 de Treino = 96.99
+R2 de Teste = 97.62
+
+R2 de Treino = 94.86
+R2 de Teste = 95.47
+
+R2 de Treino = 75.6
+R2 de Teste = 76.96
+
+R2 de Treino = 97.26
+R2 de Teste = 96.82
+
+R2 de Treino = 95.13
+R2 de Teste = 94.1
+
+R2 de Treino = 73.11
+R2 de Teste = 75.34
+
+R2 de Treino = 97.33
+R2 de Teste = 96.48
+
+R2 de Treino = 95.0
+R2 de Teste = 95.24
+
+R2 de Treino = 76.13
+R2 de Teste = 74.38
+
+R2 de Treino = 97.23
+R2 de Teste = 96.78
+
+R2 de Treino = 95.78
+R2 de Teste = 91.96
+
+R2 de Treino = 79.02
+R2 de Teste = 57.68
+
+R2 de Treino = 97.05
+R2 de Teste = 97.44
+
+R2 de Treino = 95.12
+R2 de Teste = 94.42
+
+R2 de Treino = 77.31
+R2 de Teste = 68.67
+
+R2 de Treino = 97.4
+R2 de Teste = 96.76
+
+R2 de Treino = 95.03
+R2 de Teste = 95.09
+
+R2 de Treino = 75.18
+R2 de Teste = 79.67
+
+R2 de Treino = 97.26
+R2 de Teste = 96.98
+
+R2 de Treino = 94.8
+R2 de Teste = 96.15
+
+R2 de Treino = 77.26
+R2 de Teste = 65.08
+
+R2 de Treino = 97.4
+R2 de Teste = 96.18
+
+R2 de Treino = 94.99
+R2 de Teste = 94.92
+
+R2 de Treino = 75.64
+R2 de Teste = 73.0
+
+R2 de Treino = 97.06
+R2 de Teste = 96.95
+
+R2 de Treino = 95.47
+R2 de Teste = 93.51
+
+R2 de Treino = 75.03
+R2 de Teste = 75.85
+
+R2 de Treino = 97.34
+R2 de Teste = 96.43
+
+R2 de Treino = 95.77
+R2 de Teste = 91.23
+
+R2 de Treino = 75.48
+R2 de Teste = 69.98
+
+R2 de Treino = 97.25
+R2 de Teste = 96.98
+
+R2 de Treino = 95.04
+R2 de Teste = 94.57
+
+R2 de Treino = 77.4
+R2 de Teste = 72.62
+
+R2 de Treino = 97.34
+R2 de Teste = 96.08
+
+R2 de Treino = 95.82
+R2 de Teste = 91.08
+
+R2 de Treino = 78.48
+R2 de Teste = 60.11
+
+R2 de Treino = 97.4
+R2 de Teste = 95.42
+
+R2 de Treino = 94.7
+R2 de Teste = 96.53
+
+R2 de Treino = 77.24
+R2 de Teste = 64.46
+
+R2 de Treino = 97.21
+R2 de Teste = 97.08
+
+R2 de Treino = 95.18
+R2 de Teste = 94.32
+
+R2 de Treino = 75.06
+R2 de Teste = 74.91
+
+R2 de Treino = 97.12
+R2 de Teste = 97.1
+
+R2 de Treino = 94.83
+R2 de Teste = 96.25
+
+R2 de Treino = 73.88
+R2 de Teste = 74.19
+
+R2 de Treino = 97.19
+R2 de Teste = 97.63
+
+R2 de Treino = 95.27
+R2 de Teste = 94.13
+
+R2 de Treino = 76.49
+R2 de Teste = 75.94
+
+R2 de Treino = 97.45
+R2 de Teste = 95.53
+
+R2 de Treino = 95.5
+R2 de Teste = 91.96
+
+R2 de Treino = 76.86
+R2 de Teste = 72.12
+
+R2 de Treino = 97.39
+R2 de Teste = 95.8
+
+R2 de Treino = 95.3
+R2 de Teste = 93.86
+
+R2 de Treino = 79.34
+R2 de Teste = 59.41
+
+R2 de Treino = 96.93
+R2 de Teste = 97.34
+
+R2 de Treino = 95.01
+R2 de Teste = 95.35
+
+R2 de Treino = 75.62
+R2 de Teste = 70.58
+
+R2 de Treino = 97.04
+R2 de Teste = 97.76
+
+R2 de Treino = 94.87
+R2 de Teste = 94.99
+
+R2 de Treino = 75.2
+R2 de Teste = 74.15
+
+R2 de Treino = 97.36
+R2 de Teste = 96.18
+
+R2 de Treino = 95.34
+R2 de Teste = 93.89
+
+R2 de Treino = 73.32
+R2 de Teste = 76.44
+
+R2 de Treino = 97.27
+R2 de Teste = 96.88
+
+R2 de Treino = 95.1
+R2 de Teste = 94.66
+
+R2 de Treino = 76.6
+R2 de Teste = 72.42
+
+R2 de Treino = 97.11
+R2 de Teste = 97.05
+
+R2 de Treino = 95.24
+R2 de Teste = 94.48
+
+R2 de Treino = 77.27
+R2 de Teste = 71.77
+
+R2 de Treino = 97.26
+R2 de Teste = 95.85
+
+R2 de Treino = 95.19
+R2 de Teste = 94.3
+
+R2 de Treino = 71.91
+R2 de Teste = 79.77
+
+R2 de Treino = 97.4
+R2 de Teste = 96.44
+
+R2 de Treino = 95.22
+R2 de Teste = 93.53
+
+R2 de Treino = 75.75
+R2 de Teste = 69.78
+
+R2 de Treino = 95.18
+R2 de Teste = 94.67
+
+R2 de Treino = 97.25
+R2 de Teste = 96.41
+
+R2 de Treino = 95.46
+R2 de Teste = 93.6
+
+R2 de Treino = 78.13
+R2 de Teste = 59.97
+
+R2 de Treino = 97.04
+R2 de Teste = 96.62
+
+R2 de Treino = 95.14
+R2 de Teste = 94.59
+
+R2 de Treino = 74.68
+R2 de Teste = 79.0
+
+R2 de Treino = 97.15
+R2 de Teste = 97.35
+
+R2 de Treino = 78.45
+R2 de Teste = 62.6
+
+R2 de Treino = 95.21
+R2 de Teste = 94.4
+
+R2 de Treino = 97.59
+R2 de Teste = 95.07
+
+R2 de Treino = 76.84
+R2 de Teste = 66.15
+
+R2 de Treino = 95.2
+R2 de Teste = 94.06
+
+R2 de Treino = 97.17
+R2 de Teste = 97.08
+
+R2 de Treino = 76.27
+R2 de Teste = 72.37
+
+R2 de Treino = 95.01
+R2 de Teste = 94.6
+
+R2 de Treino = 97.22
+R2 de Teste = 97.23
+
+R2 de Treino = 75.61
+R2 de Teste = 75.88
+
+R2 de Treino = 95.27
+R2 de Teste = 93.93
+
+R2 de Treino = 97.43
+R2 de Teste = 96.12
+
+R2 de Treino = 95.25
+R2 de Teste = 94.35
+
+R2 de Treino = 78.28
+R2 de Teste = 60.94
+
+R2 de Treino = 97.13
+R2 de Teste = 96.84
+
+R2 de Treino = 95.1
+R2 de Teste = 94.66
+
+R2 de Treino = 74.87
+R2 de Teste = 76.53
+
+R2 de Treino = 97.5
+R2 de Teste = 95.13
+
+R2 de Treino = 94.74
+R2 de Teste = 96.05
+
+R2 de Treino = 77.67
+R2 de Teste = 70.8
+
+R2 de Treino = 97.1
+R2 de Teste = 97.27
+
+R2 de Treino = 95.5
+R2 de Teste = 93.23
+
+R2 de Treino = 75.77
+R2 de Teste = 76.66
+
+R2 de Treino = 97.16
+R2 de Teste = 97.03
+
+R2 de Treino = 94.64
+R2 de Teste = 96.26
+
+R2 de Treino = 75.02
+R2 de Teste = 72.54
+
+R2 de Treino = 97.09
+R2 de Teste = 97.37
+
+R2 de Treino = 95.03
+R2 de Teste = 94.42
+
+R2 de Treino = 77.67
+R2 de Teste = 64.06
+
+R2 de Treino = 97.38
+R2 de Teste = 96.41
+
+R2 de Treino = 95.89
+R2 de Teste = 91.83
+
+R2 de Treino = 74.12
+R2 de Teste = 73.62
+
+R2 de Treino = 97.27
+R2 de Teste = 96.48
+
+R2 de Treino = 94.9
+R2 de Teste = 96.24
+
+R2 de Treino = 76.15
+R2 de Teste = 73.01
+
+R2 de Treino = 97.16
+R2 de Teste = 97.05
+
+R2 de Treino = 95.58
+R2 de Teste = 91.46
+
+Diretório atual: /home/user/Controle-Gas/dissertacao_PSN
+
+===== ESTATÍSTICAS GERAIS =====
+R2 Treino médio: 95.19
+R2 Treino desvio padrão: 0.32
+R2 Ajustado Treino médio: 94.75
+R2 Ajustado Treino desvio padrão: 0.35
+R2 Teste médio: 94.16
+R2 Teste desvio padrão: 1.47
+RMSE Teste médio: 6.69
+MAE Teste médio: 5.08
+MAE Teste desvio padrão: 0.49
+
+Intervalo empírico 95% R² Teste: [90.79% - 96.25%]
+
+===== VALIDAÇÃO TEMPORAL (ROBUSTEZ) =====
+
+R2 de Treino = 97.42
+R2 de Teste = 95.97
+
+Diretório atual: /home/user/Controle-Gas/dissertacao_PSN
+
+===== ESTATÍSTICAS GERAIS =====
+R2 Treino médio: 97.25
+R2 Treino desvio padrão: 0.15
+R2 Ajustado Treino médio: 97.0
+R2 Ajustado Treino desvio padrão: 0.16
+R2 Teste médio: 96.66
+
+R2 de Treino = 76.59
+R2 de Teste = 65.25
+R2 Teste desvio padrão: 
+
+RMSE Teste médio: 6.74
+MAE Teste médio: 5.43
+MAE Teste desvio padrão: 0.44
+
+Intervalo empírico 95% R² Teste: [95.40% - 97.71%]
+
+===== VALIDAÇÃO TEMPORAL (ROBUSTEZ) =====
+
+R2 de Treino = 75.92
+R2 de Teste = 74.64
+
+Diretório atual: /home/user/Controle-Gas/dissertacao_PSN
+
+===== ESTATÍSTICAS GERAIS =====
+R2 Treino médio: 76.1
+R2 Treino desvio padrão: 1.69
+R2 Ajustado Treino médio: 73.89
+R2 Ajustado Treino desvio padrão: 1.84
+R2 Teste médio: 70.96
+R2 Teste desvio padrão: 6.19
+RMSE Teste médio: 8.37
+MAE Teste médio: 6.57
+MAE Teste desvio padrão: 0.6
+
+Intervalo empírico 95% R² Teste: [56.55% - 80.19%]
+
+===== VALIDAÇÃO TEMPORAL (ROBUSTEZ) =====
+R² teste - RepeatedKFold (principal) : 94.16%
+R² teste - GroupKFold por ano        : 93.81%  (folds: 91.4, 95.6, 94.9, 91.5, 95.5)
+R² teste - TimeSeriesSplit expansível: 91.20%  (folds: 90.2, 87.4, 90.5, 93.7, 94.2)
+
+Queda RKF:GroupKFold  : +0.36 pp
+Queda RKF:TimeSeries  : +2.97 pp
+Desempenho ROBUSTO à validação temporal (quedas < 10 pp): o R² não é artefato de vazamento por autocorrelação.
+R² teste - RepeatedKFold (principal) : 96.66%
+R² teste - GroupKFold por ano        : 96.38%  (folds: 96.0, 97.4, 96.9, 95.1, 96.6)
+R² teste - TimeSeriesSplit expansível: 95.73%  (folds: 94.0, 94.8, 96.3, 96.2, 97.2)
+
+Queda RKF:GroupKFold  : +0.28 pp
+Queda RKF:TimeSeries  : +0.93 pp
+Desempenho ROBUSTO à validação temporal (quedas < 10 pp): o R² não é artefato de vazamento por autocorrelação.
+
+===== VIF =====
+  Variável       VIF
+0    EV_CA  5.017854
+1   PRE_CA  1.682580
+2   TST_CA  3.896364
+3  saz_sin  2.630587
+4  saz_cos  3.757459
+Alpha médio utilizado na análise de resíduos: 0.1000
+Arquivo coeficientes_ridge_CA_1.csv salvo com sucesso!
+
+===== VIF =====
+            feature       coef bioma
+0             EV_CA  33.124104    CA
+1            PRE_CA  -4.536289    CA
+2            TST_CA  -4.081717    CA
+3           saz_sin  -5.936446    CA
+4           saz_cos  -6.494056    CA
+5           EV_CA^2  -4.284906    CA
+6      EV_CA PRE_CA  -2.363569    CA
+7      EV_CA TST_CA  -4.481743    CA
+8     EV_CA saz_sin   3.328126    CA
+9     EV_CA saz_cos   5.524011    CA
+10         PRE_CA^2  -0.476395    CA
+11    PRE_CA TST_CA  -1.599238    CA
+12   PRE_CA saz_sin   0.791682    CA
+13   PRE_CA saz_cos   2.952643    CA
+14         TST_CA^2  -0.125897    CA
+15   TST_CA saz_sin   3.844826    CA
+16   TST_CA saz_cos   4.674443    CA
+17        saz_sin^2   0.929923    CA
+18  saz_sin saz_cos   1.991251    CA
+19        saz_cos^2  -1.005241    CA
+
+===== NORMALIDADE DOS RESÍDUOS =====
+Shapiro-Wilk: stat=0.9833, p=0.0015
+Resíduos NÃO normais
+  Variável        VIF
+0    EV_CE  36.990854
+1   PRE_CE   4.016550
+2   WAI_CE  31.610105
+3  saz_sin   4.492597
+4  saz_cos   3.588023
+Alpha médio utilizado na análise de resíduos: 0.1000
+Arquivo coeficientes_ridge_CE_1.csv salvo com sucesso!
+            feature       coef bioma
+0             EV_CE  56.481573    CE
+1            PRE_CE -12.182035    CE
+2            WAI_CE  -6.567842    CE
+3           saz_sin  -7.726826    CE
+4           saz_cos -11.620144    CE
+5           EV_CE^2   6.857044    CE
+6      EV_CE PRE_CE   5.052205    CE
+7      EV_CE WAI_CE -13.043183    CE
+8     EV_CE saz_sin -10.902837    CE
+9     EV_CE saz_cos  -9.052828    CE
+10         PRE_CE^2   1.189200    CE
+11    PRE_CE WAI_CE  -1.793431    CE
+12   PRE_CE saz_sin  -3.136984    CE
+13   PRE_CE saz_cos   1.367584    CE
+14         WAI_CE^2  -3.294032    CE
+15   WAI_CE saz_sin  16.498936    CE
+16   WAI_CE saz_cos   7.204918    CE
+17        saz_sin^2  -3.939337    CE
+18  saz_sin saz_cos  10.537573    CE
+19        saz_cos^2   3.805043    CE
+
+===== NORMALIDADE DOS RESÍDUOS =====
+Shapiro-Wilk: stat=0.9949, p=0.4232
+Resíduos normais
+R² teste - RepeatedKFold (principal) : 70.96%
+R² teste - GroupKFold por ano        : 70.54%  (folds: 74.5, 74.5, 66.1, 73.7, 63.9)
+R² teste - TimeSeriesSplit expansível: 63.47%  (folds: 49.0, 67.7, 75.3, 60.2, 65.1)
+
+Queda RKF:GroupKFold  : +0.42 pp
+Queda RKF:TimeSeries  : +7.49 pp
+Desempenho ROBUSTO à validação temporal (quedas < 10 pp): o R² não é artefato de vazamento por autocorrelação.
+
+===== VIF =====
+  Variável       VIF
+0    EV_MA  1.928860
+1   PRE_MA  1.248035
+2   TST_MA  3.290929
+3  saz_sin  1.661167
+4  saz_cos  3.764896
+Alpha médio utilizado na análise de resíduos: 4.4800
+Arquivo coeficientes_ridge_MA_1.csv salvo com sucesso!
+            feature       coef bioma
+0             EV_MA  12.125885    MA
+1            PRE_MA  -5.946923    MA
+2            TST_MA  -9.081349    MA
+3           saz_sin  -6.644452    MA
+4           saz_cos   3.301036    MA
+5           EV_MA^2   0.130236    MA
+6      EV_MA PRE_MA  -0.002571    MA
+7      EV_MA TST_MA  -1.415110    MA
+8     EV_MA saz_sin   0.215480    MA
+9     EV_MA saz_cos   2.181029    MA
+10         PRE_MA^2   0.053891    MA
+11    PRE_MA TST_MA  -0.189115    MA
+12   PRE_MA saz_sin  -0.226242    MA
+13   PRE_MA saz_cos  -0.935493    MA
+14         TST_MA^2  -0.926516    MA
+15   TST_MA saz_sin  -1.172648    MA
+16   TST_MA saz_cos   1.696869    MA
+17        saz_sin^2   2.616621    MA
+18  saz_sin saz_cos   5.639130    MA
+19        saz_cos^2  -2.473130    MA
+
+===== NORMALIDADE DOS RESÍDUOS =====
+Shapiro-Wilk: stat=0.9956, p=0.5709
+Resíduos normais
+
+===== AUTOCORRELAÇÃO DOS RESÍDUOS =====
+ACF lag1=+0.420 | lag2=+0.207 | lag3=+0.205
+Ljung-Box(12): p=0.0000
+Autocorrelação residual presente - limitação a reportar.
+
+===== AUTOCORRELAÇÃO DOS RESÍDUOS =====
+ACF lag1=+0.201 | lag2=+0.086 | lag3=+0.074
+Ljung-Box(12): p=0.0052
+Autocorrelação residual presente - limitação a reportar.
+
+===== AUTOCORRELAÇÃO DOS RESÍDUOS =====
+ACF lag1=+0.299 | lag2=+0.225 | lag3=+0.227
+Ljung-Box(12): p=0.0000
+Autocorrelação residual presente - limitação a reportar.
+Gráfico salvo em analise_residuos_CA_1.png (600 dpi)
+Gráfico salvo em analise_residuos_CE_1.png (600 dpi)
+Gráfico salvo em analise_residuos_MA_1.png (600 dpi)
+Gráfico salvo em obs_vs_pred_CE_1.png (600 dpi)
+R² out-of-fold (Figura 3): 96.88%  |  R² RepeatedKFold (tabelas): 96.66%
+
+===== Y-RANDOMIZATION COM VALIDAÇÃO CRUZADA =====
+Gráfico salvo em obs_vs_pred_MA_1.png (600 dpi)
+R² out-of-fold (Figura 3): 71.41%  |  R² RepeatedKFold (tabelas): 70.96%
+
+===== Y-RANDOMIZATION COM VALIDAÇÃO CRUZADA =====
+Gráfico salvo em obs_vs_pred_CA_1.png (600 dpi)
+R² out-of-fold (Figura 3): 94.65%  |  R² RepeatedKFold (tabelas): 94.16%
+
+===== Y-RANDOMIZATION COM VALIDAÇÃO CRUZADA =====
+  Permutação 10/100 - R² CV médio = -10.28%
+  Permutação 10/100 - R² CV médio = -12.30%
+  Permutação 10/100 - R² CV médio = -20.03%
+  Permutação 20/100 - R² CV médio = -8.19%
+  Permutação 20/100 - R² CV médio = -10.00%
+  Permutação 20/100 - R² CV médio = -8.43%
+  Permutação 30/100 - R² CV médio = -9.58%
+  Permutação 30/100 - R² CV médio = -13.37%
+  Permutação 30/100 - R² CV médio = -12.10%
+  Permutação 40/100 - R² CV médio = -10.15%
+  Permutação 40/100 - R² CV médio = -9.04%
+  Permutação 40/100 - R² CV médio = -16.68%
+  Permutação 50/100 - R² CV médio = -12.20%
+  Permutação 50/100 - R² CV médio = -9.86%
+  Permutação 50/100 - R² CV médio = -14.27%
+  Permutação 60/100 - R² CV médio = -9.97%
+  Permutação 60/100 - R² CV médio = -12.37%
+  Permutação 60/100 - R² CV médio = -8.34%
+  Permutação 70/100 - R² CV médio = -18.90%
+  Permutação 70/100 - R² CV médio = -15.88%
+  Permutação 70/100 - R² CV médio = -12.69%
+  Permutação 80/100 - R² CV médio = -13.43%
+  Permutação 80/100 - R² CV médio = -12.18%
+  Permutação 80/100 - R² CV médio = -10.00%
+  Permutação 90/100 - R² CV médio = -8.22%
+  Permutação 90/100 - R² CV médio = -6.34%
+  Permutação 90/100 - R² CV médio = -10.39%
+  Permutação 100/100 - R² CV médio = -11.39%
+
+R² CV médio - modelo original        : 94.16%
+R² CV médio - modelos permutados     : -13.04% ± 3.07
+Diferença (Δ CV)                     : 107.20 pp
+p-valor empírico unilateral          : 0.0099
+Critério operacional de 60 pp ATINGIDO - diferença de 107.20 pp
+p-valor < 0,05 - desempenho estatisticamente significativo
+  Permutação 100/100 - R² CV médio = -6.48%
+
+R² CV médio - modelo original        : 96.66%
+R² CV médio - modelos permutados     : -10.88% ± 2.64
+Diferença (Δ CV)                     : 107.54 pp
+p-valor empírico unilateral          : 0.0099
+Critério operacional de 60 pp ATINGIDO - diferença de 107.54 pp
+p-valor < 0,05 - desempenho estatisticamente significativo
+  Permutação 100/100 - R² CV médio = -8.01%
+
+R² CV médio - modelo original        : 71.38%
+R² CV médio - modelos permutados     : -9.91% ± 3.05
+Diferença (Δ CV)                     : 81.30 pp
+p-valor empírico unilateral          : 0.0099
+Critério operacional de 60 pp ATINGIDO - diferença de 81.30 pp
+p-valor < 0,05 - desempenho estatisticamente significativo
+Gráfico salvo em yrandomization_CA_1.png (600 dpi)
+>>> Bioma CA concluído.
+Gráfico salvo em yrandomization_CE_1.png (600 dpi)
+>>> Bioma CE concluído.
+Gráfico salvo em yrandomization_MA_1.png (600 dpi)
+>>> Bioma MA concluído.
+
+===== RESUMO COMPARATIVO — TODOS OS BIOMAS =====
+bioma           nome  r2_treino_medio  r2_treino_dp  r2aj_treino_medio  r2_teste_medio  r2_teste_dp  ic95_lower  ic95_upper  gap_overfitting_pp  rmse_teste_medio  mae_teste_medio  r2_groupkfold_ano  r2_timeseriessplit  queda_groupkfold_pp  queda_timeseries_pp  vif_max  shapiro_p residuos_normais  ljungbox_p  acf_lag1  yrand_diferenca_pp  yrand_p_empirico yrand_status                arquivo_coef
+   MA Mata Atlântica            76.10          1.69              73.89           70.96         6.19       56.55       80.19                5.14              8.37             6.57              70.54               63.47                 0.42                 7.49     3.76     0.5709              Sim      0.0000     0.299               81.30            0.0099     APROVADO coeficientes_ridge_MA_1.csv
+   CE        Cerrado            97.25          0.15              97.00           96.66         0.64       95.40       97.71                0.59              6.74             5.43              96.38               95.73                 0.28                 0.93    36.99     0.4232              Sim      0.0052     0.201              107.54            0.0099     APROVADO coeficientes_ridge_CE_1.csv
+   CA       Caatinga            95.19          0.32              94.75           94.16         1.47       90.79       96.25                1.03              6.69             5.08              93.81               91.20                 0.36                 2.97     5.02     0.0015              Não      0.0000     0.420              107.20            0.0099     APROVADO coeficientes_ridge_CA_1.csv
+
+Tabela comparativa salva em resumo_geral_1.csv (pasta 'saidas_figuras/')
+exit=0

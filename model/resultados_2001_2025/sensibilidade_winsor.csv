@@ -1,0 +1,13 @@
+bioma,percentil,r2_treino,r2_teste,gap_pp,rmse
+Mata Atlântica,0,79.6,74.0,5.6,7.9
+Mata Atlântica,1,79.3,74.0,5.3,7.91
+Mata Atlântica,3,78.8,73.6,5.2,7.97
+Mata Atlântica,5,77.6,72.3,5.3,8.2
+Cerrado,0,97.4,96.8,0.6,6.61
+Cerrado,1,97.4,96.8,0.6,6.62
+Cerrado,3,97.3,96.7,0.6,6.74
+Cerrado,5,97.1,96.5,0.7,6.95
+Caatinga,0,95.2,94.2,1.1,6.67
+Caatinga,1,95.3,94.2,1.1,6.67
+Caatinga,3,95.2,94.2,1.0,6.69
+Caatinga,5,95.1,94.1,1.0,6.74

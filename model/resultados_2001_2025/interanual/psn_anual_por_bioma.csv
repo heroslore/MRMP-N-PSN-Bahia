@@ -1,0 +1,76 @@
+bioma,ano,psn_anual,parcial,fase_dominante,npp_anual
+Mata Atlântica,2001,1656.2,False,Neutro,1248.55
+Mata Atlântica,2002,1668.08,False,Neutro,1289.36
+Mata Atlântica,2003,1545.49,False,Neutro,1190.03
+Mata Atlântica,2004,1696.74,False,Neutro,1291.34
+Mata Atlântica,2005,1703.59,False,Neutro,1296.57
+Mata Atlântica,2006,1682.22,False,Neutro,1285.74
+Mata Atlântica,2007,1645.56,False,Neutro,1252.44
+Mata Atlântica,2008,1561.99,False,La Niña,1189.97
+Mata Atlântica,2009,1653.24,False,El Niño,1258.22
+Mata Atlântica,2010,1558.27,False,La Niña,1197.86
+Mata Atlântica,2011,1655.24,False,La Niña,1269.37
+Mata Atlântica,2012,1574.16,False,Neutro,1198.47
+Mata Atlântica,2013,1584.15,False,Neutro,1207.58
+Mata Atlântica,2014,1707.54,False,Neutro,1298.96
+Mata Atlântica,2015,1478.64,False,El Niño,1131.63
+Mata Atlântica,2016,1448.51,False,Neutro,1111.67
+Mata Atlântica,2017,1552.87,False,Neutro,1190.63
+Mata Atlântica,2018,1594.11,False,Neutro,1222.65
+Mata Atlântica,2019,1540.98,False,El Niño,1179.15
+Mata Atlântica,2020,1685.69,False,Neutro,1279.76
+Mata Atlântica,2021,1505.72,False,La Niña,1138.91
+Mata Atlântica,2022,1627.37,False,La Niña,1241.25
+Mata Atlântica,2023,1628.86,False,El Niño,1242.57
+Mata Atlântica,2024,1546.67,False,Neutro,1181.64
+Mata Atlântica,2025,1272.52,True,Neutro,1288.71
+Cerrado,2001,862.99,False,Neutro,636.3
+Cerrado,2002,745.44,False,Neutro,577.02
+Cerrado,2003,1025.79,False,Neutro,787.93
+Cerrado,2004,1172.42,False,Neutro,899.08
+Cerrado,2005,1240.44,False,Neutro,953.63
+Cerrado,2006,1379.83,False,Neutro,1063.54
+Cerrado,2007,961.04,False,Neutro,736.44
+Cerrado,2008,1083.45,False,La Niña,824.52
+Cerrado,2009,1406.99,False,El Niño,1074.95
+Cerrado,2010,1319.93,False,La Niña,1018.87
+Cerrado,2011,1402.69,False,La Niña,1075.36
+Cerrado,2012,1033.9,False,Neutro,783.17
+Cerrado,2013,1148.21,False,Neutro,880.31
+Cerrado,2014,1290.64,False,Neutro,988.84
+Cerrado,2015,1127.17,False,El Niño,861.81
+Cerrado,2016,975.4,False,Neutro,748.54
+Cerrado,2017,1133.15,False,Neutro,867.68
+Cerrado,2018,1294.28,False,Neutro,997.92
+Cerrado,2019,1206.14,False,El Niño,929.95
+Cerrado,2020,1376.21,False,Neutro,1060.14
+Cerrado,2021,1105.1,False,La Niña,835.0
+Cerrado,2022,1276.22,False,La Niña,980.22
+Cerrado,2023,1152.42,False,El Niño,889.23
+Cerrado,2024,1048.46,False,Neutro,807.32
+Cerrado,2025,771.95,True,Neutro,767.63
+Caatinga,2001,927.49,False,Neutro,693.56
+Caatinga,2002,962.68,False,Neutro,750.19
+Caatinga,2003,928.83,False,Neutro,718.12
+Caatinga,2004,1174.44,False,Neutro,902.56
+Caatinga,2005,1199.55,False,Neutro,921.96
+Caatinga,2006,1245.5,False,Neutro,959.65
+Caatinga,2007,974.66,False,Neutro,746.86
+Caatinga,2008,1084.81,False,La Niña,830.46
+Caatinga,2009,1242.89,False,El Niño,950.23
+Caatinga,2010,1114.95,False,La Niña,862.01
+Caatinga,2011,1225.3,False,La Niña,938.98
+Caatinga,2012,807.61,False,Neutro,609.5
+Caatinga,2013,881.34,False,Neutro,675.79
+Caatinga,2014,1142.34,False,Neutro,871.69
+Caatinga,2015,898.14,False,El Niño,689.58
+Caatinga,2016,938.57,False,Neutro,726.43
+Caatinga,2017,903.32,False,Neutro,693.3
+Caatinga,2018,1043.83,False,Neutro,803.11
+Caatinga,2019,933.95,False,El Niño,721.08
+Caatinga,2020,1276.25,False,Neutro,984.97
+Caatinga,2021,969.01,False,La Niña,734.29
+Caatinga,2022,1200.96,False,La Niña,907.24
+Caatinga,2023,959.61,False,El Niño,735.25
+Caatinga,2024,1030.24,False,Neutro,798.0
+Caatinga,2025,741.27,True,Neutro,738.15

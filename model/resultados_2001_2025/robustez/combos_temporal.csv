@@ -1,0 +1,91 @@
+bioma,variaveis,esquema,r2_teste,rank
+Caatinga,EV + PRE + TST,GroupKFold,93.80583783459174,1
+Caatinga,EV + PRE + WAI,GroupKFold,93.74923970258618,2
+Caatinga,EV + PRE + BURNlog,GroupKFold,93.20701500886075,3
+Caatinga,PRE + TST + WAI,GroupKFold,93.19266220842724,4
+Caatinga,PRE + WAI + BURNlog,GroupKFold,92.66340430192301,5
+Caatinga,EV + WAI + BURNlog,GroupKFold,92.50016310391338,6
+Caatinga,EV + TST + WAI,GroupKFold,92.41468012748294,7
+Caatinga,EV + TST + BURNlog,GroupKFold,92.08489479364901,8
+Caatinga,TST + WAI + BURNlog,GroupKFold,89.88772028760681,9
+Caatinga,PRE + TST + BURNlog,GroupKFold,74.97472222307736,10
+Caatinga,EV + PRE + TST,RepeatedKFold,94.16177763854134,1
+Caatinga,EV + PRE + WAI,RepeatedKFold,94.01315442872668,2
+Caatinga,PRE + TST + WAI,RepeatedKFold,93.93948905131738,3
+Caatinga,EV + PRE + BURNlog,RepeatedKFold,93.65445309198365,4
+Caatinga,EV + TST + WAI,RepeatedKFold,92.96364653201579,5
+Caatinga,PRE + WAI + BURNlog,RepeatedKFold,92.76086576821007,6
+Caatinga,EV + WAI + BURNlog,RepeatedKFold,92.57427478428933,7
+Caatinga,EV + TST + BURNlog,RepeatedKFold,92.53959030459652,8
+Caatinga,TST + WAI + BURNlog,RepeatedKFold,89.7461355572649,9
+Caatinga,PRE + TST + BURNlog,RepeatedKFold,77.9316942793912,10
+Caatinga,EV + PRE + WAI,TimeSeriesSplit,91.92445836831523,1
+Caatinga,EV + PRE + TST,TimeSeriesSplit,91.19643093133627,2
+Caatinga,EV + PRE + BURNlog,TimeSeriesSplit,90.71530188061631,3
+Caatinga,EV + TST + WAI,TimeSeriesSplit,90.69360941609294,4
+Caatinga,PRE + TST + WAI,TimeSeriesSplit,90.34751328629235,5
+Caatinga,EV + WAI + BURNlog,TimeSeriesSplit,89.95552310769918,6
+Caatinga,EV + TST + BURNlog,TimeSeriesSplit,89.2497549945592,7
+Caatinga,TST + WAI + BURNlog,TimeSeriesSplit,85.53937937185594,8
+Caatinga,PRE + WAI + BURNlog,TimeSeriesSplit,83.7468036221748,9
+Caatinga,PRE + TST + BURNlog,TimeSeriesSplit,69.38912607841,10
+Cerrado,EV + PRE + WAI,GroupKFold,96.38269029263267,1
+Cerrado,EV + PRE + TST,GroupKFold,95.94573973823181,2
+Cerrado,EV + PRE + BURNlog,GroupKFold,94.99863154680136,3
+Cerrado,EV + TST + WAI,GroupKFold,94.43543759305275,4
+Cerrado,EV + WAI + BURNlog,GroupKFold,93.79681329471279,5
+Cerrado,PRE + TST + WAI,GroupKFold,93.59308674285123,6
+Cerrado,EV + TST + BURNlog,GroupKFold,92.57365471395651,7
+Cerrado,PRE + WAI + BURNlog,GroupKFold,91.5104981325524,8
+Cerrado,TST + WAI + BURNlog,GroupKFold,87.73842876797141,9
+Cerrado,PRE + TST + BURNlog,GroupKFold,69.27053946264388,10
+Cerrado,EV + PRE + WAI,RepeatedKFold,96.65913646315583,1
+Cerrado,EV + PRE + TST,RepeatedKFold,96.26883294144281,2
+Cerrado,EV + PRE + BURNlog,RepeatedKFold,95.75282453909333,3
+Cerrado,EV + TST + WAI,RepeatedKFold,95.17768798950829,4
+Cerrado,EV + WAI + BURNlog,RepeatedKFold,94.23648631330224,5
+Cerrado,PRE + TST + WAI,RepeatedKFold,93.77401420760395,6
+Cerrado,EV + TST + BURNlog,RepeatedKFold,93.279131854516,7
+Cerrado,PRE + WAI + BURNlog,RepeatedKFold,92.58599198564123,8
+Cerrado,TST + WAI + BURNlog,RepeatedKFold,88.8198739718353,9
+Cerrado,PRE + TST + BURNlog,RepeatedKFold,71.34291695223494,10
+Cerrado,EV + PRE + WAI,TimeSeriesSplit,95.72643790150627,1
+Cerrado,EV + PRE + TST,TimeSeriesSplit,95.06696266789544,2
+Cerrado,EV + PRE + BURNlog,TimeSeriesSplit,94.67321369549782,3
+Cerrado,EV + TST + WAI,TimeSeriesSplit,93.82397584135549,4
+Cerrado,EV + WAI + BURNlog,TimeSeriesSplit,93.33038819376468,5
+Cerrado,PRE + WAI + BURNlog,TimeSeriesSplit,90.99280268719735,6
+Cerrado,PRE + TST + WAI,TimeSeriesSplit,90.39451875021575,7
+Cerrado,EV + TST + BURNlog,TimeSeriesSplit,90.00200638373512,8
+Cerrado,TST + WAI + BURNlog,TimeSeriesSplit,85.22372537201966,9
+Cerrado,PRE + TST + BURNlog,TimeSeriesSplit,61.391824407694386,10
+Mata Atlântica,EV + TST + WAI,GroupKFold,73.73055630495499,1
+Mata Atlântica,EV + PRE + TST,GroupKFold,70.54195630250422,2
+Mata Atlântica,EV + PRE + WAI,GroupKFold,69.60632934089452,3
+Mata Atlântica,EV + WAI + BURNlog,GroupKFold,66.39465863360361,4
+Mata Atlântica,EV + PRE + BURNlog,GroupKFold,66.24988692171357,5
+Mata Atlântica,EV + TST + BURNlog,GroupKFold,58.462906370007566,6
+Mata Atlântica,PRE + TST + WAI,GroupKFold,53.357399815983925,7
+Mata Atlântica,PRE + TST + BURNlog,GroupKFold,46.43463369945652,8
+Mata Atlântica,PRE + WAI + BURNlog,GroupKFold,45.89426304738994,9
+Mata Atlântica,TST + WAI + BURNlog,GroupKFold,41.146957138572745,10
+Mata Atlântica,EV + TST + WAI,RepeatedKFold,73.64756877696311,1
+Mata Atlântica,EV + PRE + TST,RepeatedKFold,70.95911700320154,2
+Mata Atlântica,EV + PRE + WAI,RepeatedKFold,69.02062285633977,3
+Mata Atlântica,EV + WAI + BURNlog,RepeatedKFold,66.42823358482951,4
+Mata Atlântica,EV + PRE + BURNlog,RepeatedKFold,65.98442142774188,5
+Mata Atlântica,EV + TST + BURNlog,RepeatedKFold,58.403077465761456,6
+Mata Atlântica,PRE + TST + WAI,RepeatedKFold,55.69440109491461,7
+Mata Atlântica,PRE + TST + BURNlog,RepeatedKFold,47.67246803755615,8
+Mata Atlântica,PRE + WAI + BURNlog,RepeatedKFold,47.63654167528046,9
+Mata Atlântica,TST + WAI + BURNlog,RepeatedKFold,41.391887809621075,10
+Mata Atlântica,EV + TST + WAI,TimeSeriesSplit,66.98267382236455,1
+Mata Atlântica,EV + PRE + TST,TimeSeriesSplit,63.465725577736336,2
+Mata Atlântica,EV + PRE + WAI,TimeSeriesSplit,60.082373458481435,3
+Mata Atlântica,EV + PRE + BURNlog,TimeSeriesSplit,58.76694940467051,4
+Mata Atlântica,EV + WAI + BURNlog,TimeSeriesSplit,54.94524731718119,5
+Mata Atlântica,EV + TST + BURNlog,TimeSeriesSplit,50.88061908395184,6
+Mata Atlântica,PRE + TST + WAI,TimeSeriesSplit,43.07037435504843,7
+Mata Atlântica,PRE + TST + BURNlog,TimeSeriesSplit,36.63568039002231,8
+Mata Atlântica,PRE + WAI + BURNlog,TimeSeriesSplit,34.783767763296304,9
+Mata Atlântica,TST + WAI + BURNlog,TimeSeriesSplit,27.544604353724395,10

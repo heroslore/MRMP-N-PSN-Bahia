@@ -1,0 +1,25 @@
+bioma,fase,preditor,anomalia_preditor,efeito_PSN_pct,observado_pct
+Mata Atlântica,El Niño,EV,-1.756,-2.439,
+Mata Atlântica,El Niño,TST,0.895,-2.783,
+Mata Atlântica,El Niño,WAI,-0.013,2.012,
+Mata Atlântica,El Niño,TODOS,,-3.109,-5.438
+Mata Atlântica,La Niña,EV,1.497,2.05,
+Mata Atlântica,La Niña,TST,-0.169,0.511,
+Mata Atlântica,La Niña,WAI,0.012,-1.823,
+Mata Atlântica,La Niña,TODOS,,0.738,-0.077
+Cerrado,El Niño,EV,2.872,5.033,
+Cerrado,El Niño,PRE,0.619,-0.082,
+Cerrado,El Niño,WAI,0.011,-0.406,
+Cerrado,El Niño,TODOS,,4.479,5.263
+Cerrado,La Niña,EV,6.547,11.623,
+Cerrado,La Niña,PRE,8.118,-1.072,
+Cerrado,La Niña,WAI,0.047,-1.915,
+Cerrado,La Niña,TODOS,,8.02,11.745
+Caatinga,El Niño,EV,-0.3,-0.423,
+Caatinga,El Niño,PRE,0.975,-0.086,
+Caatinga,El Niño,TST,0.493,-0.664,
+Caatinga,El Niño,TODOS,,-1.168,-3.285
+Caatinga,La Niña,EV,6.588,8.983,
+Caatinga,La Niña,PRE,3.886,-0.343,
+Caatinga,La Niña,TST,-0.719,0.958,
+Caatinga,La Niña,TODOS,,9.84,10.446

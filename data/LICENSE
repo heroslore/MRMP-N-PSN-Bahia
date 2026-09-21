@@ -1,0 +1,7 @@
+The dataset in this folder (psn_bahia_monthly_2001_2025.csv) is released under the
+Creative Commons Attribution 4.0 International licence (CC BY 4.0):
+https://creativecommons.org/licenses/by/4.0/
+
+It is derived from public NASA MODIS (MOD17A2HGF, MOD16A2GF, MOD11A2, MCD64A1),
+GPM IMERG V07 and NOAA/CPC ONI products, aggregated by biome for Bahia State, Brazil.
+Please cite the manuscript (see CITATION.cff) when using it.

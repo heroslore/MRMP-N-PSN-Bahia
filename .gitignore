@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+manuscript/*.aux
+manuscript/*.bbl
+manuscript/*.blg
+manuscript/*.log
+manuscript/*.out
+manuscript/*.spl
+manuscript/*.abs
+manuscript/*.synctex.gz
+.DS_Store

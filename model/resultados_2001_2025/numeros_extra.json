@@ -1,0 +1,67 @@
+{
+ "MA": {
+  "x": [
+   "EV",
+   "TST",
+   "WAI"
+  ],
+  "mae_dp": 0.56,
+  "shapiro_w": 0.9959,
+  "yr_orig": 73.81,
+  "yr_perm_media": -10.61,
+  "yr_perm_dp": 3.09,
+  "oof_r2": 73.85,
+  "alpha_medio": 0.706
+ },
+ "CE": {
+  "x": [
+   "EV",
+   "PRE",
+   "WAI"
+  ],
+  "mae_dp": 0.44,
+  "shapiro_w": 0.9949,
+  "yr_orig": 96.66,
+  "yr_perm_media": -10.88,
+  "yr_perm_dp": 2.64,
+  "oof_r2": 96.88,
+  "alpha_medio": 0.1
+ },
+ "CA": {
+  "x": [
+   "EV",
+   "PRE",
+   "TST"
+  ],
+  "mae_dp": 0.49,
+  "shapiro_w": 0.9833,
+  "yr_orig": 94.16,
+  "yr_perm_media": -13.04,
+  "yr_perm_dp": 3.07,
+  "oof_r2": 94.65,
+  "alpha_medio": 0.1
+ },
+ "importancia": {
+  "MA": {
+   "EV": 26.9,
+   "TST": 14.5,
+   "WAI": 19.0,
+   "saz_sin": 18.8,
+   "saz_cos": 20.9
+  },
+  "CE": {
+   "EV": 37.4,
+   "PRE": 9.1,
+   "WAI": 17.9,
+   "saz_sin": 19.5,
+   "saz_cos": 16.1
+  },
+  "CA": {
+   "EV": 42.8,
+   "PRE": 10.2,
+   "TST": 15.2,
+   "saz_sin": 13.6,
+   "saz_cos": 18.2
+  }
+ }
+}

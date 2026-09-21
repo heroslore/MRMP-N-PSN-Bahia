@@ -1,0 +1,1477 @@
+Fase ENSO: classificação oficial NOAA (ONI >= |0,5| por >= 5 trimestres consecutivos), tabela até JJA 2026.
+
+===== PREPARAÇÃO DA BASE (a partir do CSV) =====
+Arquivo lido: base_final_2001_2025_plan1_excel_ptbr.csv
+Linhas originais: 300
+Linhas removidas (precipitação ausente — dado ainda não publicado pela NASA):
+ ANO  MÊS
+2025   10
+2025   11
+2025   12
+Linhas finais usadas no modelo: 297
+Base atualizada salva em Dados_base_nova_2001_2025.xlsx
+
+===== RODANDO MODELO RIDGE - MATA ATLÂNTICA =====
+Variável resposta : PSN_MA
+Preditores        : ['EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos']
+
+#################  Rodada 1 / 150  0.67 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 80.96
+R2 de Teste = 61.29
+
+1 / 150  0.67 %
+Tempo restante 0:00:10.799520
+
+#################  Rodada 2 / 150  1.33 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 78.24
+R2 de Teste = 78.24
+
+2 / 150  1.33 %
+Tempo restante 0:00:08.678868
+
+#################  Rodada 3 / 150  2.0 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 76.62
+R2 de Teste = 82.21
+
+3 / 150  2.0 %
+Tempo restante 0:00:08.556429
+
+#################  Rodada 4 / 150  2.67 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 78.82
+R2 de Teste = 74.39
+
+4 / 150  2.67 %
+Tempo restante 0:00:08.429602
+
+#################  Rodada 5 / 150  3.33 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 80.06
+R2 de Teste = 62.99
+
+5 / 150  3.33 %
+Tempo restante 0:00:08.464955
+
+#################  Rodada 6 / 150  4.0 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 78.18
+R2 de Teste = 78.83
+
+6 / 150  4.0 %
+Tempo restante 0:00:08.329536
+
+#################  Rodada 7 / 150  4.67 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 82.1
+R2 de Teste = 54.17
+
+7 / 150  4.67 %
+Tempo restante 0:00:08.218210
+
+#################  Rodada 8 / 150  5.33 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 78.76
+R2 de Teste = 73.79
+
+8 / 150  5.33 %
+Tempo restante 0:00:08.166136
+
+#################  Rodada 9 / 150  6.0 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 77.33
+R2 de Teste = 80.3
+
+9 / 150  6.0 %
+Tempo restante 0:00:08.120472
+
+#################  Rodada 10 / 150  6.67 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 77.59
+R2 de Teste = 78.9
+
+10 / 150  6.67 %
+Tempo restante 0:00:08.065540
+
+#################  Rodada 11 / 150  7.33 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 78.02
+R2 de Teste = 75.6
+
+11 / 150  7.33 %
+Tempo restante 0:00:08.221433
+
+#################  Rodada 12 / 150  8.0 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 79.59
+R2 de Teste = 67.08
+
+12 / 150  8.0 %
+Tempo restante 0:00:07.875522
+
+#################  Rodada 13 / 150  8.67 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 76.75
+R2 de Teste = 81.14
+
+13 / 150  8.67 %
+Tempo restante 0:00:07.838729
+
+#################  Rodada 14 / 150  9.33 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 79.67
+R2 de Teste = 70.59
+
+14 / 150  9.33 %
+Tempo restante 0:00:07.888680
+
+#################  Rodada 15 / 150  10.0 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 80.67
+R2 de Teste = 64.56
+
+15 / 150  10.0 %
+Tempo restante 0:00:07.784640
+
+#################  Rodada 16 / 150  10.67 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 79.35
+R2 de Teste = 74.16
+
+16 / 150  10.67 %
+Tempo restante 0:00:07.640278
+
+#################  Rodada 17 / 150  11.33 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 79.26
+R2 de Teste = 75.38
+
+17 / 150  11.33 %
+Tempo restante 0:00:07.581399
+
+#################  Rodada 18 / 150  12.0 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 80.94
+R2 de Teste = 64.55
+
+18 / 150  12.0 %
+Tempo restante 0:00:07.627224
+
+#################  Rodada 19 / 150  12.67 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 77.96
+R2 de Teste = 76.8
+
+19 / 150  12.67 %
+Tempo restante 0:00:07.623676
+
+#################  Rodada 20 / 150  13.33 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 76.38
+R2 de Teste = 79.05
+
+20 / 150  13.33 %
+Tempo restante 0:00:07.544680
+
+#################  Rodada 21 / 150  14.0 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 80.27
+R2 de Teste = 68.94
+
+21 / 150  14.0 %
+Tempo restante 0:00:07.472196
+
+#################  Rodada 22 / 150  14.67 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 78.68
+R2 de Teste = 75.41
+
+22 / 150  14.67 %
+Tempo restante 0:00:07.414016
+
+#################  Rodada 23 / 150  15.33 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 79.59
+R2 de Teste = 71.07
+
+23 / 150  15.33 %
+Tempo restante 0:00:07.390257
+
+#################  Rodada 24 / 150  16.0 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 76.31
+R2 de Teste = 84.61
+
+24 / 150  16.0 %
+Tempo restante 0:00:07.321608
+
+#################  Rodada 25 / 150  16.67 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 79.02
+R2 de Teste = 73.8
+
+25 / 150  16.67 %
+Tempo restante 0:00:07.222750
+
+#################  Rodada 26 / 150  17.33 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 79.9
+R2 de Teste = 68.19
+
+26 / 150  17.33 %
+Tempo restante 0:00:07.037620
+
+#################  Rodada 27 / 150  18.0 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 77.02
+R2 de Teste = 83.33
+
+27 / 150  18.0 %
+Tempo restante 0:00:07.194270
+
+#################  Rodada 28 / 150  18.67 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 79.4
+R2 de Teste = 69.56
+
+28 / 150  18.67 %
+Tempo restante 0:00:07.209834
+
+#################  Rodada 29 / 150  19.33 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 77.38
+R2 de Teste = 78.85
+
+29 / 150  19.33 %
+Tempo restante 0:00:07.660510
+
+#################  Rodada 30 / 150  20.0 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 79.73
+R2 de Teste = 72.74
+
+30 / 150  20.0 %
+Tempo restante 0:00:08.079960
+
+#################  Rodada 31 / 150  20.67 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 79.37
+R2 de Teste = 78.0
+
+31 / 150  20.67 %
+Tempo restante 0:00:07.970144
+
+#################  Rodada 32 / 150  21.33 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 78.84
+R2 de Teste = 75.17
+
+32 / 150  21.33 %
+Tempo restante 0:00:07.948480
+
+#################  Rodada 33 / 150  22.0 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 78.71
+R2 de Teste = 77.38
+
+33 / 150  22.0 %
+Tempo restante 0:00:07.645833
+
+#################  Rodada 34 / 150  22.67 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 77.69
+R2 de Teste = 70.74
+
+34 / 150  22.67 %
+Tempo restante 0:00:07.602524
+
+#################  Rodada 35 / 150  23.33 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 79.38
+R2 de Teste = 71.78
+
+35 / 150  23.33 %
+Tempo restante 0:00:07.171400
+
+#################  Rodada 36 / 150  24.0 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 78.79
+R2 de Teste = 76.81
+
+36 / 150  24.0 %
+Tempo restante 0:00:07.237746
+
+#################  Rodada 37 / 150  24.67 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 79.78
+R2 de Teste = 71.47
+
+37 / 150  24.67 %
+Tempo restante 0:00:07.474837
+
+#################  Rodada 38 / 150  25.33 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 78.89
+R2 de Teste = 69.72
+
+38 / 150  25.33 %
+Tempo restante 0:00:07.232624
+
+#################  Rodada 39 / 150  26.0 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 78.93
+R2 de Teste = 73.38
+
+39 / 150  26.0 %
+Tempo restante 0:00:06.819618
+
+#################  Rodada 40 / 150  26.67 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 78.11
+R2 de Teste = 77.78
+
+40 / 150  26.67 %
+Tempo restante 0:00:06.872470
+
+#################  Rodada 41 / 150  27.33 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 79.19
+R2 de Teste = 73.74
+
+41 / 150  27.33 %
+Tempo restante 0:00:07.093720
+
+#################  Rodada 42 / 150  28.0 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 80.7
+R2 de Teste = 68.18
+
+42 / 150  28.0 %
+Tempo restante 0:00:06.888240
+
+#################  Rodada 43 / 150  28.67 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 77.88
+R2 de Teste = 78.71
+
+43 / 150  28.67 %
+Tempo restante 0:00:06.952646
+
+#################  Rodada 44 / 150  29.33 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 78.08
+R2 de Teste = 80.78
+
+44 / 150  29.33 %
+Tempo restante 0:00:07.046880
+
+#################  Rodada 45 / 150  30.0 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 78.7
+R2 de Teste = 75.67
+
+45 / 150  30.0 %
+Tempo restante 0:00:06.668130
+
+#################  Rodada 46 / 150  30.67 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 76.61
+R2 de Teste = 82.94
+
+46 / 150  30.67 %
+Tempo restante 0:00:06.484296
+
+#################  Rodada 47 / 150  31.33 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 79.32
+R2 de Teste = 68.18
+
+47 / 150  31.33 %
+Tempo restante 0:00:06.332028
+
+#################  Rodada 48 / 150  32.0 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 80.35
+R2 de Teste = 64.75
+
+48 / 150  32.0 %
+Tempo restante 0:00:06.317676
+
+#################  Rodada 49 / 150  32.67 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 78.84
+R2 de Teste = 73.25
+
+49 / 150  32.67 %
+Tempo restante 0:00:06.288462
+
+#################  Rodada 50 / 150  33.33 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 79.3
+R2 de Teste = 74.44
+
+50 / 150  33.33 %
+Tempo restante 0:00:06.249100
+
+#################  Rodada 51 / 150  34.0 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 77.44
+R2 de Teste = 74.43
+
+51 / 150  34.0 %
+Tempo restante 0:00:06.152553
+
+#################  Rodada 52 / 150  34.67 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 80.28
+R2 de Teste = 67.15
+
+52 / 150  34.67 %
+Tempo restante 0:00:06.050226
+
+#################  Rodada 53 / 150  35.33 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 79.55
+R2 de Teste = 67.69
+
+53 / 150  35.33 %
+Tempo restante 0:00:06.065022
+
+#################  Rodada 54 / 150  36.0 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 77.82
+R2 de Teste = 78.78
+
+54 / 150  36.0 %
+Tempo restante 0:00:06.024960
+
+#################  Rodada 55 / 150  36.67 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 79.5
+R2 de Teste = 72.8
+
+55 / 150  36.67 %
+Tempo restante 0:00:05.790630
+
+#################  Rodada 56 / 150  37.33 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 80.59
+R2 de Teste = 65.32
+
+56 / 150  37.33 %
+Tempo restante 0:00:05.932904
+
+#################  Rodada 57 / 150  38.0 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 80.23
+R2 de Teste = 70.86
+
+57 / 150  38.0 %
+Tempo restante 0:00:05.512203
+
+#################  Rodada 58 / 150  38.67 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 77.89
+R2 de Teste = 75.98
+
+58 / 150  38.67 %
+Tempo restante 0:00:05.514020
+
+#################  Rodada 59 / 150  39.33 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 77.17
+R2 de Teste = 80.28
+
+59 / 150  39.33 %
+Tempo restante 0:00:05.478655
+
+#################  Rodada 60 / 150  40.0 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 78.63
+R2 de Teste = 73.44
+
+60 / 150  40.0 %
+Tempo restante 0:00:05.257890
+
+#################  Rodada 61 / 150  40.67 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 78.54
+R2 de Teste = 76.43
+
+61 / 150  40.67 %
+Tempo restante 0:00:05.270135
+
+#################  Rodada 62 / 150  41.33 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 80.42
+R2 de Teste = 67.35
+
+62 / 150  41.33 %
+Tempo restante 0:00:05.162696
+
+#################  Rodada 63 / 150  42.0 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 78.25
+R2 de Teste = 80.53
+
+63 / 150  42.0 %
+Tempo restante 0:00:05.100897
+
+#################  Rodada 64 / 150  42.67 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 77.46
+R2 de Teste = 74.39
+
+64 / 150  42.67 %
+Tempo restante 0:00:04.991268
+
+#################  Rodada 65 / 150  43.33 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 79.75
+R2 de Teste = 71.46
+
+65 / 150  43.33 %
+Tempo restante 0:00:05.209225
+
+#################  Rodada 66 / 150  44.0 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 79.39
+R2 de Teste = 70.67
+
+66 / 150  44.0 %
+Tempo restante 0:00:04.794132
+
+#################  Rodada 67 / 150  44.67 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 77.19
+R2 de Teste = 80.25
+
+67 / 150  44.67 %
+Tempo restante 0:00:04.993114
+
+#################  Rodada 68 / 150  45.33 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 77.92
+R2 de Teste = 80.13
+
+68 / 150  45.33 %
+Tempo restante 0:00:04.731646
+
+#################  Rodada 69 / 150  46.0 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 81.74
+R2 de Teste = 59.63
+
+69 / 150  46.0 %
+Tempo restante 0:00:04.768227
+
+#################  Rodada 70 / 150  46.67 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 78.06
+R2 de Teste = 75.86
+
+70 / 150  46.67 %
+Tempo restante 0:00:04.789840
+
+#################  Rodada 71 / 150  47.33 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 79.43
+R2 de Teste = 74.92
+
+71 / 150  47.33 %
+Tempo restante 0:00:04.583106
+
+#################  Rodada 72 / 150  48.0 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 76.48
+R2 de Teste = 82.81
+
+72 / 150  48.0 %
+Tempo restante 0:00:04.556682
+
+#################  Rodada 73 / 150  48.67 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 80.02
+R2 de Teste = 72.82
+
+73 / 150  48.67 %
+Tempo restante 0:00:04.483325
+
+#################  Rodada 74 / 150  49.33 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 79.42
+R2 de Teste = 73.94
+
+74 / 150  49.33 %
+Tempo restante 0:00:04.264056
+
+#################  Rodada 75 / 150  50.0 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 79.14
+R2 de Teste = 69.0
+
+75 / 150  50.0 %
+Tempo restante 0:00:04.307100
+
+#################  Rodada 76 / 150  50.67 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 77.33
+R2 de Teste = 77.46
+
+76 / 150  50.67 %
+Tempo restante 0:00:04.487582
+
+#################  Rodada 77 / 150  51.33 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 79.72
+R2 de Teste = 65.25
+
+77 / 150  51.33 %
+Tempo restante 0:00:04.279698
+
+#################  Rodada 78 / 150  52.0 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 79.54
+R2 de Teste = 71.76
+
+78 / 150  52.0 %
+Tempo restante 0:00:04.235400
+
+#################  Rodada 79 / 150  52.67 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 78.1
+R2 de Teste = 75.98
+
+79 / 150  52.67 %
+Tempo restante 0:00:04.111752
+
+#################  Rodada 80 / 150  53.33 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 79.3
+R2 de Teste = 74.29
+
+80 / 150  53.33 %
+Tempo restante 0:00:04.051390
+
+#################  Rodada 81 / 150  54.0 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 78.44
+R2 de Teste = 78.98
+
+81 / 150  54.0 %
+Tempo restante 0:00:03.997929
+
+#################  Rodada 82 / 150  54.67 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 78.64
+R2 de Teste = 71.1
+
+82 / 150  54.67 %
+Tempo restante 0:00:03.986500
+
+#################  Rodada 83 / 150  55.33 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 77.8
+R2 de Teste = 77.44
+
+83 / 150  55.33 %
+Tempo restante 0:00:03.885598
+
+#################  Rodada 84 / 150  56.0 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 78.21
+R2 de Teste = 77.42
+
+84 / 150  56.0 %
+Tempo restante 0:00:03.859680
+
+#################  Rodada 85 / 150  56.67 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 80.88
+R2 de Teste = 65.03
+
+85 / 150  56.67 %
+Tempo restante 0:00:03.756285
+
+#################  Rodada 86 / 150  57.33 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 77.25
+R2 de Teste = 78.93
+
+86 / 150  57.33 %
+Tempo restante 0:00:03.718144
+
+#################  Rodada 87 / 150  58.0 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 79.84
+R2 de Teste = 67.6
+
+87 / 150  58.0 %
+Tempo restante 0:00:03.614751
+
+#################  Rodada 88 / 150  58.67 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 77.89
+R2 de Teste = 79.91
+
+88 / 150  58.67 %
+Tempo restante 0:00:03.593272
+
+#################  Rodada 89 / 150  59.33 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 80.66
+R2 de Teste = 66.92
+
+89 / 150  59.33 %
+Tempo restante 0:00:03.534401
+
+#################  Rodada 90 / 150  60.0 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 79.03
+R2 de Teste = 73.8
+
+90 / 150  60.0 %
+Tempo restante 0:00:03.484620
+
+#################  Rodada 91 / 150  60.67 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 76.73
+R2 de Teste = 78.32
+
+91 / 150  60.67 %
+Tempo restante 0:00:03.357572
+
+#################  Rodada 92 / 150  61.33 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 75.45
+R2 de Teste = 80.05
+
+92 / 150  61.33 %
+Tempo restante 0:00:03.301708
+
+#################  Rodada 93 / 150  62.0 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 79.74
+R2 de Teste = 73.08
+
+93 / 150  62.0 %
+Tempo restante 0:00:03.273624
+
+#################  Rodada 94 / 150  62.67 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 81.0
+R2 de Teste = 61.95
+
+94 / 150  62.67 %
+Tempo restante 0:00:03.303552
+
+#################  Rodada 95 / 150  63.33 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 80.37
+R2 de Teste = 68.39
+
+95 / 150  63.33 %
+Tempo restante 0:00:03.177130
+
+#################  Rodada 96 / 150  64.0 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 80.2
+R2 de Teste = 68.09
+
+96 / 150  64.0 %
+Tempo restante 0:00:03.127680
+
+#################  Rodada 97 / 150  64.67 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 79.97
+R2 de Teste = 67.77
+
+97 / 150  64.67 %
+Tempo restante 0:00:03.060008
+
+#################  Rodada 98 / 150  65.33 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 77.41
+R2 de Teste = 81.13
+
+98 / 150  65.33 %
+Tempo restante 0:00:03.077568
+
+#################  Rodada 99 / 150  66.0 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 77.04
+R2 de Teste = 82.06
+
+99 / 150  66.0 %
+Tempo restante 0:00:02.989773
+
+#################  Rodada 100 / 150  66.67 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 79.59
+R2 de Teste = 74.3
+
+100 / 150  66.67 %
+Tempo restante 0:00:02.999100
+
+#################  Rodada 101 / 150  67.33 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 78.77
+R2 de Teste = 72.87
+
+101 / 150  67.33 %
+Tempo restante 0:00:02.877084
+
+#################  Rodada 102 / 150  68.0 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 77.66
+R2 de Teste = 78.0
+
+102 / 150  68.0 %
+Tempo restante 0:00:02.851440
+
+#################  Rodada 103 / 150  68.67 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 79.92
+R2 de Teste = 72.96
+
+103 / 150  68.67 %
+Tempo restante 0:00:02.735071
+
+#################  Rodada 104 / 150  69.33 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 78.52
+R2 de Teste = 75.94
+
+104 / 150  69.33 %
+Tempo restante 0:00:02.659996
+
+#################  Rodada 105 / 150  70.0 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 79.19
+R2 de Teste = 78.34
+
+105 / 150  70.0 %
+Tempo restante 0:00:02.696085
+
+#################  Rodada 106 / 150  70.67 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 77.78
+R2 de Teste = 79.95
+
+106 / 150  70.67 %
+Tempo restante 0:00:02.556180
+
+#################  Rodada 107 / 150  71.33 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 78.15
+R2 de Teste = 75.21
+
+107 / 150  71.33 %
+Tempo restante 0:00:02.461449
+
+#################  Rodada 108 / 150  72.0 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 80.72
+R2 de Teste = 67.27
+
+108 / 150  72.0 %
+Tempo restante 0:00:02.401602
+
+#################  Rodada 109 / 150  72.67 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 79.99
+R2 de Teste = 68.06
+
+109 / 150  72.67 %
+Tempo restante 0:00:02.367094
+
+#################  Rodada 110 / 150  73.33 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 77.6
+R2 de Teste = 80.08
+
+110 / 150  73.33 %
+Tempo restante 0:00:02.345840
+
+#################  Rodada 111 / 150  74.0 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 75.69
+R2 de Teste = 85.65
+
+111 / 150  74.0 %
+Tempo restante 0:00:02.279901
+
+#################  Rodada 112 / 150  74.67 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 77.56
+R2 de Teste = 79.19
+
+112 / 150  74.67 %
+Tempo restante 0:00:02.219276
+
+#################  Rodada 113 / 150  75.33 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 82.26
+R2 de Teste = 55.59
+
+113 / 150  75.33 %
+Tempo restante 0:00:02.159616
+
+#################  Rodada 114 / 150  76.0 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 78.96
+R2 de Teste = 72.32
+
+114 / 150  76.0 %
+Tempo restante 0:00:02.074140
+
+#################  Rodada 115 / 150  76.67 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 79.24
+R2 de Teste = 74.28
+
+115 / 150  76.67 %
+Tempo restante 0:00:02.028985
+
+#################  Rodada 116 / 150  77.33 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 79.78
+R2 de Teste = 67.17
+
+116 / 150  77.33 %
+Tempo restante 0:00:01.966730
+
+#################  Rodada 117 / 150  78.0 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 78.35
+R2 de Teste = 76.69
+
+117 / 150  78.0 %
+Tempo restante 0:00:01.968252
+
+#################  Rodada 118 / 150  78.67 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 78.87
+R2 de Teste = 77.27
+
+118 / 150  78.67 %
+Tempo restante 0:00:02.075744
+
+#################  Rodada 119 / 150  79.33 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 78.33
+R2 de Teste = 74.83
+
+119 / 150  79.33 %
+Tempo restante 0:00:01.980559
+
+#################  Rodada 120 / 150  80.0 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 79.01
+R2 de Teste = 75.77
+
+120 / 150  80.0 %
+Tempo restante 0:00:01.865970
+
+#################  Rodada 121 / 150  80.67 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 80.02
+R2 de Teste = 66.33
+
+121 / 150  80.67 %
+Tempo restante 0:00:01.869920
+
+#################  Rodada 122 / 150  81.33 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 79.49
+R2 de Teste = 72.76
+
+122 / 150  81.33 %
+Tempo restante 0:00:01.725752
+
+#################  Rodada 123 / 150  82.0 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 76.9
+R2 de Teste = 80.58
+
+123 / 150  82.0 %
+Tempo restante 0:00:01.592109
+
+#################  Rodada 124 / 150  82.67 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 78.78
+R2 de Teste = 72.66
+
+124 / 150  82.67 %
+Tempo restante 0:00:01.520272
+
+#################  Rodada 125 / 150  83.33 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 79.49
+R2 de Teste = 75.03
+
+125 / 150  83.33 %
+Tempo restante 0:00:01.495975
+
+#################  Rodada 126 / 150  84.0 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 79.76
+R2 de Teste = 71.52
+
+126 / 150  84.0 %
+Tempo restante 0:00:01.492488
+
+#################  Rodada 127 / 150  84.67 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 80.91
+R2 de Teste = 68.19
+
+127 / 150  84.67 %
+Tempo restante 0:00:01.352791
+
+#################  Rodada 128 / 150  85.33 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 78.95
+R2 de Teste = 75.53
+
+128 / 150  85.33 %
+Tempo restante 0:00:01.274702
+
+#################  Rodada 129 / 150  86.0 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 77.25
+R2 de Teste = 78.89
+
+129 / 150  86.0 %
+Tempo restante 0:00:01.274196
+
+#################  Rodada 130 / 150  86.67 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 77.38
+R2 de Teste = 76.02
+
+130 / 150  86.67 %
+Tempo restante 0:00:01.151800
+
+#################  Rodada 131 / 150  87.33 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 78.84
+R2 de Teste = 74.75
+
+131 / 150  87.33 %
+Tempo restante 0:00:01.089954
+
+#################  Rodada 132 / 150  88.0 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 79.2
+R2 de Teste = 74.59
+
+132 / 150  88.0 %
+Tempo restante 0:00:01.042002
+
+#################  Rodada 133 / 150  88.67 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 75.49
+R2 de Teste = 79.18
+
+133 / 150  88.67 %
+Tempo restante 0:00:01.014084
+
+#################  Rodada 134 / 150  89.33 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 79.96
+R2 de Teste = 70.57
+
+134 / 150  89.33 %
+Tempo restante 0:00:00.937696
+
+#################  Rodada 135 / 150  90.0 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 79.71
+R2 de Teste = 68.01
+
+135 / 150  90.0 %
+Tempo restante 0:00:01.167090
+
+#################  Rodada 136 / 150  90.67 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 77.0
+R2 de Teste = 84.02
+
+136 / 150  90.67 %
+Tempo restante 0:00:00.931364
+
+#################  Rodada 137 / 150  91.33 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 80.88
+R2 de Teste = 67.13
+
+137 / 150  91.33 %
+Tempo restante 0:00:00.859924
+
+#################  Rodada 138 / 150  92.0 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 79.26
+R2 de Teste = 72.22
+
+138 / 150  92.0 %
+Tempo restante 0:00:00.791952
+
+#################  Rodada 139 / 150  92.67 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 78.5
+R2 de Teste = 71.97
+
+139 / 150  92.67 %
+Tempo restante 0:00:00.675444
+
+#################  Rodada 140 / 150  93.33 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 79.29
+R2 de Teste = 71.93
+
+140 / 150  93.33 %
+Tempo restante 0:00:00.601030
+
+#################  Rodada 141 / 150  94.0 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 82.04
+R2 de Teste = 56.7
+
+141 / 150  94.0 %
+Tempo restante 0:00:00.543654
+
+#################  Rodada 142 / 150  94.67 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 76.73
+R2 de Teste = 83.57
+
+142 / 150  94.67 %
+Tempo restante 0:00:00.457856
+
+#################  Rodada 143 / 150  95.33 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 78.81
+R2 de Teste = 73.14
+
+143 / 150  95.33 %
+Tempo restante 0:00:00.399721
+
+#################  Rodada 144 / 150  96.0 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 78.26
+R2 de Teste = 79.58
+
+144 / 150  96.0 %
+Tempo restante 0:00:00.344592
+
+#################  Rodada 145 / 150  96.67 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 78.1
+R2 de Teste = 76.15
+
+145 / 150  96.67 %
+Tempo restante 0:00:00.285075
+
+#################  Rodada 146 / 150  97.33 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 81.03
+R2 de Teste = 60.22
+
+146 / 150  97.33 %
+Tempo restante 0:00:00.226648
+
+#################  Rodada 147 / 150  98.0 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 76.6
+R2 de Teste = 77.63
+
+147 / 150  98.0 %
+Tempo restante 0:00:00.172209
+
+#################  Rodada 148 / 150  98.67 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 78.8
+R2 de Teste = 74.27
+
+148 / 150  98.67 %
+Tempo restante 0:00:00.116334
+
+#################  Rodada 149 / 150  99.33 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 79.01
+R2 de Teste = 73.5
+
+149 / 150  99.33 %
+Tempo restante 0:00:00.058499
+
+#################  Rodada 150 / 150  100.0 %
+Parâmetros ('EV_MA', 'TST_MA', 'WAI_MA', 'saz_sin', 'saz_cos')
+
+R2 de Treino = 78.55
+R2 de Teste = 75.76
+
+150 / 150  100.0 %
+Tempo restante 0:00:00
+
+Diretório atual: /home/user/Controle-Gas/dissertacao_PSN
+
+===== ESTATÍSTICAS GERAIS =====
+R2 Treino médio: 78.84
+R2 Treino desvio padrão: 1.34
+R2 Ajustado Treino médio: 76.88
+R2 Ajustado Treino desvio padrão: 1.47
+R2 Teste médio: 73.65
+R2 Teste desvio padrão: 5.91
+RMSE Teste médio: 7.97
+MAE Teste médio: 6.29
+MAE Teste desvio padrão: 0.56
+
+Intervalo empírico 95% R² Teste: [60.06% - 83.40%]
+
+===== VALIDAÇÃO TEMPORAL (ROBUSTEZ) =====
+R² teste - RepeatedKFold (principal) : 73.65%
+R² teste - GroupKFold por ano        : 73.73%  (folds: 64.5, 81.2, 74.1, 77.6, 71.3)
+R² teste - TimeSeriesSplit expansível: 66.98%  (folds: 66.5, 70.5, 73.3, 72.1, 52.5)
+
+Queda RKF:GroupKFold  : -0.08 pp
+Queda RKF:TimeSeries  : +6.66 pp
+Desempenho ROBUSTO à validação temporal (quedas < 10 pp): o R² não é artefato de vazamento por autocorrelação.
+
+===== VIF =====
+  Variável       VIF
+0    EV_MA  2.653714
+1   TST_MA  4.229459
+2   WAI_MA  3.544828
+3  saz_sin  1.646029
+4  saz_cos  3.921375
+Alpha médio utilizado na análise de resíduos: 0.7060
+Arquivo coeficientes_ridge_MA_3.csv salvo com sucesso!
+            feature       coef bioma
+0             EV_MA  22.786442    MA
+1            TST_MA -11.111419    MA
+2            WAI_MA -16.659441    MA
+3           saz_sin  -8.883965    MA
+4           saz_cos  -8.838866    MA
+5           EV_MA^2  -1.181118    MA
+6      EV_MA TST_MA  -3.681573    MA
+7      EV_MA WAI_MA  -1.567621    MA
+8     EV_MA saz_sin   0.029051    MA
+9     EV_MA saz_cos   3.968882    MA
+10         TST_MA^2  -0.769489    MA
+11    TST_MA WAI_MA   0.008173    MA
+12   TST_MA saz_sin   0.705973    MA
+13   TST_MA saz_cos   1.614297    MA
+14         WAI_MA^2   1.168188    MA
+15   WAI_MA saz_sin   3.054121    MA
+16   WAI_MA saz_cos  -0.969162    MA
+17        saz_sin^2  -1.676628    MA
+18  saz_sin saz_cos   8.852239    MA
+19        saz_cos^2   1.604761    MA
+
+===== NORMALIDADE DOS RESÍDUOS =====
+Shapiro-Wilk: stat=0.9959, p=0.6299
+Resíduos normais
+
+===== AUTOCORRELAÇÃO DOS RESÍDUOS =====
+ACF lag1=+0.505 | lag2=+0.346 | lag3=+0.294
+Ljung-Box(12): p=0.0000
+Autocorrelação residual presente - limitação a reportar.
+Gráfico salvo em analise_residuos_MA_3.png (600 dpi)
+Gráfico salvo em obs_vs_pred_MA_3.png (600 dpi)
+R² out-of-fold (Figura 3): 73.85%  |  R² RepeatedKFold (tabelas): 73.65%
+
+===== Y-RANDOMIZATION COM VALIDAÇÃO CRUZADA =====
+  Permutação 10/100 - R² CV médio = -13.99%
+  Permutação 20/100 - R² CV médio = -9.05%
+  Permutação 30/100 - R² CV médio = -13.16%
+  Permutação 40/100 - R² CV médio = -11.94%
+  Permutação 50/100 - R² CV médio = -13.77%
+  Permutação 60/100 - R² CV médio = -11.60%
+  Permutação 70/100 - R² CV médio = -9.57%
+  Permutação 80/100 - R² CV médio = -12.56%
+  Permutação 90/100 - R² CV médio = -11.51%
+  Permutação 100/100 - R² CV médio = -4.67%
+
+R² CV médio - modelo original        : 73.81%
+R² CV médio - modelos permutados     : -10.61% ± 3.09
+Diferença (Δ CV)                     : 84.42 pp
+p-valor empírico unilateral          : 0.0099
+Critério operacional de 60 pp ATINGIDO - diferença de 84.42 pp
+p-valor < 0,05 - desempenho estatisticamente significativo
+Gráfico salvo em yrandomization_MA_2.png (600 dpi)
+
+===== SELEÇÃO DO GRAU POLINOMIAL (graus 1 a 5) =====
+Aguarde - rodando 150 folds para cada grau...
+
+  Grau 1 |   5 termos | R²treino=66.8% | R²teste=65.2% | Overfit=1.5p.p | RMSE=9.1686
+  Grau 2 |  20 termos | R²treino=78.8% | R²teste=73.6% | Overfit=5.2p.p | RMSE=7.9675 <- MODELO ATUAL
+  Grau 3 |  55 termos | R²treino=81.2% | R²teste=74.4% | Overfit=6.9p.p | RMSE=7.8669
+  Grau 4 | 125 termos | R²treino=80.6% | R²teste=68.4% | Overfit=12.2p.p | RMSE=8.7469
+  Grau 5 | 251 termos | R²treino=81.8% | R²teste=65.1% | Overfit=16.8p.p | RMSE=9.1715
+
+==========================================================================================
+ Grau | Termos |  R²Treino |  R²Teste |    Std |   Overfit |     RMSE | Int. emp. 95% Teste
+==========================================================================================
+    1 |      5 |     66.8% |    65.2% |   7.2% |      1.5p.p |   9.1686 | [50.3% - 77.2%]
+    2 |     20 |     78.8% |    73.6% |   5.9% |      5.2p.p |   7.9675 | [60.1% - 83.4%] <- ÓTIMO
+    3 |     55 |     81.2% |    74.4% |   5.4% |      6.9p.p |   7.8669 | [62.0% - 82.8%]
+    4 |    125 |     80.6% |    68.4% |   6.9% |     12.2p.p |   8.7469 | [52.6% - 79.6%]
+    5 |    251 |     81.8% |    65.1% |   9.8% |     16.8p.p |   9.1715 | [42.5% - 79.4%]
+==========================================================================================
+
+Grau sugerido pelo critério R²teste − 0.5×overfitting: 2
+O grau atual (2) já é o ótimo para estes dados.
+Gráfico salvo em selecao_grau_polinomial_MA_2.png (600 dpi)
+exit=0

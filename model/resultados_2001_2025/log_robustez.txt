@@ -1,0 +1,109 @@
+         bioma  grau         esquema  r2_treino  r2_teste  gap_pp
+Mata Atlântica     1      GroupKFold      66.80     65.45    1.35
+Mata Atlântica     1 TimeSeriesSplit      74.37     58.70   15.67
+Mata Atlântica     2      GroupKFold      79.11     73.73    5.38
+Mata Atlântica     2 TimeSeriesSplit      85.20     66.98   18.22
+Mata Atlântica     3      GroupKFold      81.47     74.51    6.97
+Mata Atlântica     3 TimeSeriesSplit      88.46     60.97   27.49
+Mata Atlântica     4      GroupKFold      79.26     67.38   11.88
+Mata Atlântica     4 TimeSeriesSplit      84.60     56.32   28.27
+Mata Atlântica     5      GroupKFold      81.16     67.19   13.97
+Mata Atlântica     5 TimeSeriesSplit      87.22     53.90   33.32
+       Cerrado     1      GroupKFold      91.35     89.99    1.35
+       Cerrado     1 TimeSeriesSplit      91.16     88.46    2.70
+       Cerrado     2      GroupKFold      97.27     96.38    0.89
+       Cerrado     2 TimeSeriesSplit      97.42     95.73    1.69
+       Cerrado     3      GroupKFold      97.43     96.17    1.26
+       Cerrado     3 TimeSeriesSplit      97.72     93.68    4.04
+       Cerrado     4      GroupKFold      97.67     96.14    1.53
+       Cerrado     4 TimeSeriesSplit      98.29     93.39    4.90
+       Cerrado     5      GroupKFold      97.58     95.77    1.81
+       Cerrado     5 TimeSeriesSplit      97.78     92.24    5.55
+      Caatinga     1      GroupKFold      93.50     92.78    0.72
+      Caatinga     1 TimeSeriesSplit      95.03     91.49    3.54
+      Caatinga     2      GroupKFold      95.23     93.81    1.42
+      Caatinga     2 TimeSeriesSplit      96.24     91.20    5.04
+      Caatinga     3      GroupKFold      96.01     92.76    3.24
+      Caatinga     3 TimeSeriesSplit      96.71     90.40    6.31
+      Caatinga     4      GroupKFold      95.13     91.32    3.81
+      Caatinga     4 TimeSeriesSplit      95.62     86.99    8.63
+      Caatinga     5      GroupKFold      95.38     85.16   10.23
+      Caatinga     5 TimeSeriesSplit      95.52     86.66    8.85
+         bioma         esquema variavel  queda_media_pp  queda_dp_pp  razao_rmse_media  razao_rmse_dp  parcela_media_pct  parcela_dp_pct  r2_base
+Mata Atlântica      GroupKFold       EV          418.60        99.59              4.16           0.73              41.91            7.68    73.73
+Mata Atlântica      GroupKFold      TST           89.51        26.07              2.10           0.26               9.38            3.80    73.73
+Mata Atlântica      GroupKFold      WAI          209.91        61.06              3.01           0.51              21.08            4.99    73.73
+Mata Atlântica      GroupKFold   SAZsin          108.00         6.11              2.29           0.19              11.03            1.15    73.73
+Mata Atlântica      GroupKFold   SAZcos          163.33        26.07              2.74           0.44              16.61            2.48    73.73
+Mata Atlântica TimeSeriesSplit       EV          376.30       150.65              3.47           0.56              38.22            6.38    66.98
+Mata Atlântica TimeSeriesSplit      TST           84.01        18.87              1.89           0.20              10.00            4.55    66.98
+Mata Atlântica TimeSeriesSplit      WAI          201.10        95.59              2.64           0.63              19.89            5.06    66.98
+Mata Atlântica TimeSeriesSplit   SAZsin          148.09        75.60              2.34           0.52              15.16            3.75    66.98
+Mata Atlântica TimeSeriesSplit   SAZcos          163.34        69.96              2.43           0.47              16.73            2.75    66.98
+       Cerrado      GroupKFold       EV          445.75        47.98             11.25           0.85              85.33            1.42    96.38
+       Cerrado      GroupKFold      PRE           21.54         5.43              2.62           0.15               4.09            0.85    96.38
+       Cerrado      GroupKFold      WAI           13.45         4.54              2.15           0.26               2.57            0.87    96.38
+       Cerrado      GroupKFold   SAZsin           18.62         3.16              2.50           0.25               3.58            0.59    96.38
+       Cerrado      GroupKFold   SAZcos           23.02         2.72              2.74           0.26               4.43            0.56    96.38
+       Cerrado TimeSeriesSplit       EV          424.49       148.48             10.24           3.03              77.72           15.10    95.73
+       Cerrado TimeSeriesSplit      PRE           19.53         5.75              2.41           0.45               3.68            0.43    95.73
+       Cerrado TimeSeriesSplit      WAI           26.61        24.70              2.46           0.61               7.55           10.23    95.73
+       Cerrado TimeSeriesSplit   SAZsin           24.17         7.25              2.59           0.24               4.97            1.87    95.73
+       Cerrado TimeSeriesSplit   SAZcos           28.11        11.57              2.70           0.27               6.09            3.61    95.73
+      Caatinga      GroupKFold       EV          263.81        33.88              6.81           1.13              80.41            2.55    93.81
+      Caatinga      GroupKFold      PRE            7.88         4.14              1.48           0.17               2.37            1.22    93.81
+      Caatinga      GroupKFold      TST           12.03         4.03              1.75           0.28               3.71            1.22    93.81
+      Caatinga      GroupKFold   SAZsin           15.22         4.72              1.90           0.34               4.56            0.98    93.81
+      Caatinga      GroupKFold   SAZcos           29.77         7.66              2.48           0.48               8.94            1.49    93.81
+      Caatinga TimeSeriesSplit       EV          210.44        71.58              5.13           1.47              76.95           10.04    91.20
+      Caatinga TimeSeriesSplit      PRE            9.91         6.79              1.42           0.15               3.78            2.31    91.20
+      Caatinga TimeSeriesSplit      TST           22.55        18.51              1.82           0.43              11.39           13.40    91.20
+      Caatinga TimeSeriesSplit   SAZsin            9.39         5.56              1.47           0.32               3.17            1.47    91.20
+      Caatinga TimeSeriesSplit   SAZcos           13.98         9.08              1.65           0.48               4.71            2.35    91.20
+         bioma           variaveis  r2_teste  freq_melhor_pct
+Mata Atlântica      EV + TST + WAI     73.65            66.00
+Mata Atlântica      EV + PRE + TST     70.96            19.33
+Mata Atlântica      EV + PRE + WAI     69.02            12.00
+Mata Atlântica  EV + WAI + BURNlog     66.43             0.67
+Mata Atlântica  EV + PRE + BURNlog     65.98             1.33
+Mata Atlântica  EV + TST + BURNlog     58.40             0.67
+Mata Atlântica     PRE + TST + WAI     55.69             0.00
+Mata Atlântica PRE + TST + BURNlog     47.67             0.00
+Mata Atlântica PRE + WAI + BURNlog     47.64             0.00
+Mata Atlântica TST + WAI + BURNlog     41.39             0.00
+       Cerrado      EV + PRE + WAI     96.66            82.67
+       Cerrado      EV + PRE + TST     96.27            14.00
+       Cerrado  EV + PRE + BURNlog     95.75             2.67
+       Cerrado      EV + TST + WAI     95.18             0.67
+       Cerrado  EV + WAI + BURNlog     94.24             0.00
+       Cerrado     PRE + TST + WAI     93.77             0.00
+       Cerrado  EV + TST + BURNlog     93.28             0.00
+       Cerrado PRE + WAI + BURNlog     92.59             0.00
+       Cerrado TST + WAI + BURNlog     88.82             0.00
+       Cerrado PRE + TST + BURNlog     71.34             0.00
+      Caatinga      EV + PRE + TST     94.16            36.00
+      Caatinga      EV + PRE + WAI     94.01            22.00
+      Caatinga     PRE + TST + WAI     93.94            28.67
+      Caatinga  EV + PRE + BURNlog     93.65             4.67
+      Caatinga      EV + TST + WAI     92.96             4.00
+      Caatinga PRE + WAI + BURNlog     92.76             2.00
+      Caatinga  EV + WAI + BURNlog     92.57             1.33
+      Caatinga  EV + TST + BURNlog     92.54             0.67
+      Caatinga TST + WAI + BURNlog     89.75             0.67
+      Caatinga PRE + TST + BURNlog     77.93             0.00
+         bioma       primeira        segunda  dif_media_pp  ic95_inf  ic95_sup  prop_particoes_primeira_maior  p_wilcoxon
+Mata Atlântica EV + TST + WAI EV + PRE + TST        2.6885    2.0986    3.2956                           74.0      0.0000
+       Cerrado EV + PRE + WAI EV + PRE + TST        0.3903    0.3339    0.4484                           86.0      0.0000
+      Caatinga EV + PRE + TST EV + PRE + WAI        0.1486    0.0529    0.2443                           62.0      0.0023
+         bioma                                                              teste   n  r2_original  r2_nulo_media  r2_nulo_dp  r2_nulo_max  p_empirico
+Mata Atlântica                               Deslocamento circular (todos os 296) 296       73.810         -2.978       6.114       52.435       0.003
+Mata Atlântica Deslocamento circular múltiplo de 12 meses (calendário preservado)  24       73.810         -3.233       5.030        7.280       0.040
+Mata Atlântica                Permutação de anos inteiros (calendário preservado) 100       73.810          4.428       2.748       11.518       0.010
+       Cerrado                               Deslocamento circular (todos os 296) 296       96.659         36.295      12.864       81.772       0.003
+       Cerrado Deslocamento circular múltiplo de 12 meses (calendário preservado)  24       96.659         35.479      10.977       58.714       0.040
+       Cerrado                Permutação de anos inteiros (calendário preservado) 100       96.659         62.379       1.444       67.001       0.010
+      Caatinga                               Deslocamento circular (todos os 296) 296       94.162         23.915       8.879       72.523       0.003
+      Caatinga Deslocamento circular múltiplo de 12 meses (calendário preservado)  24       94.162         22.464       7.450       36.472       0.040
+      Caatinga                Permutação de anos inteiros (calendário preservado) 100       94.162         40.205       2.323       44.739       0.010
+
+concluído: /home/user/Controle-Gas/dissertacao_PSN/resultados_2001_2025/robustez

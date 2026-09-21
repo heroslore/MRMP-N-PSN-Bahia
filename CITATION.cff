@@ -1,0 +1,39 @@
+cff-version: 1.2.0
+message: "If you use this code or dataset, please cite the manuscript below."
+title: "MRMP-N: regularized polynomial regression of MODIS net photosynthesis across the Atlantic Forest, Cerrado and Caatinga of Bahia, Brazil (2001-2025)"
+type: software
+authors:
+  - family-names: Oliveira
+    given-names: Ygor Augusto dos Santos
+    email: ygornayty2@gmail.com
+    affiliation: "Federal University of Southern Bahia / Federal Institute of Bahia (PPGCTA)"
+  - family-names: Benfica
+    given-names: Nayanne Silva
+    affiliation: "Federal University of Southern Bahia / Federal Institute of Bahia (PPGCTA)"
+  - family-names: Zanchi
+    given-names: Fabrício Berton
+    affiliation: "Federal University of Southern Bahia / Federal Institute of Bahia (PPGCTA)"
+version: "1.0.0"
+date-released: "2026-09-21"
+license: MIT
+repository-code: "https://github.com/heroslore/mrmp-n-psn-bahia"
+keywords:
+  - MODIS
+  - net photosynthesis
+  - Ridge regression
+  - polynomial regression
+  - Cerrado
+  - Caatinga
+  - Atlantic Forest
+preferred-citation:
+  type: article
+  title: "Regularized polynomial regression of MODIS net photosynthesis across a tropical hydroclimatic gradient: Atlantic Forest, Cerrado and Caatinga in northeastern Brazil (2001-2025)"
+  authors:
+    - family-names: Oliveira
+      given-names: Ygor Augusto dos Santos
+    - family-names: Benfica
+      given-names: Nayanne Silva
+    - family-names: Zanchi
+      given-names: Fabrício Berton
+  journal: "Journal of South American Earth Sciences (submitted)"
+  year: 2026
