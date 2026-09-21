@@ -58,7 +58,7 @@ for i in range(1, len(d) + 1):
         ini = i
 
 # ------------------------------------------------------------------ Figura 1
-fig, axes = plt.subplots(3, 1, figsize=(9.2, 7.4), sharex=True)
+fig, axes = plt.subplots(3, 1, figsize=(9.2, 5.9), sharex=True)
 for ax, b in zip(axes, BIOMAS):
     a = anom_pct(f'NP_{SIGLA[b]}')
     for f, t0, t1, n in corridas:
