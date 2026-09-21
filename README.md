@@ -49,7 +49,7 @@ This study was financed in part by the Coordenação de Aperfeiçoamento de Pess
 
 This repository is permanently archived on Zenodo.
 
-- **Concept DOI (all versions, always resolves to the latest):** [10.5281/zenodo.22883915](https://doi.org/10.5281/zenodo.22883915)
-- **Version DOI (v1.0.0):** [10.5281/zenodo.22883916](https://doi.org/10.5281/zenodo.22883916)
+- **Concept DOI (cite this one):** [10.5281/zenodo.22883915](https://doi.org/10.5281/zenodo.22883915) — always resolves to the most recent version.
+- Each release is also archived under its own version DOI, listed on the Zenodo record under *Versions*.
 
 Machine-readable metadata is in `CITATION.cff` (GitHub renders a "Cite this repository" button from it) and in `.zenodo.json`.
