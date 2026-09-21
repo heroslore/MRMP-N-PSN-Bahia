@@ -1,5 +1,7 @@
 # MRMP-N: net photosynthesis of the Atlantic Forest, Cerrado and Caatinga of Bahia, Brazil (2001–2025)
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22883915.svg)](https://doi.org/10.5281/zenodo.22883915)
+
 Manuscript, model code and monthly database of the study
 
 > Oliveira, Y.A.S., Benfica, N.S., Zanchi, F.B. *Regularized polynomial regression of MODIS net photosynthesis across a tropical hydroclimatic gradient: Atlantic Forest, Cerrado and Caatinga in northeastern Brazil (2001–2025).* Submitted to the Journal of South American Earth Sciences.
@@ -45,4 +47,9 @@ This study was financed in part by the Coordenação de Aperfeiçoamento de Pess
 
 ## How to cite
 
-See `CITATION.cff`. A DOI will be minted through Zenodo on the first release.
+This repository is permanently archived on Zenodo.
+
+- **Concept DOI (all versions, always resolves to the latest):** [10.5281/zenodo.22883915](https://doi.org/10.5281/zenodo.22883915)
+- **Version DOI (v1.0.0):** [10.5281/zenodo.22883916](https://doi.org/10.5281/zenodo.22883916)
+
+Machine-readable metadata is in `CITATION.cff` (GitHub renders a "Cite this repository" button from it) and in `.zenodo.json`.

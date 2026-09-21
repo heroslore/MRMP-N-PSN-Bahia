@@ -18,7 +18,15 @@ authors:
 version: "1.0.0"
 date-released: "2026-09-21"
 license: MIT
-repository-code: "https://github.com/heroslore/mrmp-n-psn-bahia"
+repository-code: "https://github.com/heroslore/MRMP-N-PSN-Bahia"
+doi: "10.5281/zenodo.22883915"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.22883915"
+    description: "Concept DOI - all versions of this archive"
+  - type: doi
+    value: "10.5281/zenodo.22883916"
+    description: "Version DOI - v1.0.0"
 keywords:
   - MODIS
   - net photosynthesis
