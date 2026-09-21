@@ -13,6 +13,7 @@ The MRMP-N is a Multiple Polynomial Regression Model of order N estimated by Rid
 | Folder | Content |
 |---|---|
 | `manuscript/` | LaTeX sources in the Elsevier CAS template (`main.tex` English, `main_pt.tex` Portuguese; `*_dc.tex` two-column variants), bibliography, figures and compiled PDFs in `pdf/`. |
+| `manuscript2/` | Draft of the companion paper on the ENSO analysis and the sampling unit in phase composites (`main2_pt.tex`, Portuguese), with its bibliography, figures and compiled PDF. |
 | `data/` | `psn_bahia_monthly_2001_2025.csv`, the monthly database (297 periods × 3 biomes, English headers), its data dictionary, the NOAA ONI table and the data licence (CC BY 4.0). |
 | `model/` | Python scripts of the model and of all validations, the database files read by the scripts, the results of the 2001–2025 run (`resultados_2001_2025/`) and the dissertation figures (`figuras_dissertacao/`). See `model/README.md`. |
 
