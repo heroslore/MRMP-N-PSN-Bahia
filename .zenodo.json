@@ -2,11 +2,30 @@
   "title": "MRMP-N: regularized polynomial regression of MODIS net photosynthesis across the Atlantic Forest, Cerrado and Caatinga of Bahia, Brazil (2001-2025)",
   "upload_type": "software",
   "creators": [
-    {"name": "Oliveira, Ygor Augusto dos Santos", "affiliation": "UFSB/IFBA, PPGCTA"},
-    {"name": "Benfica, Nayanne Silva", "affiliation": "UFSB/IFBA, PPGCTA"},
-    {"name": "Zanchi, Fabrício Berton", "affiliation": "UFSB/IFBA, PPGCTA"}
+    {
+      "name": "Oliveira, Ygor Augusto dos Santos",
+      "affiliation": "UFSB/IFBA, PPGCTA",
+      "orcid": "0009-0001-5821-658X"
+    },
+    {
+      "name": "Benfica, Nayanne Silva",
+      "affiliation": "UFSB/IFBA, PPGCTA"
+    },
+    {
+      "name": "Zanchi, Fabrício Berton",
+      "affiliation": "UFSB/IFBA, PPGCTA",
+      "orcid": "0000-0002-8074-2893"
+    }
   ],
   "description": "Manuscript sources, model code (Python) and monthly database (2001-2025) of the MRMP-N, a degree-2 polynomial Ridge regression of MODIS net photosynthesis for the three biomes of Bahia State, Brazil.",
   "license": "MIT",
-  "keywords": ["MODIS", "net photosynthesis", "Ridge regression", "Cerrado", "Caatinga", "Atlantic Forest", "Bahia"]
+  "keywords": [
+    "MODIS",
+    "net photosynthesis",
+    "Ridge regression",
+    "Cerrado",
+    "Caatinga",
+    "Atlantic Forest",
+    "Bahia"
+  ]
 }

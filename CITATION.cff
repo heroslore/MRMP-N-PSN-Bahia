@@ -5,6 +5,7 @@ type: software
 authors:
   - family-names: Oliveira
     given-names: Ygor Augusto dos Santos
+    orcid: "https://orcid.org/0009-0001-5821-658X"
     email: ygornayty2@gmail.com
     affiliation: "Federal University of Southern Bahia / Federal Institute of Bahia (PPGCTA)"
   - family-names: Benfica
