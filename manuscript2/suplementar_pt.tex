@@ -1,0 +1,43 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[a4paper,margin=2.2cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{booktabs}
+\renewcommand{\tablename}{Tabela}
+\begin{document}
+\pagestyle{empty}
+\begin{center}
+{\large\bfseries Material suplementar}\\[2pt]
+Padrões contrastantes de resposta da fotossíntese líquida MODIS ao ENSO ao longo de um gradiente hidroclimático tropical\\[2pt]
+Oliveira, Benfica e Zanchi
+\end{center}
+\vspace{1em}
+
+\begin{table}[h]
+\small
+\caption{\textbf{Tabela S1.} Os dez efeitos cujo intervalo de confiança exclui o zero com o mês como unidade amostral, recalculados com o episódio como unidade. $\Delta$ é a mesma estatística nos dois esquemas; o que muda é a reamostragem. Entre parênteses, o valor de $q$ de Benjamini-Hochberg sobre a família dos 30 testes. Em negrito, os três efeitos com $p$ bruto abaixo de 0,05 no esquema por episódio; nenhum deles sobrevive à correção.}
+\centering
+\begin{tabular}{@{}lllrrrrr@{}}
+\toprule
+ & & & & \multicolumn{2}{c}{Mês como unidade} & \multicolumn{2}{c}{Episódio como unidade} \\
+\cmidrule(lr){5-6}\cmidrule(l){7-8}
+Bioma & Var. & Fase & $\Delta$ (p.p.) & IC95\% & $p$ ($q$) & IC95\% & $p$ ($q$) \\
+\midrule
+Mata Atlântica & TST & El Niño & $+3{,}07$  & $+1{,}7$ a $+4{,}4$  & $<$0,001 (0,002) & $\mathbf{+0{,}9}$ a $\mathbf{+5{,}3}$ & \textbf{0,005} (0,15) \\
+Caatinga       & PSN & La Niña & $+10{,}45$ & $+4{,}4$ a $+16{,}4$ & 0,001 (0,005) & $\mathbf{+0{,}4}$ a $\mathbf{+16{,}9}$ & \textbf{0,044} (0,44) \\
+Mata Atlântica & PSN & El Niño & $-5{,}44$  & $-8{,}7$ a $-2{,}3$  & 0,001 (0,005) & $\mathbf{-9{,}2}$ a $\mathbf{-0{,}05}$ & \textbf{0,048} (0,44) \\
+\addlinespace
+Cerrado        & PSN & La Niña & $+11{,}75$ & $+4{,}3$ a $+18{,}9$ & 0,003 (0,011) & $-1{,}5$ a $+24{,}3$ & 0,081 (0,44) \\
+Caatinga       & WAI & La Niña & $+12{,}47$ & $+5{,}2$ a $+19{,}6$ & $<$0,001 (0,004) & $-2{,}2$ a $+22{,}0$ & 0,086 (0,44) \\
+Cerrado        & WAI & La Niña & $+13{,}99$ & $+6{,}8$ a $+21{,}1$ & $<$0,001 (0,002) & $-2{,}6$ a $+27{,}9$ & 0,087 (0,44) \\
+Caatinga       & EV  & La Niña & $+10{,}85$ & $+4{,}5$ a $+17{,}2$ & $<$0,001 (0,004) & $-2{,}2$ a $+19{,}8$ & 0,103 (0,44) \\
+Cerrado        & EV  & La Niña & $+10{,}22$ & $+4{,}3$ a $+15{,}8$ & $<$0,001 (0,004) & $-3{,}5$ a $+21{,}5$ & 0,135 (0,51) \\
+Cerrado        & EV  & El Niño & $+7{,}51$  & $+0{,}6$ a $+14{,}5$ & 0,031 (0,093) & $-6{,}8$ a $+23{,}2$ & 0,322 (0,73) \\
+Caatinga       & TST & La Niña & $-2{,}14$  & $-3{,}7$ a $-0{,}6$  & 0,008 (0,027) & $-5{,}2$ a $+2{,}1$ & 0,327 (0,73) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\vspace{1em}
+\noindent\small As 30 comparações completas dos dois esquemas, a estratificação sazonal completa e o código que as produz estão em \texttt{https://github.com/heroslore/MRMP-N-PSN-Bahia} (arquivos \texttt{bootstrap\_unidade\_amostral.csv} e \texttt{estratificacao\_sazonal.csv}).
+\end{document}
