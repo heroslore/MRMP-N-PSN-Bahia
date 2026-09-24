@@ -1,0 +1,4 @@
+bioma,primeira,segunda,dif_media_pp,n_particoes,n_treino,n_teste,ic95_ingenuo_inf,ic95_ingenuo_sup,p_wilcoxon,p_t_ingenuo,ic95_nb_inf,ic95_nb_sup,p_nadeau_bengio,razao_erro_padrao,prop_particoes_primeira_maior,sig_nb
+Mata Atlântica,EV + TST + WAI,EV + PRE + TST,2.6885,150,238,59,2.0815,3.2954,4.44e-13,6.3e-15,-1.1081,6.485,0.1638,6.2,74.0,False
+Cerrado,EV + PRE + WAI,EV + PRE + TST,0.3903,150,238,59,0.3321,0.4485,5.91e-21,1.09e-26,0.0262,0.7544,0.0358,6.2,86.0,True
+Caatinga,EV + PRE + TST,EV + PRE + WAI,0.1486,150,238,59,0.0546,0.2426,0.00235,0.00232,-0.4394,0.7366,0.6182,6.2,62.0,False
