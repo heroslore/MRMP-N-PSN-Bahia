@@ -12,15 +12,19 @@ A analise repete o teste por fase da Secao 2.4, com o EPISODIO como unidade
 pela climatologia de precipitacao de cada bioma:
   - trimestre chuvoso: os tres meses civis consecutivos de maior precipitacao media;
   - trimestre seco:    os tres meses civis consecutivos de menor precipitacao media.
-O trimestre seco funciona como controle negativo: se a associacao decorre do
-canal hidrico da estacao chuvosa, ela deve estar ausente nele.
+O trimestre seco funciona como recorte de comparacao: se a associacao decorre do
+canal hidrico da estacao chuvosa, espera-se que esteja ausente nele. Comparar
+"significativo no chuvoso" com "nao significativo no seco" NAO estabelece, porem,
+que os dois trimestres difiram; para isso o script calcula tambem o contraste
+direto entre eles (diferenca das diferencas), com o mesmo bootstrap em blocos.
 
 Correcao para comparacoes multiplas por Benjamini-Hochberg em duas familias:
   (i)  os 6 testes de cada trimestre (3 biomas x 2 fases), que e a familia primaria;
   (ii) os 12 testes dos dois trimestres, como analise de sensibilidade.
 
 Saidas: resultados_2001_2025/enso_anomalias/estratificacao_sazonal.csv
-        figuras_artigo2/fig3_sazonal.png
+        resultados_2001_2025/enso_anomalias/contraste_sazonal.csv
+        figuras_artigo2/fig4_sazonal.png
 """
 import os
 import numpy as np
@@ -105,6 +109,45 @@ sig12, q12 = bh(T['p'].values)
 T['q_12testes'] = np.round(q12, 4); T['bh_12testes'] = sig12
 
 T.to_csv(os.path.join(OUT, 'estratificacao_sazonal.csv'), index=False, encoding='utf-8')
+
+# ------------------------------------------------ contraste direto entre os trimestres
+# Diferenca das diferencas: (fase - neutro | chuvoso) - (fase - neutro | seco).
+# Os mesmos episodios sao reamostrados simultaneamente nos dois trimestres, de modo
+# que o contraste e pareado por episodio.
+def blocos(eps, sel, a):
+    out = [a[(bloco == u) & sel] for u in eps if ((bloco == u) & sel).sum() > 0]
+    return out if out else [np.array([np.nan])]
+
+def delta(bf, bn):
+    return np.concatenate(bf).mean() - np.concatenate(bn).mean()
+
+rng2 = np.random.default_rng(SEED)
+contr = []
+for b in ['MA', 'CE', 'CA']:
+    a = anom_pct(f'NP_{b}')
+    (rot_c, meses_c), (rot_s, meses_s) = trimestres(b)
+    s_c = d['MÊS'].isin(meses_c).values; s_s = d['MÊS'].isin(meses_s).values
+    eps_n = sorted(set(bloco[fase == 'Neutro']))
+    for f in ATIVAS:
+        eps_f = sorted(set(bloco[fase == f]))
+        obs = (delta(blocos(eps_f, s_c, a), blocos(eps_n, s_c, a))
+               - delta(blocos(eps_f, s_s, a), blocos(eps_n, s_s, a)))
+        dist = np.empty(B)
+        for j in range(B):
+            iF = [eps_f[i] for i in rng2.integers(0, len(eps_f), len(eps_f))]
+            iN = [eps_n[i] for i in rng2.integers(0, len(eps_n), len(eps_n))]
+            dist[j] = (delta(blocos(iF, s_c, a), blocos(iN, s_c, a))
+                       - delta(blocos(iF, s_s, a), blocos(iN, s_s, a)))
+        dist = dist[~np.isnan(dist)]
+        lo, hi = np.percentile(dist, [2.5, 97.5])
+        p = min(max(2 * min((dist <= 0).mean(), (dist >= 0).mean()), 1 / B), 1.0)
+        contr.append(dict(bioma=NOME[b], fase=f, contraste_pct=round(float(obs), 2),
+                          ic_inf=round(float(lo), 2), ic_sup=round(float(hi), 2),
+                          p=round(float(p), 4), distinguivel=bool(lo > 0 or hi < 0)))
+C = pd.DataFrame(contr)
+C.to_csv(os.path.join(OUT, 'contraste_sazonal.csv'), index=False, encoding='utf-8')
+print('\ncontraste direto entre o trimestre chuvoso e o seco:')
+print(C.to_string(index=False))
 pd.set_option('display.width', 220)
 print(T.to_string(index=False))
 print('\nsobrevivem ao BH na familia do trimestre:', int(T.bh_trimestre.sum()), 'de', len(T))
@@ -148,5 +191,5 @@ fig.legend(handles=[Line2D([], [], color=COR_FASE['El Niño'], lw=3, label='El N
                            label='sobrevive à correção de Benjamini-Hochberg')],
            loc='lower center', ncol=3, frameon=False, fontsize=9.5, bbox_to_anchor=(0.5, -0.04))
 fig.tight_layout(rect=[0, 0.05, 1, 1])
-fig.savefig(os.path.join(FIG, 'fig3_sazonal.png'), dpi=300, bbox_inches='tight')
-print('\nfigura em', os.path.join(FIG, 'fig3_sazonal.png'))
+fig.savefig(os.path.join(FIG, 'fig4_sazonal.png'), dpi=300, bbox_inches='tight')
+print('\nfigura em', os.path.join(FIG, 'fig4_sazonal.png'))

@@ -1,0 +1,7 @@
+bioma,fase,contraste_pct,ic_inf,ic_sup,p,distinguivel
+Mata Atlântica,El Niño,-2.73,-10.2,7.83,0.5864,False
+Mata Atlântica,La Niña,10.85,3.15,20.38,0.004,True
+Cerrado,El Niño,-10.46,-28.97,16.29,0.3803,False
+Cerrado,La Niña,-0.6,-18.53,20.24,0.9231,False
+Caatinga,El Niño,-1.23,-17.21,20.31,0.8849,False
+Caatinga,La Niña,20.52,-5.01,47.29,0.1416,False

@@ -1,0 +1,37 @@
+bioma,janela_meses,rho,p,n
+Mata Atlântica,1,-0.023,0.694,296
+Mata Atlântica,2,0.304,1.03e-07,295
+Mata Atlântica,3,0.42,5.12e-14,294
+Mata Atlântica,4,0.466,3.48e-17,293
+Mata Atlântica,5,0.478,4.35e-18,292
+Mata Atlântica,6,0.455,3.04e-16,291
+Mata Atlântica,7,0.451,6.67e-16,290
+Mata Atlântica,8,0.426,3.45e-14,289
+Mata Atlântica,9,0.393,4.72e-12,288
+Mata Atlântica,10,0.372,7.89e-11,287
+Mata Atlântica,11,0.369,1.24e-10,286
+Mata Atlântica,12,0.344,2.4e-09,285
+Cerrado,1,0.086,0.14,296
+Cerrado,2,0.277,1.35e-06,295
+Cerrado,3,0.38,1.48e-11,294
+Cerrado,4,0.484,1.37e-18,293
+Cerrado,5,0.553,8.18e-25,292
+Cerrado,6,0.545,7.03e-24,291
+Cerrado,7,0.537,4.61e-23,290
+Cerrado,8,0.494,3.16e-19,289
+Cerrado,9,0.433,1.39e-14,288
+Cerrado,10,0.48,5.73e-18,287
+Cerrado,11,0.505,5.9e-20,286
+Cerrado,12,0.489,1.48e-18,285
+Caatinga,1,0.321,1.59e-08,296
+Caatinga,2,0.619,1.19e-32,295
+Caatinga,3,0.662,1.93e-38,294
+Caatinga,4,0.666,6.13e-39,293
+Caatinga,5,0.636,1.94e-34,292
+Caatinga,6,0.598,1.33e-29,291
+Caatinga,7,0.583,7.81e-28,290
+Caatinga,8,0.566,7.61e-26,289
+Caatinga,9,0.519,3.18e-21,288
+Caatinga,10,0.517,4.79e-21,287
+Caatinga,11,0.501,1.52e-19,286
+Caatinga,12,0.459,3.11e-16,285
