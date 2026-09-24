@@ -3,8 +3,7 @@
 \usepackage{lineno}
 \usepackage{booktabs}
 \usepackage{url}
-% Posicionamento de floats: figuras e tabelas no topo ou no rodape da pagina,
-% nunca no meio de um paragrafo.
+% Floats no topo ou no rodape da pagina, nunca no meio de um paragrafo.
 \setcounter{topnumber}{2}
 \setcounter{bottomnumber}{1}
 \setcounter{totalnumber}{2}
@@ -44,7 +43,7 @@
 \cortext[1]{Autor correspondente}
 
 \begin{abstract}
-O El Niño--Oscilação Sul (ENSO) modula a produtividade da vegetação tropical por meio de variáveis climáticas intermediárias, mas a forma dessa modulação depende do regime ecológico de cada bioma. Este trabalho caracterizou a resposta da fotossíntese líquida (PSN, MOD17A2HGF) às fases do ENSO em três biomas dispostos ao longo de um gradiente hidroclimático no Nordeste do Brasil, entre 2001 e 2025, com 297 períodos mensais por bioma. As anomalias mensais, obtidas pela remoção do ciclo anual, foram comparadas entre as fases oficiais da NOAA, e a fração da resposta transmitida pelo clima regional foi estimada impondo-se as anomalias médias de cada fase a um modelo de regressão polinomial regularizada ajustado aos mesmos dados. A resposta foi assimétrica e específica de cada bioma: a Mata Atlântica respondeu à fase quente, com redução média de 5,4~p.p.\ na PSN e aumento da frequência de meses extremamente baixos de 4,7\% para 22,4\%, acompanhando um aquecimento da superfície de 3,1~p.p.\ (cerca de 0,9~$^{\circ}$C); o Cerrado e a Caatinga apresentaram anomalias positivas de PSN na fase fria, de 11,7 e 10,4~p.p., acompanhadas de anomalias positivas de evapotranspiração e de disponibilidade hídrica. A precipitação do próprio mês não diferiu entre fases em nenhum bioma. O modelo reproduziu de 57\% a 94\% da magnitude observada, pela via térmica no bioma úmido e pela evapotranspiração nos sazonais, e a defasagem de maior correlação variou de zero meses na Caatinga a dez no Cerrado. Nenhum bioma apresentou tendência interanual significativa. Uma verificação de robustez em que a unidade amostral passa do mês para o episódio, já que os 76 meses de El Niño correspondem a 8 episódios e os 72 de La Niña a 9 sequências, alarga os intervalos de confiança em 1,67 vez em mediana e reduz de 10 para 3 o número de efeitos distinguíveis de zero, entre os quais permanecem a resposta da Mata Atlântica ao El Niño e a da Caatinga à La Niña. O padrão assimétrico é consistente entre as duas análises, mas a magnitude dos efeitos é estimada com precisão limitada pelo pequeno número de episódios disponíveis em 24 anos.
+O El Niño--Oscilação Sul (ENSO) modula a produtividade da vegetação tropical por meio de variáveis climáticas intermediárias, mas a forma dessa modulação depende do regime ecológico de cada bioma. Este trabalho caracterizou a resposta da fotossíntese líquida (PSN, MOD17A2HGF) às fases do ENSO em três biomas dispostos ao longo de um gradiente hidroclimático no Nordeste do Brasil, entre 2001 e 2025, com 297 períodos mensais por bioma. As anomalias mensais, obtidas pela remoção do ciclo anual, foram comparadas entre as fases oficiais da NOAA, e a fração da resposta transmitida pelo clima regional foi estimada impondo-se as anomalias médias de cada fase a um modelo de regressão polinomial regularizada ajustado aos mesmos dados. A resposta foi assimétrica e específica de cada bioma: a Mata Atlântica respondeu à fase quente, com redução média de 5,4~p.p.\ na PSN e aumento da frequência de meses extremamente baixos de 4,7\% para 22,4\%, acompanhando um aquecimento da superfície de 3,1~p.p.\ (cerca de 0,9~$^{\circ}$C); o Cerrado e a Caatinga responderam à fase fria, com aumentos de 11,7 e 10,4~p.p., acompanhados de anomalias positivas de evapotranspiração e de disponibilidade hídrica. A precipitação do próprio mês não diferiu entre fases em nenhum bioma. Um experimento de perturbação com o modelo, ajustado aos mesmos dados e sem pretensão de inferência causal, reproduziu de 57\% a 94\% da magnitude observada, pela via térmica no bioma úmido e pela evapotranspiração nos sazonais, e a defasagem de maior correlação variou de zero meses na Caatinga a dez no Cerrado. Nenhum bioma apresentou tendência interanual significativa. Uma verificação de robustez em que a unidade amostral passa do mês para o episódio, já que os 76 meses de El Niño correspondem a 8 episódios e os 72 de La Niña a 9 sequências, alarga os intervalos de confiança em 1,67 vez em mediana e reduz de 10 para 3 o número de efeitos com $p$ abaixo de 0,05, entre os quais a resposta da Mata Atlântica ao El Niño e a da Caatinga à La Niña. Nenhum dos três, porém, sobrevive à correção para comparações múltiplas nesse esquema. O padrão assimétrico é consistente entre as duas análises, mas a precisão disponível em 24 anos, com menos de dez episódios por fase, não sustenta afirmações sobre efeitos isolados.
 \end{abstract}
 
 \begin{keywords}
@@ -71,7 +70,7 @@ A área compreende as porções baianas da Mata Atlântica, do Cerrado e da Caat
 
 \subsection{Dados}
 
-A série mensal cobre janeiro de 2001 a setembro de 2025, com 297 períodos por bioma. Cada período é uma janela fixa de quatro compósitos consecutivos de oito dias, atribuída ao mês civil que contém a maior parte de seus dias. A fotossíntese líquida (PSN) provém do MOD17A2HGF C6.1 \citep{running2021gpp}; a evapotranspiração real (EV) e a potencial, do MOD16A2GF C6.1 \citep{running2021et}; a temperatura diurna da superfície (TST), do MOD11A2 C6.1 \citep{wan2021}; e a precipitação (PRE), do GPM IMERG Final Run V07 \citep{huffman2023}. O índice de disponibilidade hídrica (WAI) é a razão entre evapotranspiração real e potencial. As médias espaciais foram calculadas sobre os pixels válidos de cada bioma no Google Earth Engine \citep{gorelick2017}.
+A série mensal cobre janeiro de 2001 a setembro de 2025, com 297 períodos por bioma. Cada período é uma janela fixa de quatro compósitos consecutivos de oito dias, atribuída ao mês civil que contém a maior parte de seus dias: a janela de janeiro, por exemplo, reúne os compósitos iniciados em 27 de dezembro e em 1, 9 e 17 de janeiro. Cada janela abrange cerca de 32 dias, de modo que os períodos aqui chamados mensais não são meses civis estritos, e é ao mês de referência de cada janela que se associa a fase do ENSO. A fotossíntese líquida (PSN) provém do MOD17A2HGF C6.1 \citep{running2021gpp}; a evapotranspiração real (EV) e a potencial, do MOD16A2GF C6.1 \citep{running2021et}; a temperatura diurna da superfície (TST), do MOD11A2 C6.1 \citep{wan2021}; e a precipitação (PRE), do GPM IMERG Final Run V07 \citep{huffman2023}. O índice de disponibilidade hídrica (WAI) é a razão entre evapotranspiração real e potencial. As médias espaciais foram calculadas sobre os pixels válidos de cada bioma no Google Earth Engine \citep{gorelick2017}.
 
 O Índice Oceânico Niño (ONI) foi obtido da tabela completa do Climate Prediction Center da NOAA \citep{noaacpc2025}. A classificação das fases segue o critério oficial: El Niño quando o ONI permanece em $+0{,}5$~$^{\circ}$C ou acima por cinco trimestres consecutivos sobrepostos, La Niña quando permanece em $-0{,}5$~$^{\circ}$C ou abaixo pelo mesmo intervalo, e Neutro nos demais casos. A série completa do índice desde 1950 foi usada na classificação, de modo que episódios iniciados antes de 2001 fossem reconhecidos.
 
@@ -87,9 +86,29 @@ A anomalia de cada fase ativa foi comparada à dos meses neutros pelo teste de M
 
 A resposta defasada foi avaliada pela correlação de Spearman entre o ONI do mês $t$ e a anomalia de PSN do mês $t+L$, para $L$ de 0 a 12 meses. Por serem fortemente correlacionadas entre si, as defasagens não foram submetidas a correção para comparações múltiplas e são lidas como descrição do padrão temporal, não como testes independentes.
 
-\subsection{Mediação pelo modelo climático}
+\subsection{Aplicação do modelo climático}
 
-\begin{table}[width=\linewidth,cols=5,pos=!ht]
+Para estimar que fração da resposta da PSN é reproduzida pelas variáveis climáticas medidas, usou-se o modelo de regressão polinomial de grau 2 com regularização de Ridge ajustado para os mesmos biomas e período \citep{oliveira2026, hoerl1970}. O modelo foi usado para prever a PSN com os preditores em sua climatologia mensal e, alternativamente, com cada preditor (ou todos) deslocado pela anomalia média observada em cada fase; a diferença entre as duas predições, em porcentagem da PSN climatológica, é a parcela da resposta atribuível a cada canal no modelo. Trata-se de uma decomposição baseada no modelo, sem pretensão de inferência causal.
+
+\subsection{Variabilidade interanual}
+
+A PSN anual é a soma dos períodos de cada ano. A tendência foi estimada pelo declive de Sen \citep{sen1968} e testada por Mann-Kendall \citep{mann1945}, com intervalo de confiança por bootstrap. A soma anual foi comparada, por correlação de Pearson, ao NPP anual do produto MOD17A3HGF para as mesmas máscaras de bioma, como verificação de consistência entre dois produtos da mesma família. O ano de 2025, com nove períodos disponíveis, foi excluído do cálculo de tendência.
+
+\subsection{Verificação de robustez: o episódio como unidade amostral}
+
+Os testes descritos na Seção~2.4 supõem que as observações de cada grupo sejam independentes. Os meses de uma mesma fase não o são: pertencem a um número reduzido de episódios, cada um com vários meses consecutivos, e tanto o forçante oceânico quanto a resposta da vegetação são autocorrelacionados dentro de um episódio. A unidade efetiva de amostragem é o episódio.
+
+Para medir o efeito dessa distinção, a estatística de interesse, a diferença entre a anomalia percentual média de uma fase ativa e a dos meses neutros, foi acompanhada de dois intervalos de confiança de 95\%, ambos por percentis de 10.000 reamostragens com a mesma semente: um por bootstrap i.i.d., sorteando meses com reposição dentro de cada grupo, que é o esquema implícito nos testes convencionais; e outro por bootstrap em blocos, sorteando com reposição sequências contíguas inteiras de meses da mesma fase \citep{kunsch1989, politis1994}, o que preserva a dependência interna de cada episódio. Os blocos foram definidos como corridas contíguas de meses na mesma fase oficial, sem imposição de comprimento: cada bloco é um episódio do ENSO tal como a NOAA o delimita. Os dois esquemas foram aplicados à PSN e aos quatro preditores nos três biomas, totalizando 30 testes em cada um. Os valores de $p$ do bootstrap são bilaterais, obtidos da proporção da distribuição reamostrada que cruza zero, e foram submetidos ao mesmo procedimento de Benjamini-Hochberg da Seção~2.4, aplicado à família dos 30 testes e, separadamente, à família restrita dos seis testes da PSN, que é a variável resposta do estudo.
+
+Todas as análises foram feitas em Python 3.11 com \texttt{numpy}, \texttt{pandas}, \texttt{scipy} e \texttt{scikit-learn}.
+
+\section{Resultados}
+
+\subsection{Composição das fases}
+
+Dos 297 períodos da série, 76 foram classificados como El Niño, 72 como La Niña e 149 como neutros. Esses meses distribuem-se em poucas sequências contíguas: 8 episódios de El Niño, 9 sequências de La Niña (uma delas truncada no início da série, em janeiro e fevereiro de 2001) e 17 intervalos neutros (Tabela~\ref{tab:fases}), com duração entre 2 e 20 meses e mediana de 8 meses.
+
+\begin{table}[width=\linewidth,cols=5,pos=h]
 \caption{Composição das fases do ENSO na série mensal de 2001 a 2025, segundo o critério oficial da NOAA.}
 \label{tab:fases}
 \begin{tabular*}{\tblwidth}{@{}lrrrr@{}}
@@ -109,7 +128,7 @@ Total   & 297 & 34 & --- & --- \\
 
 A Figura~\ref{fig:episodios} mostra a série de anomalias de PSN dos três biomas com os episódios sombreados. A variabilidade mensal é alta em todos os biomas, com amplitude de cerca de $\pm 40\%$ na Mata Atlântica e de $\pm 90\%$ no Cerrado, e o El Niño de 2014--2016 coincide com as anomalias negativas mais profundas da Mata Atlântica.
 
-\begin{figure}[pos=!ht]
+\begin{figure}[pos=h]
 \centering
 \includegraphics[width=\linewidth]{figs/fig1_episodios.png}
 \caption{Anomalia percentual mensal da fotossíntese líquida nos três biomas entre 2001 e 2025, com os episódios de El Niño e de La Niña sombreados. As escalas verticais diferem entre os painéis.}
@@ -118,7 +137,11 @@ A Figura~\ref{fig:episodios} mostra a série de anomalias de PSN dos três bioma
 
 \subsection{Resposta da Mata Atlântica ao El Niño}
 
-\begin{table*}[width=\textwidth,cols=7,pos=!ht]
+Na Mata Atlântica, a variável mais sensível às fases do ENSO foi a temperatura da superfície: nos meses de El Niño ela ficou 3,1~p.p.\ acima do normal da época, cerca de 0,9~$^{\circ}$C ($p < 0{,}001$), com 25\% desses meses no decil mais quente da série contra 5\% dos meses neutros (Tabela~\ref{tab:convencional}). A evapotranspiração e a precipitação não diferiram na posição central.
+
+A PSN acompanhou esse aquecimento com um deslocamento negativo modesto no centro da distribuição e uma alteração forte na cauda. As medianas brutas são praticamente iguais nas três fases (133,3, 134,3 e 133,8~gC~m$^{-2}$ por período), mas, removido o ciclo anual, os meses de El Niño apresentaram anomalia média de $-5{,}4$~p.p.\ ($p = 0{,}010$) e 22,4\% deles ficaram abaixo do percentil 10 da série, contra 4,7\% dos meses neutros e 8,3\% dos de La Niña ($p = 0{,}0004$). O mínimo observado sob El Niño (79,0~gC~m$^{-2}$) fica 15 unidades abaixo do mínimo dos meses neutros (94,4). Nesse bioma, portanto, o El Niño atua sobre a cauda inferior da distribuição mais do que sobre o seu centro, o que explica por que um teste de posição aplicado a valores brutos não detectaria efeito. A La Niña não produziu resposta na Mata Atlântica em nenhuma das propriedades avaliadas ($-0{,}1$~p.p.; $p = 0{,}794$).
+
+\begin{table*}[width=\textwidth,cols=7,pos=t]
 \caption{Anomalia percentual média de cada fase ativa em relação aos meses neutros, com o valor de $p$ do teste de Mann-Whitney. Em negrito, os resultados que sobreviveram à correção de Benjamini-Hochberg (taxa de falsas descobertas de 5\%).}
 \label{tab:convencional}
 \begin{tabular*}{\tblwidth}{@{}llrrrr@{}}
@@ -148,10 +171,6 @@ Caatinga       & PSN & $-3{,}28$ & 0,458 & $\mathbf{+10{,}45}$ & \textbf{0,002} 
 \end{tabular*}
 \end{table*}
 
-Na Mata Atlântica, a variável mais sensível às fases do ENSO foi a temperatura da superfície: nos meses de El Niño ela ficou 3,1~p.p.\ acima do normal da época, cerca de 0,9~$^{\circ}$C ($p < 0{,}001$), com 25\% desses meses no decil mais quente da série contra 5\% dos meses neutros (Tabela~\ref{tab:convencional}). A evapotranspiração e a precipitação não diferiram na posição central.
-
-A PSN acompanhou esse aquecimento com um deslocamento negativo modesto no centro da distribuição e uma alteração forte na cauda. As medianas brutas são praticamente iguais nas três fases (133,3, 134,3 e 133,8~gC~m$^{-2}$ por período), mas, removido o ciclo anual, os meses de El Niño apresentaram anomalia média de $-5{,}4$~p.p.\ ($p = 0{,}010$) e 22,4\% deles ficaram abaixo do percentil 10 da série, contra 4,7\% dos meses neutros e 8,3\% dos de La Niña ($p = 0{,}0004$). O mínimo observado sob El Niño (79,0~gC~m$^{-2}$) fica 15 unidades abaixo do mínimo dos meses neutros (94,4). Nesse bioma, portanto, o El Niño atua sobre a cauda inferior da distribuição mais do que sobre o seu centro, o que explica por que um teste de posição aplicado a valores brutos não detectaria efeito. A La Niña não produziu resposta na Mata Atlântica em nenhuma das propriedades avaliadas ($-0{,}1$~p.p.; $p = 0{,}794$).
-
 \subsection{Resposta do Cerrado e da Caatinga à La Niña}
 
 Nos dois biomas sazonais a assimetria inverteu-se. No Cerrado, os meses de La Niña apresentaram evapotranspiração 10,2~p.p.\ acima do normal da época e disponibilidade hídrica 13,9~p.p.\ acima (ambos $p < 0{,}001$), enquanto nos meses de El Niño as anomalias correspondentes não foram significativas. A PSN respondeu no mesmo sentido, com anomalia média de $+11{,}7$~p.p.\ em La Niña ($p = 0{,}001$) e de $+5{,}3$~p.p.\ em El Niño ($p = 0{,}375$). O efeito da fase fria desloca a distribuição inteira: o primeiro quartil sobe de 65,1 para 85,8~gC~m$^{-2}$ por período.
@@ -164,18 +183,16 @@ A precipitação do próprio mês não apresentou diferença significativa entre
 
 As correlações entre o ONI e a anomalia de PSN são negativas em todas as defasagens e em todos os biomas, de modo que o El Niño reduz e a La Niña eleva a PSN, com magnitude entre 0,03 e 0,19 (Figura~\ref{fig:defasagem}). A defasagem de maior correlação difere entre os biomas: a Caatinga responde em fase, com o máximo em $L = 0$ ($\rho = -0{,}19$); a Mata Atlântica, com dois meses de atraso ($\rho = -0{,}16$); e o Cerrado, com dez meses ($\rho = -0{,}16$), permanecendo a correlação praticamente constante entre $L = 1$ e $L = 12$. A resposta do bioma semiárido é, portanto, imediata e de curta duração, e a do Cerrado, persistente. O contraste é compatível com a dinâmica de pulsos de recursos dos ecossistemas semiáridos \citep{schwinning2004} e com a integração da água no solo ao longo de semanas nos sistemas de savana \citep{oliveira2005}. Mesmo nos máximos, o coeficiente ao quadrado não ultrapassa 3,6\% da variância das anomalias.
 
-\begin{figure}[pos=!ht]
+\begin{figure}[pos=h]
 \centering
 \includegraphics[width=\linewidth]{figs/fig3_defasagem.png}
 \caption{Correlação de Spearman entre o ONI do mês $t$ e a anomalia de PSN do mês $t+L$. Os símbolos preenchidos indicam $p < 0{,}05$ sob a premissa de meses independentes.}
 \label{fig:defasagem}
 \end{figure}
 
-\subsection{Mediação pelo modelo climático}
+\subsection{Resposta reproduzida pelo modelo}
 
-Impondo ao modelo de regressão polinomial as anomalias médias observadas em cada fase, a resposta predita da PSN reproduz boa parte da observada nas combinações de maior magnitude (Tabela~\ref{tab:mediacao}). Na Caatinga em La Niña, o modelo prediz $+9{,}8\%$ contra $+10{,}4\%$ observados, isto é, 94\% da resposta; no Cerrado na mesma fase, $+8{,}0\%$ contra $+11{,}7\%$, ou 68\%; e na Mata Atlântica em El Niño, $-3{,}1\%$ contra $-5{,}4\%$, ou 57\%. A decomposição por preditor mostra que a via difere entre os biomas: deslocar apenas a evapotranspiração já produz $+11{,}6\%$ no Cerrado e $+9{,}0\%$ na Caatinga, ao passo que na Mata Atlântica a temperatura sozinha responde por $-2{,}8\%$ dos $-3{,}1\%$ preditos. O clima medido reproduz, assim, a maior parte da resposta nos biomas sazonais e pouco mais da metade no bioma úmido.
-
-\begin{table}[width=\linewidth,cols=5,pos=!ht]
+\begin{table}[width=\linewidth,cols=5,pos=h]
 \caption{Resposta da PSN predita pelo modelo climático quando lhe são impostas as anomalias médias de cada fase, comparada à observada. A coluna final é a razão entre as duas.}
 \label{tab:mediacao}
 \begin{tabular*}{\tblwidth}{@{}llrrr@{}}
@@ -192,25 +209,7 @@ Caatinga       & La Niña & $+9{,}84$ & $+10{,}45$ & 0,94 \\
 \end{tabular*}
 \end{table}
 
-Para estimar que fração da resposta da PSN é reproduzida pelas variáveis climáticas medidas, usou-se o modelo de regressão polinomial de grau 2 com regularização de Ridge ajustado para os mesmos biomas e período \citep{oliveira2026, hoerl1970}. O modelo foi usado para prever a PSN com os preditores em sua climatologia mensal e, alternativamente, com cada preditor (ou todos) deslocado pela anomalia média observada em cada fase; a diferença entre as duas predições, em porcentagem da PSN climatológica, é a parcela da resposta atribuível a cada canal no modelo. Trata-se de uma decomposição baseada no modelo, sem pretensão de inferência causal.
-
-\subsection{Variabilidade interanual}
-
-A PSN anual é a soma dos períodos de cada ano. A tendência foi estimada pelo declive de Sen \citep{sen1968} e testada por Mann-Kendall \citep{mann1945}, com intervalo de confiança por bootstrap. A soma anual foi comparada, por correlação de Pearson, ao NPP anual do produto MOD17A3HGF para as mesmas máscaras de bioma, como verificação de consistência entre dois produtos da mesma família. O ano de 2025, com nove períodos disponíveis, foi excluído do cálculo de tendência.
-
-\subsection{Verificação de robustez: o episódio como unidade amostral}
-
-Os testes descritos na Seção~2.4 supõem que as observações de cada grupo sejam independentes. Os meses de uma mesma fase não o são: pertencem a um número reduzido de episódios, cada um com vários meses consecutivos, e tanto o forçante oceânico quanto a resposta da vegetação são autocorrelacionados dentro de um episódio. A unidade efetiva de amostragem é o episódio.
-
-Para medir o efeito dessa distinção, a estatística de interesse, a diferença entre a anomalia percentual média de uma fase ativa e a dos meses neutros, foi acompanhada de dois intervalos de confiança de 95\%, ambos por percentis de 10.000 reamostragens com a mesma semente: um por bootstrap i.i.d., sorteando meses com reposição dentro de cada grupo, que é o esquema implícito nos testes convencionais; e outro por bootstrap em blocos, sorteando com reposição sequências contíguas inteiras de meses da mesma fase \citep{kunsch1989, politis1994}, o que preserva a dependência interna de cada episódio. Os blocos foram definidos como corridas contíguas de meses na mesma fase oficial, sem imposição de comprimento: cada bloco é um episódio do ENSO tal como a NOAA o delimita. Os dois esquemas foram aplicados à PSN e aos quatro preditores nos três biomas, totalizando 30 testes.
-
-Todas as análises foram feitas em Python 3.11 com \texttt{numpy}, \texttt{pandas}, \texttt{scipy} e \texttt{scikit-learn}.
-
-\section{Resultados}
-
-\subsection{Composição das fases}
-
-Dos 297 períodos da série, 76 foram classificados como El Niño, 72 como La Niña e 149 como neutros. Esses meses distribuem-se em poucas sequências contíguas: 8 episódios de El Niño, 9 sequências de La Niña (uma delas truncada no início da série, em janeiro e fevereiro de 2001) e 17 intervalos neutros (Tabela~\ref{tab:fases}), com duração entre 2 e 20 meses e mediana de 8 meses.
+Impondo ao modelo de regressão polinomial as anomalias médias observadas em cada fase, a resposta predita da PSN reproduz boa parte da observada nas combinações de maior magnitude (Tabela~\ref{tab:mediacao}). Na Caatinga em La Niña, o modelo prediz $+9{,}8\%$ contra $+10{,}4\%$ observados, isto é, 94\% da resposta; no Cerrado na mesma fase, $+8{,}0\%$ contra $+11{,}7\%$, ou 68\%; e na Mata Atlântica em El Niño, $-3{,}1\%$ contra $-5{,}4\%$, ou 57\%. A decomposição por preditor mostra que a via difere entre os biomas: deslocar apenas a evapotranspiração já produz $+11{,}6\%$ no Cerrado e $+9{,}0\%$ na Caatinga, ao passo que na Mata Atlântica a temperatura sozinha responde por $-2{,}8\%$ dos $-3{,}1\%$ preditos. O clima medido reproduz, assim, a maior parte da resposta nos biomas sazonais e pouco mais da metade no bioma úmido.
 
 \subsection{Variabilidade interanual}
 
@@ -218,7 +217,7 @@ Nenhum dos três biomas apresentou tendência significativa da PSN anual entre 2
 
 A variabilidade interanual é muito desigual entre os biomas: o coeficiente de variação da PSN anual é de 4,6\% na Mata Atlântica, contra 15,0\% no Cerrado e 13,3\% na Caatinga. Os anos extremos não coincidem com as fases do ENSO de forma sistemática. O pior ano da Mata Atlântica, 2016 (1.448~gC~m$^{-2}$~ano$^{-1}$), sucede o El Niño de 2014--2016, mas o melhor ano do Cerrado, 2009 (1.407~gC~m$^{-2}$~ano$^{-1}$), é também um ano de El Niño, e o melhor da Caatinga, 2020 (1.276~gC~m$^{-2}$~ano$^{-1}$), é um ano neutro. A escala anual mistura meses de fases distintas e é, por isso, menos nítida do que a análise mensal em anomalias.
 
-\begin{table}[width=\linewidth,cols=6,pos=!ht]
+\begin{table}[width=\linewidth,cols=6,pos=h]
 \caption{Variabilidade interanual da PSN entre 2001 e 2024. O declive de Sen é expresso em porcentagem do período e testado por Mann-Kendall.}
 \label{tab:interanual}
 \begin{tabular*}{\tblwidth}{@{}lrrrrr@{}}
@@ -237,40 +236,42 @@ Caatinga       & 1.044 & 13,3 & $+0{,}7$  & 0,941 & 2012/2020 \\
 
 Repetindo o cálculo com o episódio como unidade, o sentido e a magnitude das respostas não mudam, porque a estatística $\Delta$ é a mesma, mas a precisão com que elas são estimadas diminui de forma apreciável. A largura mediana do intervalo de confiança passa de 12,9 para 23,1 pontos percentuais, um alargamento de 1,67 vez em mediana, que chega a 2,53 vezes no Cerrado em El Niño. Dos 30 testes, 10 tinham intervalo excluindo o zero com o mês como unidade e 3 o mantêm com o episódio (Tabela~\ref{tab:unidade}, Figura~\ref{fig:unidade}).
 
-\begin{table*}[width=\textwidth,cols=8,pos=!ht]
-\caption{Os dez efeitos cujo intervalo de confiança exclui o zero com o mês como unidade, recalculados com o episódio como unidade amostral. $\Delta$ é a mesma estatística nos dois esquemas; o que muda é a reamostragem. Em negrito, os três que permanecem.}
+\begin{table*}[width=\textwidth,cols=8,pos=t]
+\caption{Os dez efeitos cujo intervalo de confiança exclui o zero com o mês como unidade, recalculados com o episódio como unidade amostral. $\Delta$ é a mesma estatística nos dois esquemas; o que muda é a reamostragem. Entre parênteses, o valor de $q$ de Benjamini-Hochberg sobre a família dos 30 testes. Em negrito, os três efeitos com $p$ bruto abaixo de 0,05 no esquema por episódio; nenhum deles sobrevive à correção.}
 \label{tab:unidade}
 \begin{tabular*}{\tblwidth}{@{}lllrrrrr@{}}
 \toprule
  & & & & \multicolumn{2}{c}{Mês como unidade} & \multicolumn{2}{c}{Episódio como unidade} \\
 \cmidrule(lr){5-6}\cmidrule(l){7-8}
-Bioma & Var. & Fase & $\Delta$ (p.p.) & IC95\% & $p$ & IC95\% & $p$ \\
+Bioma & Var. & Fase & $\Delta$ (p.p.) & IC95\% & $p$ ($q$) & IC95\% & $p$ ($q$) \\
 \midrule
-Mata Atlântica & PSN & El Niño & $-5{,}44$  & $-8{,}7$ a $-2{,}3$ & 0,001 & $\mathbf{-9{,}2}$ \textbf{a} $\mathbf{-0{,}05}$ & \textbf{0,048} \\
-Mata Atlântica & TST & El Niño & $+3{,}07$  & $+1{,}7$ a $+4{,}4$ & $<0{,}001$ & $\mathbf{+0{,}9}$ \textbf{a} $\mathbf{+5{,}3}$ & \textbf{0,005} \\
-Caatinga       & PSN & La Niña & $+10{,}45$ & $+4{,}4$ a $+16{,}4$ & 0,001 & $\mathbf{+0{,}4}$ \textbf{a} $\mathbf{+16{,}9}$ & \textbf{0,044} \\
+Mata Atlântica & TST & El Niño & $+3{,}07$  & $+1{,}7$ a $+4{,}4$  & $<$0,001 (0,002) & $\mathbf{+0{,}9}$ \textbf{a} $\mathbf{+5{,}3}$ & \textbf{0,005} (0,15) \\
+Caatinga       & PSN & La Niña & $+10{,}45$ & $+4{,}4$ a $+16{,}4$ & 0,001 (0,005) & $\mathbf{+0{,}4}$ \textbf{a} $\mathbf{+16{,}9}$ & \textbf{0,044} (0,44) \\
+Mata Atlântica & PSN & El Niño & $-5{,}44$  & $-8{,}7$ a $-2{,}3$  & 0,001 (0,005) & $\mathbf{-9{,}2}$ \textbf{a} $\mathbf{-0{,}05}$ & \textbf{0,048} (0,44) \\
 \addlinespace
-Cerrado        & PSN & La Niña & $+11{,}75$ & $+4{,}3$ a $+18{,}9$ & 0,003 & $-1{,}5$ a $+24{,}3$ & 0,081 \\
-Cerrado        & WAI & La Niña & $+13{,}99$ & $+6{,}8$ a $+21{,}1$ & $<0{,}001$ & $-2{,}6$ a $+27{,}9$ & 0,087 \\
-Cerrado        & EV  & La Niña & $+10{,}22$ & $+4{,}3$ a $+15{,}8$ & 0,001 & $-3{,}5$ a $+21{,}5$ & 0,135 \\
-Cerrado        & EV  & El Niño & $+7{,}51$  & $+0{,}6$ a $+14{,}5$ & 0,031 & $-6{,}8$ a $+23{,}2$ & 0,322 \\
-Caatinga       & WAI & La Niña & $+12{,}47$ & $+5{,}2$ a $+19{,}6$ & 0,001 & $-2{,}2$ a $+22{,}0$ & 0,086 \\
-Caatinga       & EV  & La Niña & $+10{,}85$ & $+4{,}5$ a $+17{,}2$ & 0,001 & $-2{,}2$ a $+19{,}8$ & 0,103 \\
-Caatinga       & TST & La Niña & $-2{,}14$  & $-3{,}7$ a $-0{,}6$ & 0,008 & $-5{,}2$ a $+2{,}1$ & 0,327 \\
+Cerrado        & PSN & La Niña & $+11{,}75$ & $+4{,}3$ a $+18{,}9$ & 0,003 (0,011) & $-1{,}5$ a $+24{,}3$ & 0,081 (0,44) \\
+Caatinga       & WAI & La Niña & $+12{,}47$ & $+5{,}2$ a $+19{,}6$ & $<$0,001 (0,004) & $-2{,}2$ a $+22{,}0$ & 0,086 (0,44) \\
+Cerrado        & WAI & La Niña & $+13{,}99$ & $+6{,}8$ a $+21{,}1$ & $<$0,001 (0,002) & $-2{,}6$ a $+27{,}9$ & 0,087 (0,44) \\
+Caatinga       & EV  & La Niña & $+10{,}85$ & $+4{,}5$ a $+17{,}2$ & $<$0,001 (0,004) & $-2{,}2$ a $+19{,}8$ & 0,103 (0,44) \\
+Cerrado        & EV  & La Niña & $+10{,}22$ & $+4{,}3$ a $+15{,}8$ & $<$0,001 (0,004) & $-3{,}5$ a $+21{,}5$ & 0,135 (0,51) \\
+Cerrado        & EV  & El Niño & $+7{,}51$  & $+0{,}6$ a $+14{,}5$ & 0,031 (0,093) & $-6{,}8$ a $+23{,}2$ & 0,322 (0,73) \\
+Caatinga       & TST & La Niña & $-2{,}14$  & $-3{,}7$ a $-0{,}6$  & 0,008 (0,027) & $-5{,}2$ a $+2{,}1$ & 0,327 (0,73) \\
 \bottomrule
 \end{tabular*}
 \end{table*}
 
-Os três que permanecem são justamente os dois polos do gradiente: o aquecimento da superfície da Mata Atlântica em El Niño (IC95\% $+0{,}9$ a $+5{,}3$~p.p.; $p = 0{,}005$), o mais robusto do conjunto, a redução da PSN desse mesmo bioma e fase (IC95\% $-9{,}2$ a $-0{,}05$~p.p.; $p = 0{,}048$) e o aumento da PSN da Caatinga em La Niña (IC95\% $+0{,}4$ a $+16{,}9$~p.p.; $p = 0{,}044$). Os dois últimos são marginais. No Cerrado, o aumento de 11,7~p.p.\ da PSN em La Niña passa a $p = 0{,}081$, com intervalo de $-1{,}5$ a $+24{,}3$~p.p., quando as nove sequências de La Niña são tomadas como as nove observações que de fato são.
-
-A assimetria descrita nas Seções~3.2 e 3.3, com a Mata Atlântica associada à fase quente e os biomas sazonais à fase fria, é, portanto, consistente entre os dois esquemas, e nenhum resultado troca de sinal. O que a verificação mostra é que a magnitude de cada efeito é estimada com precisão limitada pelo número de episódios disponíveis, e não pelo número de meses.
-
-\begin{figure}[pos=!ht]
+\begin{figure}[pos=h]
 \centering
 \includegraphics[width=\linewidth]{figs/fig2_unidade.png}
 \caption{Anomalia de PSN de cada fase em relação aos meses neutros, com intervalos de confiança de 95\% obtidos por bootstrap sobre meses (linha fina, círculo aberto) e por bootstrap em blocos sobre episódios (linha grossa, quadrado). O número de episódios de cada fase consta à direita.}
 \label{fig:unidade}
 \end{figure}
+
+Os valores de $p$ citados acima são brutos. Submetidos à correção de Benjamini-Hochberg sobre a família dos 30 testes, 9 dos 10 efeitos sobrevivem no esquema convencional, mas nenhum dos três sobrevive no esquema por episódio: os valores de $q$ são 0,15 para a temperatura da Mata Atlântica e 0,44 para as duas respostas de PSN. O mesmo ocorre quando a correção é restrita aos seis testes da PSN ($q = 0{,}14$ tanto na Mata Atlântica em El Niño quanto na Caatinga em La Niña). Com 24 anos de registro, portanto, nenhum efeito isolado do ENSO sobre a produtividade destes biomas se sustenta sob inferência por episódio com controle da taxa de falsas descobertas.
+
+Os três efeitos de menor $p$ são justamente os dois polos do gradiente: o aquecimento da superfície da Mata Atlântica em El Niño (IC95\% $+0{,}9$ a $+5{,}3$~p.p.; $p = 0{,}005$), o mais robusto do conjunto, a redução da PSN desse mesmo bioma e fase (IC95\% $-9{,}2$ a $-0{,}05$~p.p.; $p = 0{,}048$) e o aumento da PSN da Caatinga em La Niña (IC95\% $+0{,}4$ a $+16{,}9$~p.p.; $p = 0{,}044$). Os dois últimos são marginais mesmo antes da correção: seus intervalos quase tocam zero. No Cerrado, o aumento de 11,7~p.p.\ da PSN em La Niña passa a $p = 0{,}081$, com intervalo de $-1{,}5$ a $+24{,}3$~p.p., quando as nove sequências de La Niña são tomadas como as nove observações que de fato são.
+
+A assimetria descrita nas Seções~3.2 e 3.3, com a Mata Atlântica associada à fase quente e os biomas sazonais à fase fria, é, portanto, consistente entre os dois esquemas, e nenhum resultado troca de sinal. O que a verificação mostra é que a magnitude de cada efeito é estimada com precisão limitada pelo número de episódios disponíveis, e não pelo número de meses, e que essa precisão não basta para sustentar qualquer efeito isolado sob controle de comparações múltiplas.
 
 \section{Discussão}
 
@@ -278,19 +279,19 @@ Os três biomas respondem ao mesmo forçante remoto de maneiras distintas, e a d
 
 Que o sinal apareça na evapotranspiração e na disponibilidade hídrica, e não na precipitação do próprio mês, é coerente com a fisiologia envolvida: transpiração e assimilação ocorrem pelos mesmos estômatos \citep{lawson2019}, de modo que a água efetivamente utilizada informa sobre a produtividade melhor do que o total que caiu no mês. A precipitação é um fluxo de entrada ruidoso, e a vegetação responde à água que permaneceu disponível no solo nas semanas seguintes \citep{oliveira2005, schwinning2004}. A defasagem observada reforça esse quadro: a Caatinga responde no próprio mês, à maneira de um sistema de pulsos \citep{schwinning2004, mendes2020}, enquanto no Cerrado a correlação permanece estável por até doze meses, compatível com a integração da água em profundidade nas savanas \citep{oliveira2005, bucci2008}.
 
-A mediação pelo modelo climático quantifica até onde o clima medido leva. Nos biomas sazonais, de 68\% a 94\% da resposta é reproduzida pelo deslocamento dos preditores, quase inteiramente pela evapotranspiração; no bioma úmido, pouco mais da metade, sobretudo pela temperatura. A parcela restante não é explicada pelos preditores do mesmo mês e pode envolver radiação, defasagem da resposta e, na Mata Atlântica, variáveis estruturais da paisagem que não compõem o modelo \citep{broggio2024, ribeiro2009}.
+O experimento de perturbação com o modelo indica até onde o clima medido leva, com a ressalva de que o modelo foi ajustado aos mesmos dados: a decomposição mede a compatibilidade entre as anomalias observadas e a resposta que o modelo lhes atribui, não a fração da resposta causalmente transmitida por cada variável. Nos biomas sazonais, de 68\% a 94\% da resposta é reproduzida pelo deslocamento dos preditores, quase inteiramente pela evapotranspiração; no bioma úmido, pouco mais da metade, sobretudo pela temperatura. A parcela restante não é explicada pelos preditores do mesmo mês e pode envolver radiação, defasagem da resposta e, na Mata Atlântica, variáveis estruturais da paisagem que não compõem o modelo \citep{broggio2024, ribeiro2009}.
 
 A verificação de robustez qualifica o alcance dessas afirmações sem alterar sua direção. Em 24 anos há 8 episódios de El Niño e 9 sequências de La Niña; blocos de duração mediana próxima a 8 meses fazem o tamanho amostral efetivo ser uma fração do nominal, e o erro-padrão cresce aproximadamente com a raiz dessa razão. O alargamento mediano de 1,67 vez é o que se esperaria dessa aritmética, e não um efeito peculiar a esta série: ele deve aparecer sempre que compósitos de fase forem montados sobre observações mensais de episódios plurianuais. A implicação prática é que diferenças de poucos pontos percentuais entre fases dificilmente se sustentam com séries dessa extensão, e que a evidência mais sólida aqui obtida, nos dois polos do gradiente, é também a que envolve os efeitos de maior magnitude.
 
-Algumas limitações devem ser explicitadas. O bootstrap em blocos com 8 ou 9 blocos é ele próprio impreciso: intervalos percentílicos construídos sobre tão poucas unidades têm cobertura apenas aproximada, e os valores de $p$ marginais reportados devem ser lidos como indicativos. A classificação em três fases descarta a intensidade dos episódios, que varia de um ONI de pico de 0,71 a 2,59 na série. A análise é correlacional e não separa o efeito do ENSO de outros modos de variabilidade que possam coincidir com ele no período, como a Oscilação Decadal do Pacífico \citep{kayano2007}. A PSN e a evapotranspiração provêm de algoritmos MODIS que compartilham entradas, de modo que a mediação não constitui evidência independente. Por fim, a temperatura da superfície não passou por filtro de qualidade pela banda QC\_Day, e a sensibilidade da série a esse filtro não foi avaliada.
+Algumas limitações devem ser explicitadas. O bootstrap em blocos com 8 ou 9 blocos é ele próprio impreciso: intervalos percentílicos construídos sobre tão poucas unidades têm cobertura apenas aproximada, e os valores de $p$ marginais reportados devem ser lidos como indicativos. A classificação em três fases descarta a intensidade dos episódios, que varia de um ONI de pico de 0,71 a 2,59 na série. A análise é correlacional e não separa o efeito do ENSO de outros modos de variabilidade que possam coincidir com ele no período, como a Oscilação Decadal do Pacífico \citep{kayano2007}. A PSN e a evapotranspiração provêm de algoritmos MODIS que compartilham entradas, de modo que a mediação não constitui evidência independente. A unidade temporal é uma janela de cerca de 32 dias atribuída a um mês de referência, e não o mês civil, de modo que a fronteira entre fases do ENSO tem a resolução dessa janela. Por fim, a temperatura da superfície não passou por filtro de qualidade pela banda QC\_Day, e a sensibilidade da série a esse filtro não foi avaliada.
 
 Duas direções decorrem do exposto. A primeira é estender a série para trás do início do registro MODIS, por produtos de sensores anteriores ou por reconstruções, ou aumentar a replicação espacial analisando sub-regiões dentro de cada bioma, de modo a elevar o número de unidades independentes disponíveis. A segunda é metodológica: compósitos de fase do ENSO construídos sobre séries mensais ganham em transparência quando acompanhados de alguma forma de inferência que respeite a estrutura temporal, seja por bootstrap em blocos, por testes de permutação sobre rótulos de episódio ou por correção do tamanho amostral efetivo \citep{kunsch1989, politis1994}, cujo custo computacional é baixo.
 
 \section{Conclusões}
 
-A fotossíntese líquida dos três biomas da Bahia responde às fases do ENSO de forma assimétrica e específica de cada bioma. A Mata Atlântica responde à fase quente, com redução média de 5,4~p.p.\ e multiplicação por quase cinco da frequência de meses extremamente baixos, acompanhando um aquecimento da superfície de cerca de 0,9~$^{\circ}$C. O Cerrado e a Caatinga apresentaram anomalias positivas de PSN durante a fase fria, de 11,7 e 10,4~p.p., respectivamente, acompanhadas de anomalias positivas de evapotranspiração e de disponibilidade hídrica, e não do total precipitado no mês. Sob inferência baseada em episódios, o efeito permaneceu distinguível de zero na Caatinga, enquanto no Cerrado a direção foi mantida, mas com maior incerteza. O modelo climático reproduz de 57\% a 94\% da magnitude observada, pela via térmica no bioma úmido e pela hídrica nos sazonais, e a defasagem da resposta vai de zero meses na Caatinga a dez no Cerrado. Nenhum bioma apresenta tendência interanual significativa no período.
+A fotossíntese líquida dos três biomas da Bahia responde às fases do ENSO de forma assimétrica e específica de cada bioma. A Mata Atlântica responde à fase quente, com redução média de 5,4~p.p.\ e multiplicação por quase cinco da frequência de meses extremamente baixos, acompanhando um aquecimento da superfície de cerca de 0,9~$^{\circ}$C. O Cerrado e a Caatinga respondem à fase fria, com aumentos de 11,7 e 10,4~p.p., acompanhados de anomalias positivas de evapotranspiração e de disponibilidade hídrica, e não do total precipitado no mês. O modelo climático reproduz de 57\% a 94\% da magnitude observada, pela via térmica no bioma úmido e pela hídrica nos sazonais, e a defasagem da resposta vai de zero meses na Caatinga a dez no Cerrado. Nenhum bioma apresenta tendência interanual significativa no período.
 
-Quando a unidade amostral passa do mês para o episódio, o padrão assimétrico se mantém e nenhum resultado troca de sinal, mas os intervalos de confiança alargam-se 1,67 vez em mediana e permanecem distinguíveis de zero apenas três efeitos, entre os quais os dois polos do gradiente. Os resultados caracterizam, portanto, três regimes distintos de associação entre o ENSO e a produtividade, e indicam que sua magnitude deve ser reportada com a precisão que o número de episódios, e não o de meses, permite.
+Quando a unidade amostral passa do mês para o episódio, o padrão assimétrico se mantém e nenhum resultado troca de sinal, mas os intervalos de confiança alargam-se 1,67 vez em mediana e apenas três efeitos mantêm $p$ abaixo de 0,05, entre os quais os dois polos do gradiente. Nenhum deles sobrevive à correção para comparações múltiplas. Os resultados caracterizam, portanto, três regimes distintos de associação entre o ENSO e a produtividade, e indicam que sua magnitude deve ser reportada com a precisão que o número de episódios, e não o de meses, permite. Estabelecer qualquer um desses efeitos isoladamente exigirá séries mais longas ou maior replicação espacial.
 
 \section*{Disponibilidade de dados}
 A base mensal (297 períodos por bioma, 2001--2025), o código em Python de todas as análises aqui reportadas e os resultados da rodada completa estão disponíveis em \url{https://github.com/heroslore/MRMP-N-PSN-Bahia} e arquivados de forma permanente no Zenodo sob o DOI \url{https://doi.org/10.5281/zenodo.22883915}, que resolve sempre para a versão mais recente do arquivo. A base é também fornecida como material suplementar (arquivo CSV).

@@ -99,12 +99,39 @@ for b in ['MA', 'CE', 'CA']:
                 sig_iid=bool(lo_i > 0 or hi_i < 0), sig_blk=bool(lo_b > 0 or hi_b < 0)))
 
 T = pd.DataFrame(linhas)
+
+# ------------------------------------------------ correcao para comparacoes multiplas
+# Sao 30 testes (5 variaveis x 3 biomas x 2 fases) em cada esquema. Os valores de p
+# brutos do bootstrap nao levam isso em conta; aplica-se Benjamini-Hochberg com taxa
+# de falsas descobertas de 5%, sobre a familia dos 30 testes e, separadamente, sobre
+# a familia restrita dos 6 testes da PSN, que e a variavel resposta do estudo.
+def bh(p, q=0.05):
+    p = np.asarray(p, float); n = len(p); o = np.argsort(p); ps = p[o]
+    sig = np.zeros(n, bool)
+    k = np.where(ps <= (np.arange(1, n + 1) / n) * q)[0]
+    if len(k):
+        sig[o[:k.max() + 1]] = True
+    adj = np.minimum.accumulate((ps * n / np.arange(1, n + 1))[::-1])[::-1]
+    qv = np.empty(n); qv[o] = np.minimum(adj, 1.0)
+    return sig, qv
+
+for col in ['p_iid', 'p_blk']:
+    sig, qv = bh(T[col].values)
+    T['q30_' + col] = qv.round(4)
+    T['bh30_' + col] = sig
+    m = T.variavel == 'PSN'
+    sig6, qv6 = bh(T.loc[m, col].values)
+    T.loc[m, 'q6_' + col] = np.round(qv6, 4)
+    T.loc[m, 'bh6_' + col] = sig6
+
 T.to_csv(os.path.join(OUT, 'bootstrap_unidade_amostral.csv'), index=False, encoding='utf-8')
 meta = dict(n_meses=n_meses, n_blocos=n_blocos, duracao_blocos=dur, B=B, seed=SEED,
             razao_largura_mediana=float(T.razao_largura.median()),
             razao_largura_min=float(T.razao_largura.min()),
             razao_largura_max=float(T.razao_largura.max()),
-            n_sig_iid=int(T.sig_iid.sum()), n_sig_blk=int(T.sig_blk.sum()), n_testes=len(T))
+            n_sig_iid=int(T.sig_iid.sum()), n_sig_blk=int(T.sig_blk.sum()), n_testes=len(T),
+            n_bh30_iid=int(T.bh30_p_iid.sum()), n_bh30_blk=int(T.bh30_p_blk.sum()),
+            n_bh6_iid=int(T.bh6_p_iid.fillna(False).sum()), n_bh6_blk=int(T.bh6_p_blk.fillna(False).sum()))
 json.dump(meta, open(os.path.join(OUT, 'bootstrap_unidade_amostral_meta.json'), 'w', encoding='utf-8'),
           ensure_ascii=False, indent=1)
 
@@ -115,6 +142,8 @@ print()
 print(T[T.variavel == 'PSN'][['bioma', 'fase', 'delta_pct', 'iid_inf', 'iid_sup', 'p_iid',
                               'blk_inf', 'blk_sup', 'p_blk', 'razao_largura']].to_string(index=False))
 print()
-print('significativos: i.i.d. %d/%d | blocos %d/%d' % (meta['n_sig_iid'], len(T), meta['n_sig_blk'], len(T)))
+print('p bruto < 0,05: i.i.d. %d/%d | blocos %d/%d' % (meta['n_sig_iid'], len(T), meta['n_sig_blk'], len(T)))
+print('apos Benjamini-Hochberg (30 testes): i.i.d. %d | blocos %d' % (meta['n_bh30_iid'], meta['n_bh30_blk']))
+print('apos Benjamini-Hochberg (6 testes de PSN): i.i.d. %d | blocos %d' % (meta['n_bh6_iid'], meta['n_bh6_blk']))
 print('alargamento do IC: mediana %.2fx (min %.2f, max %.2f)' %
       (meta['razao_largura_mediana'], meta['razao_largura_min'], meta['razao_largura_max']))
