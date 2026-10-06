@@ -1,0 +1,19 @@
+﻿bioma,versao,fase,n,anomalia_media_C,anomalia_media_pct,p_mannwhitney_vs_neutro,p_kruskal,pct_meses_acima_P90,pct_neutro_acima_P90
+Mata Atlântica,sem filtro,El Niño,76,0.8881,3.0425,0.0,0.0,25.0,5.4054
+Mata Atlântica,sem filtro,La Niña,73,-0.1887,-0.5665,0.2526,0.0,4.1096,5.4054
+Mata Atlântica,erro ≤ 3 K,El Niño,76,0.8881,3.0425,0.0,0.0,25.0,5.4054
+Mata Atlântica,erro ≤ 3 K,La Niña,73,-0.1887,-0.5665,0.2526,0.0,4.1096,5.4054
+Mata Atlântica,boa qualidade,El Niño,76,0.7757,2.5374,0.0007,0.0003,22.3684,6.7568
+Mata Atlântica,boa qualidade,La Niña,73,-0.1916,-0.554,0.3051,0.0003,4.1096,6.7568
+Cerrado,sem filtro,El Niño,76,0.4321,1.3774,0.1985,0.0336,19.7368,6.7568
+Cerrado,sem filtro,La Niña,73,-0.3292,-1.0072,0.0785,0.0336,6.8493,6.7568
+Cerrado,erro ≤ 3 K,El Niño,76,0.4321,1.3774,0.1985,0.0336,19.7368,6.7568
+Cerrado,erro ≤ 3 K,La Niña,73,-0.3292,-1.0072,0.0785,0.0336,6.8493,6.7568
+Cerrado,boa qualidade,El Niño,76,0.3961,1.2514,0.2031,0.0474,19.7368,6.7568
+Cerrado,boa qualidade,La Niña,73,-0.2746,-0.8321,0.1071,0.0474,6.8493,6.7568
+Caatinga,sem filtro,El Niño,76,0.4899,1.5013,0.1107,0.0011,15.7895,9.4595
+Caatinga,sem filtro,La Niña,73,-0.7171,-2.1329,0.0122,0.0011,5.4795,9.4595
+Caatinga,erro ≤ 3 K,El Niño,76,0.4899,1.5013,0.1107,0.0011,15.7895,9.4595
+Caatinga,erro ≤ 3 K,La Niña,73,-0.7171,-2.1329,0.0122,0.0011,5.4795,9.4595
+Caatinga,boa qualidade,El Niño,76,0.4641,1.4152,0.1187,0.0006,17.1053,9.4595
+Caatinga,boa qualidade,La Niña,73,-0.69,-2.0376,0.0052,0.0006,4.1096,9.4595
