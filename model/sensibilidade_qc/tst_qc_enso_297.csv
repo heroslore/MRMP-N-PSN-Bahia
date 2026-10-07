@@ -1,0 +1,19 @@
+bioma,versao,fase,n,n_episodios,anomalia_media_C,anomalia_media_pp,p_mannwhitney,ic_blk_inf,ic_blk_sup,p_bootstrap_blocos,pct_acima_P90,pct_neutro_acima_P90,q_mw,bh_mw
+Mata Atlântica,sem filtro,El Niño,76,8,0.8954,3.0656,1.953e-05,0.868,5.32,0.0058,25.0,5.37,0.0001,True
+Mata Atlântica,sem filtro,La Niña,72,9,-0.1689,-0.5031,0.3217,-2.354,1.906,0.6952,4.17,5.37,0.3217,False
+Mata Atlântica,erro ≤ 3 K,El Niño,76,8,0.8954,3.0656,1.953e-05,0.867,5.287,0.0066,25.0,5.37,0.0001,True
+Mata Atlântica,erro ≤ 3 K,La Niña,72,9,-0.1689,-0.5031,0.3217,-2.37,1.926,0.6984,4.17,5.37,0.3217,False
+Mata Atlântica,boa qualidade,El Niño,76,8,0.7844,2.5633,0.0006109,-0.183,5.233,0.0708,22.37,6.71,0.0037,True
+Mata Atlântica,boa qualidade,La Niña,72,9,-0.1675,-0.4823,0.3869,-2.473,2.212,0.7268,4.17,6.71,0.3869,False
+Cerrado,sem filtro,El Niño,76,8,0.4213,1.3493,0.2167,-2.325,4.982,0.5162,19.74,6.71,0.26,False
+Cerrado,sem filtro,La Niña,72,9,-0.367,-1.1072,0.04939,-3.672,2.223,0.519,6.94,6.71,0.0988,False
+Cerrado,erro ≤ 3 K,El Niño,76,8,0.4213,1.3493,0.2167,-2.333,4.96,0.5262,19.74,6.71,0.26,False
+Cerrado,erro ≤ 3 K,La Niña,72,9,-0.367,-1.1072,0.04939,-3.742,2.189,0.4838,6.94,6.71,0.0988,False
+Cerrado,boa qualidade,El Niño,76,8,0.3871,1.228,0.2208,-2.313,4.731,0.5462,19.74,6.71,0.265,False
+Cerrado,boa qualidade,La Niña,72,9,-0.3062,-0.9154,0.07379,-3.491,2.413,0.5768,6.94,6.71,0.1476,False
+Caatinga,sem filtro,El Niño,76,8,0.4927,1.5084,0.1051,-1.791,5.266,0.383,15.79,9.4,0.1577,False
+Caatinga,sem filtro,La Niña,72,9,-0.7185,-2.14,0.01276,-5.291,1.961,0.335,5.56,9.4,0.0383,True
+Caatinga,erro ≤ 3 K,El Niño,76,8,0.4927,1.5084,0.1051,-1.697,5.237,0.3798,15.79,9.4,0.1577,False
+Caatinga,erro ≤ 3 K,La Niña,72,9,-0.7185,-2.14,0.01276,-5.299,1.996,0.3244,5.56,9.4,0.0383,True
+Caatinga,boa qualidade,El Niño,76,8,0.4628,1.4122,0.1192,-1.808,5.06,0.4114,17.11,9.4,0.1788,False
+Caatinga,boa qualidade,La Niña,72,9,-0.7033,-2.0753,0.004796,-4.948,1.754,0.3086,4.17,9.4,0.0144,True

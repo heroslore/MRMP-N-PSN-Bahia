@@ -36,20 +36,32 @@ em El Niño passa de +0,888 para +0,776 °C e permanece significativa
 22,4%. Na Caatinga, a anomalia de La Niña passa de -0,717 para -0,690 °C
 (p de 0,012 para 0,005). Nenhum efeito troca de sinal ou de significância.
 
-## Duas diferenças em relação à base do artigo
+## Recálculo sobre a base exata dos artigos
 
-Registradas para quem for comparar os números diretamente:
+A rodada de extração cobriu 300 períodos (até dezembro de 2025) e usou uma
+classificação ENSO própria, com 73 meses de La Niña. A base dos manuscritos
+termina em setembro de 2025 (297 períodos), porque a precipitação do IMERG V07
+foi encerrada nesse mês, e sua classificação tem 76 / 149 / 72.
 
-1. **A série aqui vai até dezembro de 2025** (300 períodos), enquanto a base
-   dos manuscritos termina em setembro de 2025 (297). A climatologia mensal de
-   outubro, novembro e dezembro difere, portanto, ligeiramente.
-2. **A classificação ENSO tem um mês de diferença**: 76 El Niño, 73 La Niña e
-   148 neutros, contra 76 / 72 / 149 nos manuscritos.
+`Recalcular_297.py` trunca as três versões em setembro de 2025 e refaz todos os
+indicadores com a climatologia e a classificação ENSO da própria base. Os
+resultados em `tst_qc_resumo_297.csv` e `tst_qc_enso_297.csv` são os citados nos
+manuscritos.
 
-Nenhuma das duas altera as conclusões, mas elas explicam por que a anomalia da
-Mata Atlântica aparece como +3,04 pontos percentuais aqui e +3,07 nos
-manuscritos. Uma nova rodada restrita a setembro de 2025 e à mesma tabela de ONI
-tornaria os valores diretamente citáveis.
+**Validação do reprocessamento.** A versão sem filtro reproduz a TST da base dos
+artigos com diferença máxima de 0,0005 °C e correlação de 1,000000 nos três
+biomas, o que confirma que a extração seguiu o mesmo protocolo. A anomalia da
+Mata Atlântica em El Niño sai como +3,07 pontos percentuais, idêntica à da
+Tabela 2 do artigo do ENSO.
+
+**Uma qualificação que só aparece no recálculo.** Sob o teste de posição com
+correção de Benjamini-Hochberg, a anomalia térmica da Mata Atlântica em El Niño
+sobrevive nas três versões (q = 0,0001, 0,0001 e 0,0037). Sob o bootstrap em
+blocos por episódio, que é o padrão do artigo do ENSO, ela sobrevive nas duas
+primeiras (p = 0,006 e 0,007) mas não na restritiva (p = 0,071), cujo intervalo
+passa a tocar o zero. O efeito não troca de sinal nem de magnitude, mas a
+afirmação de que resiste a todos os critérios vale para o teste de posição, não
+para a inferência por episódio.
 
 ## Arquivos
 

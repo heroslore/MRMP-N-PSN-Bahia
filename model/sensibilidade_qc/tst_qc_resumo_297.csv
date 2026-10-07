@@ -1,0 +1,19 @@
+bioma,versao,periodo,n_meses,dif_media_C,dif_mediana_C,rmse_C,r_pearson,maior_dif_abs_C,mes_maior_dif,pct_descartado_medio,pct_descartado_max,rho_anomalia_vs_descarte,rho_bruto_vs_descarte
+Mata Atlântica,erro ≤ 3 K,ano todo,297,0.0,0.0,0.0,1.0,0.0,2001-01,0.0,0.008,0.078,0.0542
+Mata Atlântica,erro ≤ 3 K,trimestre chuvoso,73,0.0,0.0,0.0,1.0,0.0,2001-01,0.0,0.0,,
+Mata Atlântica,erro ≤ 3 K,trimestre seco,74,0.0,0.0,0.0,1.0,0.0,2001-08,0.0001,0.008,0.1671,0.1069
+Mata Atlântica,boa qualidade,ano todo,297,1.3579,1.242,1.5084,0.982,4.147,2011-10,71.6604,94.791,-0.466,0.0837
+Mata Atlântica,boa qualidade,trimestre chuvoso,73,1.4587,1.371,1.5337,0.9686,2.794,2008-11,75.8844,93.374,-0.6705,-0.7085
+Mata Atlântica,boa qualidade,trimestre seco,74,2.0075,1.98,2.1193,0.9806,4.147,2011-10,70.5904,87.981,-0.5456,-0.2193
+Cerrado,erro ≤ 3 K,ano todo,297,0.0,0.0,0.0,1.0,0.0,2001-01,0.0,0.0,,
+Cerrado,erro ≤ 3 K,trimestre chuvoso,73,0.0,0.0,0.0,1.0,0.0,2001-01,0.0,0.0,,
+Cerrado,erro ≤ 3 K,trimestre seco,75,0.0,0.0,0.0,1.0,0.0,2001-06,0.0,0.0,,
+Cerrado,boa qualidade,ano todo,297,0.2257,0.092,0.3822,0.9966,2.451,2007-11,19.6706,69.096,-0.2577,-0.2134
+Cerrado,boa qualidade,trimestre chuvoso,73,0.3112,0.307,0.4899,0.9894,2.451,2007-11,33.313,69.029,-0.4679,-0.357
+Cerrado,boa qualidade,trimestre seco,75,0.0438,0.037,0.0531,0.9999,0.154,2009-06,1.4696,10.37,-0.191,-0.4294
+Caatinga,erro ≤ 3 K,ano todo,297,0.0,0.0,0.0,1.0,0.0,2001-01,0.0,0.0,,
+Caatinga,erro ≤ 3 K,trimestre chuvoso,73,0.0,0.0,0.0,1.0,0.0,2001-01,0.0,0.0,,
+Caatinga,erro ≤ 3 K,trimestre seco,75,0.0,0.0,0.0,1.0,0.0,2001-07,0.0,0.0,,
+Caatinga,boa qualidade,ano todo,297,0.6003,0.543,0.8124,0.9879,2.723,2017-09,36.3146,73.022,-0.3934,-0.421
+Caatinga,boa qualidade,trimestre chuvoso,73,0.1982,0.178,0.3897,0.9947,0.974,2016-01,38.8518,64.186,-0.514,-0.5847
+Caatinga,boa qualidade,trimestre seco,75,1.2295,1.219,1.3006,0.9916,2.723,2017-09,29.4999,42.494,-0.4569,-0.6801
