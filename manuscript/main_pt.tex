@@ -102,8 +102,7 @@ SAZsin, SAZcos & Componentes harmônicas do ciclo anual & adimensional & Derivad
 O MRMP-N segue a arquitetura de regressão polinomial de \citet{guimaraes2024}, adaptada ao contexto ambiental por três decisões: estimação por regressão Ridge com regularização L2 em substituição aos mínimos quadrados ordinários; determinação empírica do grau polinomial entre 1 e 5; e ampliação do protocolo de validação com esquemas temporais. A forma geral do modelo é dada pela Eq.~(\ref{eq:model}), em que $\hat{Y}$ é a PSN estimada, $X_i$ são os preditores padronizados, $\beta_i$ são os coeficientes lineares e $\beta_{ij}$ e $\beta_{ijk}$ os coeficientes dos termos quadráticos e de interação. Os coeficientes são estimados minimizando a função de perda penalizada da Eq.~(\ref{eq:loss}), em que $\alpha$ controla a penalização L2.
 \noindent\begin{minipage}{\columnwidth}
 \begin{align}
-\hat{Y} &= \beta_0 + \sum_i \beta_i X_i + \sum_{i \le j} \beta_{ij} X_i X_j \nonumber\\
-        &\quad + \sum_{i \le j \le k} \beta_{ijk} X_i X_j X_k + \dots \label{eq:model}\\
+\hat{Y} &= \beta_0 + \sum_i \beta_i X_i + \sum_{i \le j} \beta_{ij} X_i X_j + \sum_{i \le j \le k} \beta_{ijk} X_i X_j X_k + \dots \label{eq:model}\\
 L(\beta) &= \sum_{n=1}^{N} \left(Y_n - \hat{Y}_n\right)^2 + \alpha \sum_{p=1}^{P} \beta_p^2 \label{eq:loss}
 \end{align}
 \end{minipage}

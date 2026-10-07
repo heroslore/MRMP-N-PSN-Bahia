@@ -100,8 +100,7 @@ SAZsin, SAZcos & Harmonic components of the annual cycle & dimensionless & Deriv
 The MPRM-N follows the polynomial regression architecture of \citet{guimaraes2024}, adapted to the environmental context by three decisions: estimation by Ridge regression with L2 regularization instead of ordinary least squares; empirical determination of the polynomial degree between 1 and 5; and extension of the validation protocol with temporal schemes. The general form of the model is given by Eq.~(\ref{eq:model}), where $\hat{Y}$ is the estimated PSN, $X_i$ are the standardized predictors, $\beta_i$ are the linear coefficients and $\beta_{ij}$ and $\beta_{ijk}$ the coefficients of quadratic and interaction terms. Coefficients are estimated by minimizing the penalized loss function of Eq.~(\ref{eq:loss}), where $\alpha$ controls the L2 penalty.
 \noindent\begin{minipage}{\columnwidth}
 \begin{align}
-\hat{Y} &= \beta_0 + \sum_i \beta_i X_i + \sum_{i \le j} \beta_{ij} X_i X_j \nonumber\\
-        &\quad + \sum_{i \le j \le k} \beta_{ijk} X_i X_j X_k + \dots \label{eq:model}\\
+\hat{Y} &= \beta_0 + \sum_i \beta_i X_i + \sum_{i \le j} \beta_{ij} X_i X_j + \sum_{i \le j \le k} \beta_{ijk} X_i X_j X_k + \dots \label{eq:model}\\
 L(\beta) &= \sum_{n=1}^{N} \left(Y_n - \hat{Y}_n\right)^2 + \alpha \sum_{p=1}^{P} \beta_p^2 \label{eq:loss}
 \end{align}
 \end{minipage}
