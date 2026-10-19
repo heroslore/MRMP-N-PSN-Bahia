@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
 """Consolida números dos logs/CSVs em resultados_2001_2025/ (numeros_extra.json, enso_resumo.json)
 e incorpora a rodada da Mata Atlântica com EV+TST+WAI (log separado)."""
-import os, re, json, shutil, sys
+import os, re, json, shutil, sys, argparse
 import pandas as pd, numpy as np
 BASE = os.path.dirname(os.path.abspath(__file__)); RES = os.path.join(BASE, 'resultados_2001_2025')
-SCR = '/tmp/claude-0/-home-user-Controle-Gas/b644115f-efef-5303-8a82-3af14e08b70e/scratchpad'
-LOG_MA = os.path.join(SCR, 'modelo_MA_wai.log')
+# Log da rodada da Mata Atlântica com EV+TST+WAI (Modelo_PSN.py com BIOMA_ATIVO=MA); por padrão,
+# model/modelo_MA_wai.log. Uso: python3 consolidar_resultados.py [--log-ma CAMINHO]
+ap = argparse.ArgumentParser(); ap.add_argument('--log-ma', default=os.path.join(BASE, 'modelo_MA_wai.log'))
+LOG_MA = ap.parse_args().log_ma
 rg = pd.read_csv(os.path.join(RES, 'resumo_geral.csv'))
 
 def num(pat, txt, grp=1, cast=float):

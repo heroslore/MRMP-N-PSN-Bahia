@@ -177,7 +177,7 @@ dissertação sem nenhum número digitado à mão.
 
 ## 12. Robustez da seleção, importância por permutação e nulos temporais (`Robustez_Selecao_PSN.py`)
 
-Rodado em 22/09/2026 em resposta à revisão do artigo (JSAES). Mesmo pipeline e semente do modelo.
+Rodado em 22/09/2026. Mesmo pipeline e semente do modelo.
 Saídas em `robustez/`; Tabelas A7–A10 da dissertação.
 
 **Grau polinomial por esquema (R² de teste, %)**
