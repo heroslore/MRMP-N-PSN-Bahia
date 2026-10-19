@@ -1365,7 +1365,7 @@ R2 de Teste = 75.76
 150 / 150  100.0 %
 Tempo restante 0:00:00
 
-Diretório atual: /home/user/Controle-Gas/dissertacao_PSN
+Diretório atual: .
 
 ===== ESTATÍSTICAS GERAIS =====
 R2 Treino médio: 78.84

@@ -79,8 +79,10 @@ Figuras 3 e 4 de `figuras_artigo2/`), `Figura_Conceitual.py` (Figura 5 do artigo
 A base bruta `base_final_2001_2025_plan1_excel_ptbr.csv` foi extraída no Google Earth Engine (MODIS 6.1 e IMERG V07);
 a rotina de extração não faz parte deste repositório, de modo que a série mensal é o ponto de partida da reprodução.
 
-As figuras e os resultados de `resultados_2001_2025/`, `figuras_dissertacao/` e `figuras_artigo2/` foram regenerados com o
-código desta versão (os valores numéricos são os mesmos da rodada sequencial de 21/09/2026 descrita em
-`resultados_2001_2025/RESULTADOS.md`; mudam só os rótulos das figuras). Os logs `log_modelo_psn.txt` e
-`log_modelo_psn_MA_EV_TST_WAI.txt` são registros de rodadas anteriores e foram mantidos como estavam, exceto pelo prefixo
-dos caminhos de pasta, substituído por `.`.
+As figuras de `resultados_2001_2025/`, `figuras_dissertacao/` e `figuras_artigo2/`, os logs `log_modelo_psn_completo.txt`,
+`log_analise_biomas.txt` e `log_robustez.txt`, o `resumo_geral.csv` e o `selecao_grau.csv` foram regenerados com o código desta
+versão; os valores numéricos são os mesmos da rodada sequencial de 21/09/2026 descrita em `resultados_2001_2025/RESULTADOS.md`
+(mudam os rótulos das figuras e as mensagens do console). Os logs `log_modelo_psn.txt` e `log_modelo_psn_MA_EV_TST_WAI.txt` são
+registros de rodadas anteriores, mantidos como estavam, exceto pelo prefixo dos caminhos de pasta, substituído por `.`.
+As tabelas de `resultados_2001_2025/interanual/` incluem a comparação com o NPP anual do MOD17A3HGF, lida de um arquivo que não
+faz parte deste repositório (`NPP_CSV` no `Analise_Interanual_PSN.py`); sem ele, o script deixa essas colunas vazias.

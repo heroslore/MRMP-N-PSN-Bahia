@@ -6,6 +6,8 @@ Base: `base_final_2001_2025_plan1_excel_ptbr.csv`, 300 linhas; removidas
 out/nov/dez de 2025 (precipitação ainda não publicada) → 297 linhas.
 Logs completos em `log_modelo_psn.txt` e `log_analise_biomas.txt`.
 
+**Atualização de 18/10/2026:** as figuras desta pasta, os logs `log_modelo_psn_completo.txt`, `log_analise_biomas.txt` e `log_robustez.txt`, o `resumo_geral.csv` e o `selecao_grau.csv` foram regenerados com o código desta versão do repositório (mudam os rótulos das figuras e as mensagens do console). Os valores numéricos são os mesmos registrados abaixo; o `resumo_geral.csv` não tem mais a coluna `yrand_status`, e o `selecao_grau.csv` lista os biomas na ordem MA, CE, CA.
+
 ## 1. Desempenho do modelo (RepeatedKFold, 150 rodadas)
 
 | Bioma | R² treino | R² teste | IC95% teste | Gap (pp) | RMSE | MAE | GroupKFold ano | TimeSeriesSplit | Queda TS (pp) |

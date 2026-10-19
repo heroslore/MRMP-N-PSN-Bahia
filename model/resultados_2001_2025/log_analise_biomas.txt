@@ -3,7 +3,7 @@ Fase ENSO: classificação oficial NOAA (ONI >= |0,5| por >= 5 trimestres consec
 ===== PREPARAÇÃO DA BASE (a partir do CSV) =====
 Arquivo lido: base_final_2001_2025_plan1_excel_ptbr.csv
 Linhas originais: 300
-Linhas removidas (precipitação ausente — dado ainda não publicado pela NASA):
+Linhas removidas (precipitação ausente: dado ainda não publicado pela NASA):
  ANO  MÊS
 2025   10
 2025   11

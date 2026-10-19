@@ -1366,7 +1366,7 @@ R2 de Teste = 97.05
 R2 de Treino = 95.58
 R2 de Teste = 91.46
 
-Diretório atual: /home/user/Controle-Gas/dissertacao_PSN
+Diretório atual: .
 
 ===== ESTATÍSTICAS GERAIS =====
 R2 Treino médio: 95.19
@@ -1386,7 +1386,7 @@ Intervalo empírico 95% R² Teste: [90.79% - 96.25%]
 R2 de Treino = 97.42
 R2 de Teste = 95.97
 
-Diretório atual: /home/user/Controle-Gas/dissertacao_PSN
+Diretório atual: .
 
 ===== ESTATÍSTICAS GERAIS =====
 R2 Treino médio: 97.25
@@ -1410,7 +1410,7 @@ Intervalo empírico 95% R² Teste: [95.40% - 97.71%]
 R2 de Treino = 75.92
 R2 de Teste = 74.64
 
-Diretório atual: /home/user/Controle-Gas/dissertacao_PSN
+Diretório atual: .
 
 ===== ESTATÍSTICAS GERAIS =====
 R2 Treino médio: 76.1
