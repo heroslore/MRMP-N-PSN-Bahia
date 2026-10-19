@@ -15,8 +15,8 @@ authors:
     given-names: Fabrício Berton
     orcid: "https://orcid.org/0000-0002-8074-2893"
     affiliation: "Federal University of Southern Bahia / Federal Institute of Bahia (PPGCTA)"
-version: "1.0.1"
-date-released: "2026-09-21"
+version: "1.1.0"
+date-released: "2026-10-19"
 license: MIT
 repository-code: "https://github.com/heroslore/MRMP-N-PSN-Bahia"
 doi: "10.5281/zenodo.22883915"
