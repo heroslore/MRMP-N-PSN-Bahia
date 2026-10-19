@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "If you use this code or dataset, please cite the manuscript below."
+message: "If you use this code or dataset, please cite this repository (concept DOI). The manuscript below is in preparation."
 title: "MRMP-N: regularized polynomial regression of MODIS net photosynthesis across the Atlantic Forest, Cerrado and Caatinga of Bahia, Brazil (2001-2025)"
 type: software
 authors:
@@ -42,5 +42,5 @@ preferred-citation:
       given-names: Nayanne Silva
     - family-names: Zanchi
       given-names: Fabrício Berton
-  journal: "Journal of South American Earth Sciences (submitted)"
+  status: in-preparation
   year: 2026

@@ -20,8 +20,12 @@ Scripts of the MRMP-N and of all the validations reported in the manuscript and 
 | `Robustez_Selecao_PSN.py` | Atalho que roda só o bloco de robustez do `Modelo_PSN.py` (função `rodar_robustez`): seleção de grau e de variáveis sob GroupKFold/TimeSeriesSplit, estabilidade partição a partição, importância por permutação por bloco temporal e nulos temporais (Tabelas A7–A10; `resultados_2001_2025/robustez/`). |
 | `coletar_resultados.py` | Lê os logs de uma rodada completa e sequencial e grava resumo_geral, VIF, graus, JSONs e figuras por bioma. |
 | `reproduzir_tudo.sh` | Roda a cadeia inteira, da base bruta ao Word/PDF. |
-| `Figuras_Dissertacao.py` | Monta as figuras da dissertação em `figuras_dissertacao/` a partir de `resultados_2001_2025/`. |
+| `Figuras_Dissertacao.py` | Monta as figuras da dissertação em `figuras_dissertacao/` a partir de `resultados_2001_2025/`; com `FIG_IDIOMA=EN`, grava as Figs. 2 a 5 do artigo do modelo em inglês em `figuras_artigo1/en/` (em PT, copia as mesmas figuras para `figuras_artigo1/pt/`). |
 | `resultados_2001_2025/` | Resultados da rodada com a base 2001–2025 (ver `RESULTADOS.md`). |
+| `dissertacao/` | Versão da dissertação da análise do ENSO (`Analise_ENSO_Anomalias_PSN_dissertacao.py`), que gera as Tabelas A11 e A12 da dissertação; ver `dissertacao/README.md`. |
+| `sensibilidade/` | Scripts das análises complementares de sensibilidade citadas na dissertação (`auditoria_comum.py`, `t01` a `t06`); ver `sensibilidade/README.md`. |
+| `sensibilidade_qc/` | Sensibilidade da TST ao filtro QC_Day do MOD11A2; ver `sensibilidade_qc/LEIA-ME.md`. |
+| `Figura_Area_Estudo.py` | Figura 1 do artigo do ENSO (mapa dos biomas e climatologia de precipitação), em `figuras_artigo2/`. |
 
 ## Como rodar
 

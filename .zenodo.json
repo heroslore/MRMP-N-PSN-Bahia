@@ -17,7 +17,7 @@
       "orcid": "0000-0002-8074-2893"
     }
   ],
-  "description": "Manuscript sources, model code (Python) and monthly database (2001-2025) of the MRMP-N, a degree-2 polynomial Ridge regression of MODIS net photosynthesis for the three biomes of Bahia State, Brazil.",
+  "description": "Manuscript sources (in preparation), model code (Python) and monthly database (2001-2025) of the MRMP-N, a degree-2 polynomial Ridge regression of MODIS net photosynthesis for the three biomes of Bahia State, Brazil, including the scripts of the first author's master's dissertation (PPGCTA, UFSB/IFBA): dissertation version of the ENSO analysis and complementary sensitivity analyses.",
   "license": "MIT",
   "keywords": [
     "MODIS",
