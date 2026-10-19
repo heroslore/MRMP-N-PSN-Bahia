@@ -44,7 +44,6 @@ for b in ['MA', 'CE', 'CA']:
         yrand_diferenca_pp=num(r'Diferença \(Δ CV\)\s*: ([\d.]+) pp', t), yrand_p_empirico=num(r'p-valor empírico unilateral\s*: ([\d.]+)', t))
     r['gap_overfitting_pp'] = round(r['r2_treino_medio'] - r['r2_teste_medio'], 2)
     r['residuos_normais'] = 'Sim' if r['shapiro_p'] > 0.05 else 'Não'
-    r['yrand_status'] = 'APROVADO' if (r['yrand_diferenca_pp'] or 0) >= 60 else 'VERIFICAR'
     r['arquivo_coef'] = f'coeficientes_ridge_{b}.csv'
     blk = re.search(r'===== VIF =====\n(.*?)\nAlpha', t, flags=re.S).group(1)
     vv = re.findall(r'\d+\s+(\S+)\s+([\d.]+)', blk); r['vif_max'] = max(float(x) for _, x in vv)
@@ -69,7 +68,8 @@ for b in ['MA', 'CE', 'CA']:
 pd.DataFrame(rows).to_csv(os.path.join(OUT, 'resumo_geral.csv'), index=False)
 pd.DataFrame(vifs).to_csv(os.path.join(OUT, 'vif_por_bioma.csv'), index=False)
 if graus:
-    pd.DataFrame(graus, columns=['bioma', 'grau', 'termos', 'r2_treino', 'r2_teste', 'r2_teste_dp', 'gap_pp', 'rmse', 'ic_lo', 'ic_hi']).to_csv(os.path.join(OUT, 'selecao_grau.csv'), index=False)
+    # cabeçalho igual ao que o Figuras_Dissertacao.py lê
+    pd.DataFrame(graus, columns=['bioma', 'grau', 'termos', 'r2_treino', 'r2_teste', 'dp_teste', 'gap_pp', 'rmse', 'ic_inf', 'ic_sup']).to_csv(os.path.join(OUT, 'selecao_grau.csv'), index=False)
 imp = {}
 for b in ['MA', 'CE', 'CA']:
     c = pd.read_csv(os.path.join(OUT, b, f'coeficientes_ridge_{b}.csv')); acc = {}

@@ -27,7 +27,8 @@ if os.path.exists(LOG_MA):
         'queda_groupkfold_pp': num(r'Queda RKF:GroupKFold\s*: ([-+\d.]+) pp', t), 'queda_timeseries_pp': num(r'Queda RKF:TimeSeries\s*: ([-+\d.]+) pp', t),
         'shapiro_p': num(r'Shapiro-Wilk: stat=[\d.]+, p=([\d.]+)', t), 'ljungbox_p': num(r'Ljung-Box\(12\): p=([\d.]+)', t),
         'acf_lag1': num(r'ACF lag1=([-+\d.]+)', t), 'yrand_diferenca_pp': num(r'Diferença \(Δ CV\)\s*: ([\d.]+) pp', t),
-        'yrand_p_empirico': num(r'p-valor empírico unilateral\s*: ([\d.]+)', t), 'yrand_status': 'APROVADO', 'arquivo_coef': 'coeficientes_ridge_MA.csv',
+        'yrand_p_empirico': num(r'p-valor empírico unilateral\s*: ([\d.]+)', t), 'arquivo_coef': 'coeficientes_ridge_MA.csv',
+        # Da Y-randomization ficam o Δ (yrand_diferenca_pp) e o p empírico.
     }
     upd['gap_overfitting_pp'] = round(upd['r2_treino_medio'] - upd['r2_teste_medio'], 2)
     upd['residuos_normais'] = 'Sim' if upd['shapiro_p'] > 0.05 else 'Não'

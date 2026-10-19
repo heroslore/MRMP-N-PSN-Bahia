@@ -18,7 +18,8 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
-from PIL import Image
+from PIL import Image, ImageDraw, ImageFont
+import matplotlib.font_manager as fm
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 FIG = os.path.join(BASE, 'figuras_artigo2')
@@ -42,7 +43,23 @@ fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(11.0, 4.6),
                                gridspec_kw={'width_ratios': [1.0, 1.25]})
 
 # (a) mapa
-ax1.imshow(np.asarray(Image.open(MAPA).convert('RGB')))
+# A linha de fonte embutida no raster do mapa e reescrita com virgula entre "IBGE" e
+# "Biomas (2019)". Somente a faixa dessa linha (linhas 955 a 977 do
+# raster 1261x984, x de 180 a 1080, so texto sobre fundo branco) e apagada e o
+# texto e reescrito em DejaVu Sans, mesma cor cinza, mesma posicao, com virgula.
+# Nenhum pixel do mapa (areas, contornos, legenda, eixos) e alterado.
+mapa_img = Image.open(MAPA).convert('RGB')
+_arr = np.asarray(mapa_img).copy()
+assert _arr.shape == (984, 1261, 3)
+assert _arr[955:978, :180].min() > 240 and _arr[955:978, 1080:].min() > 240
+_arr[955:978, 180:1080] = 255
+mapa_img = Image.fromarray(_arr)
+FONTE_TXT = ('Fonte: IBGE, Biomas (2019) e limite estadual (2020). Datum SIRGAS 2000 '
+             '(EPSG:4674). Contorno da América do Sul: Natural Earth.')
+ImageDraw.Draw(mapa_img).text(
+    (193, 970), FONTE_TXT, fill=(87, 87, 87), anchor='ls',
+    font=ImageFont.truetype(fm.findfont('DejaVu Sans'), 12.6))
+ax1.imshow(np.asarray(mapa_img))
 ax1.set_axis_off()
 ax1.set_title('(a) Biomas da Bahia', fontsize=11.5, pad=8)
 
@@ -56,12 +73,13 @@ for b in ['MA', 'CE', 'CA']:
 # trimestre chuvoso comum aos tres biomas (nov-dez-jan)
 for x0, x1 in [(0.5, 1.5), (10.5, 12.5)]:
     ax2.axvspan(x0, x1, color='#0077BB', alpha=0.08, lw=0, zorder=0)
-ax2.text(12.0, ax2.get_ylim()[1] * 0.96, 'trimestre\nchuvoso', fontsize=9,
-         color=TINTA2, ha='right', va='top', linespacing=1.3)
+# rotulo na base da faixa N-D, regiao sem curvas
+ax2.text(11.5, 4.0, 'trimestre\nchuvoso', fontsize=9,
+         color=TINTA2, ha='center', va='bottom', linespacing=1.3)
 ax2.set_xticks(range(1, 13)); ax2.set_xticklabels(MESES)
 ax2.set_xlim(0.4, 12.6)
 ax2.set_ylabel('precipitação média do período (mm)')
-ax2.set_title('(b) Climatologia de precipitação, 2001–2025', fontsize=11.5, pad=8)
+ax2.set_title('(b) Climatologia de precipitação, 2001 a 2025', fontsize=11.5, pad=8)
 ax2.spines['top'].set_visible(False); ax2.spines['right'].set_visible(False)
 ax2.grid(axis='y', color=GRADE, lw=0.7, zorder=0); ax2.set_axisbelow(True)
 ax2.legend(handles=[Line2D([], [], color=COR[n], lw=2.4, marker='o', ms=5.5, mec='white',
@@ -71,3 +89,9 @@ fig.tight_layout()
 fig.savefig(os.path.join(FIG, 'fig1_area_estudo.png'), dpi=300, bbox_inches='tight')
 print('precipitação anual climatológica (mm):', {k: round(v) for k, v in anual.items()})
 print('figura em', os.path.join(FIG, 'fig1_area_estudo.png'))
+# registro dos valores plotados
+_clim = pd.DataFrame({b: d.groupby('MÊS')[f'PRE_{b}'].mean() for b in ['MA', 'CE', 'CA']})
+_clim.to_csv(os.path.join(FIG, 'valores_plotados_fig1.csv'), float_format='%.6f')
+print('climatologia mensal (mm):')
+print(_clim.round(3).to_string())
+print('anual exato (mm):', {k: round(v, 3) for k, v in anual.items()})

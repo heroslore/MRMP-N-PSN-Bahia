@@ -12,10 +12,10 @@ dispersão PSN x variáveis ambientais.
 BASE DE DADOS DE ENTRADA
 -------------------------------------------------------------------------------
 Basta colocar o CSV bruto atualizado (base_final_2001_2025_plan1_excel_ptbr.csv)
-na mesma pasta do script e rodar — o script detecta o CSV sozinho, renomeia as
+na mesma pasta do script e rodar: o script detecta o CSV sozinho, renomeia as
 colunas para o padrão interno, remove as linhas com precipitação ainda não
 publicada pela NASA, calcula a fase ENSO (La Niña / Neutro / El Niño) a partir
-do ONI, e salva o Excel (Dados_base_nova_2001_2025.xlsx) que o script usa —
+do ONI, e salva o Excel (Dados_base_nova_2001_2025.xlsx) que o script usa;
 o MESMO arquivo que o Modelo_PSN.py também lê, então rodar qualquer um dos
 dois primeiro já prepara a base para o outro. Se apagar o CSV e deixar só o
 .xlsx pronto, o script usa ele direto.
@@ -47,11 +47,11 @@ def caminho(nome):
     return os.path.join(BASE_DIR, nome)
 
 def saida(nome):
-    """Nome fixo dentro de saidas_figuras/ — cada execução sobrescreve a anterior."""
+    """Nome fixo dentro de saidas_figuras/: cada execução sobrescreve a anterior."""
     return os.path.join(PASTA_SAIDA, nome)
 
 # =============================================================================
-# PREPARAÇÃO DA BASE A PARTIR DO CSV BRUTO (opcional — só roda se o CSV existir)
+# PREPARAÇÃO DA BASE A PARTIR DO CSV BRUTO (opcional: só roda se o CSV existir)
 # Mesma lógica e o MESMO arquivo de saída usados pelo Modelo_PSN.py.
 # =============================================================================
 
@@ -80,7 +80,7 @@ RENOME_COLUNAS_CSV = {
     'FMA_AreaQueimada':      'BURN_MA',
     'Cerrado_AreaQueimada':  'BURN_CE',
     'Caatinga_AreaQueimada': 'BURN_CA',
-    # FMA_PET, Cerrado_PET, Caatinga_PET não são usadas — mantidas e ignoradas.
+    # FMA_PET, Cerrado_PET, Caatinga_PET não são usadas; mantidas e ignoradas.
 }
 
 COLUNAS_PRECIP = ['PRE_MA', 'PRE_CE', 'PRE_CA']
@@ -111,7 +111,7 @@ def preparar_base_a_partir_do_csv():
     print(f"Arquivo lido: {NOME_CSV_BRUTO}")
     print(f"Linhas originais: {antes}")
     if depois < antes:
-        print("Linhas removidas (precipitação ausente — dado ainda não publicado pela NASA):")
+        print("Linhas removidas (precipitação ausente: dado ainda não publicado pela NASA):")
         print(linhas_removidas.to_string(index=False))
     print(f"Linhas finais usadas: {depois}")
     print("Distribuição de fases ENSO (classificação oficial NOAA):")
@@ -124,7 +124,7 @@ def preparar_base_a_partir_do_csv():
 
 csv_processado = preparar_base_a_partir_do_csv()
 if not csv_processado:
-    print(f"\n(CSV '{NOME_CSV_BRUTO}' não encontrado na pasta — "
+    print(f"\n(CSV '{NOME_CSV_BRUTO}' não encontrado na pasta; "
           f"usando '{NOME_XLSX_MODELO}' existente diretamente.)\n")
 
 # =============================================================================
@@ -329,6 +329,12 @@ psn_cols   = {'MA': 'PSN_MA', 'CE': 'PSN_CE', 'CA': 'PSN_CA'}
 nomes_bio  = {'MA': 'Mata Atlântica', 'CE': 'Cerrado', 'CA': 'Caatinga'}
 cores_disp = {'MA': '#185FA5', 'CE': '#2E5A0B', 'CA': '#A3620F'}
 
+# formatador dos ticks com vírgula decimal (mesmas posições do ScalarFormatter)
+import matplotlib.ticker as _mticker
+class _FormatoVirgula(_mticker.ScalarFormatter):
+    def __call__(self, x, pos=None):
+        return super().__call__(x, pos).replace('.', ',')
+
 n_vars = len(var_disp)
 fig, axes = plt.subplots(n_vars, 3, figsize=(14, n_vars * 3.5), constrained_layout=True)
 
@@ -346,13 +352,18 @@ for row, (var, cols) in enumerate(var_disp.items()):
 
         slope, interc, r, p, se = stats.linregress(x, y)
         r2_adj = 1 - (1 - r**2) * (len(x) - 1) / (len(x) - 2)
+        r2_pct = r**2 * 100  # R² simples do mesmo linregress, em %
 
         ax.scatter(x, y, color=cores_disp[bio], alpha=0.55, s=16, edgecolors='white', linewidths=0.3)
         xl = np.linspace(x.min(), x.max(), 200)
         ax.plot(xl, slope * xl + interc, color='#C00000', linewidth=2.3)
 
         p_str = "p < 0,001" if p < 0.001 else f"p = {p:.3f}".replace('.', ',')
-        ax.set_title(f"R²aj = {r2_adj:.2f}   b = {slope:.2f}   {p_str}".replace('.', ','), fontsize=11.5, pad=6)
+        # rótulo "R² = x,x%" (1 casa);
+        # sinal de menos tipográfico (U+2212) na inclinação; vírgula decimal nos ticks dos eixos.
+        ax.set_title(f"R² = {r2_pct:.1f}%   b = {slope:.2f}   {p_str}".replace('.', ',').replace('-', '−'), fontsize=11.5, pad=6)
+        ax.xaxis.set_major_formatter(_FormatoVirgula())
+        ax.yaxis.set_major_formatter(_FormatoVirgula())
         if row == 0:
             ax.text(0.5, 1.24, nomes_bio[bio], transform=ax.transAxes, ha='center',
                     fontsize=17, fontweight='bold', color=cores_disp[bio])

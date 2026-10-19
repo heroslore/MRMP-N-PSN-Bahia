@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Variabilidade interanual da PSN (subseção 6.6 da dissertação): soma anual da PSN por bioma
-(anos completos 2001–2024; 2025 = janeiro a setembro, parcial), coeficiente de variação,
+(anos completos de 2001 a 2024; 2025 = janeiro a setembro, parcial), coeficiente de variação,
 tendência monotônica (estimador de Sen + teste de Mann-Kendall), piores/melhores anos,
 comparação com o NPP anual do MOD17A3HGF (npp_modis/resultados/npp_anual_2001_2025.csv)
 e fase ENSO dominante de cada ano (>= 6 meses na fase, coluna `Enso` oficial da base).
@@ -78,17 +78,19 @@ for k, b in enumerate(['MA', 'CE', 'CA']):
     xs = np.array([ANO_INI, ANO_FIM]); ax.plot(xs, info['media'] + info['sen_g_ano'] * (xs - full.ano.mean()), '--', color='k', lw=1.5)
     if len(par):
         ax.plot(par.ano, par.psn_anual, 'o', mfc='white', mec=COR[b], mew=2, ms=8)
-        ax.annotate(f"2025\n(jan–{MESES[info['meses_2025'] - 1]})", (float(par.ano.iloc[0]), float(par.psn_anual.iloc[0])), textcoords='offset points', xytext=(-6, 8), ha='right', fontsize=9.5, color='#444')
+        ax.annotate(f"2025\n(jan a {MESES[info['meses_2025'] - 1]})", (float(par.ano.iloc[0]), float(par.psn_anual.iloc[0])), textcoords='offset points', xytext=(-6, 8), ha='right', fontsize=9.5, color='#444')
     for a in info['piores']:
         ax.annotate(str(a), (a, float(full[full.ano == a].psn_anual.iloc[0])), textcoords='offset points', xytext=(0, -15), ha='center', fontsize=9.5, color='#444')
     sinal = '−' if info['sen_pct_periodo'] < 0 else '+'
-    ax.set_title(f"({'abc'[k]}) {NOME[b]}: tendência de Sen {sinal}{abs(info['sen_pct_periodo']):.1f}% em {ANO_INI}–{ANO_FIM} "
-                 f"(Mann-Kendall p = {info['p_mk']:.2f}); CV = {info['cv']:.1f}%".replace('.', ','), fontweight='bold', loc='left')
+    # p de Mann-Kendall com 3 casas ou "p < 0,001"
+    _pmk = 'p < 0.001' if info['p_mk'] < 0.001 else f"p = {info['p_mk']:.3f}"
+    ax.set_title(f"({'abc'[k]}) {NOME[b]}: tendência de Sen {sinal}{abs(info['sen_pct_periodo']):.1f}% de {ANO_INI} a {ANO_FIM} "
+                 f"(Mann-Kendall {_pmk}); CV = {info['cv']:.1f}%".replace('.', ','), fontweight='bold', loc='left')
     ax.set_ylabel('PSN anual (g C·m⁻²·ano⁻¹)'); ax.grid(alpha=0.3); ax.spines[['top', 'right']].set_visible(False)
     ax.margins(y=0.12)
 axes[-1].set_xlabel('Ano'); axes[-1].set_xticks(range(2001, 2026, 2))
 handles = [Line2D([], [], color='#555', marker='o', lw=1.8, label='PSN anual (soma dos 12 meses)'),
-           Line2D([], [], color='k', ls='--', lw=1.5, label='tendência de Sen (2001–2024)'),
+           Line2D([], [], color='k', ls='--', lw=1.5, label='tendência de Sen (2001 a 2024)'),
            Line2D([], [], marker='o', mfc='white', mec='#555', mew=2, ls='', ms=8, label='2025 parcial (fora da tendência)'),
            Patch(color='#D62728', alpha=0.25, label='ano com El Niño dominante (≥ 6 meses)'),
            Patch(color='#1F77B4', alpha=0.25, label='ano com La Niña dominante (≥ 6 meses)')]

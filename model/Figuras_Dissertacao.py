@@ -12,6 +12,10 @@ resultados_2001_2025/ (nomes fixos). Gera em figuras_dissertacao/:
   fig07_yrandomization.png      3 painéis
   fig08/09/10_enso_*.png        boxplots por fase ENSO (cópias)
   fig_dispersao.png             PSN x variáveis (cópia)
+
+Com FIG_IDIOMA=EN, grava em figuras_artigo1/en/ só as Figs. 2 a 5 do artigo do modelo,
+em inglês, com os nomes do manuscrito; em PT (padrão), copia as mesmas figuras, em
+português, para figuras_artigo1/pt/.
 """
 import os
 import numpy as np
@@ -19,15 +23,49 @@ import pandas as pd
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+import matplotlib.ticker
 from matplotlib.patches import FancyBboxPatch, FancyArrowPatch, Rectangle
 from PIL import Image, ImageDraw, ImageFont
 
+import shutil
 BASE = os.path.dirname(os.path.abspath(__file__))
 RES  = os.path.join(BASE, 'resultados_2001_2025')
-OUT  = os.path.join(BASE, 'figuras_dissertacao')
+# Idioma das figuras por variável de ambiente (PT padrão, EN para o artigo do modelo em
+# inglês). PT grava todas as figuras em figuras_dissertacao/ e copia as Figs. 2 a 5 do
+# artigo para figuras_artigo1/pt/ com os nomes do manuscrito; EN grava só as Figs. 2 a 5
+# em figuras_artigo1/en/. Vírgula decimal em PT, ponto em EN.
+IDIOMA = os.environ.get('FIG_IDIOMA', 'PT').upper()
+assert IDIOMA in ('PT', 'EN'), IDIOMA
+EN = IDIOMA == 'EN'
+OUT  = os.path.join(BASE, 'figuras_artigo1', 'en') if EN else os.path.join(BASE, 'figuras_dissertacao')
+OUT_A1PT = os.path.join(BASE, 'figuras_artigo1', 'pt')
 os.makedirs(OUT, exist_ok=True)
+if not EN: os.makedirs(OUT_A1PT, exist_ok=True)
+A1_NOMES = {'fig_fluxo.png': 'fig2_workflow.png', 'fig03_obs_vs_pred.png': 'fig3_obspred.png',
+            'fig04_selecao_grau.png': 'fig4_degree.png', 'fig05_importancia.png': 'fig5_contribution.png'}
 
+def salvar_a1(nome_diss):
+    """Renomeia (EN) ou copia (PT) a figura para o nome usado no manuscrito (main.tex)."""
+    if EN:
+        os.replace(os.path.join(OUT, nome_diss), os.path.join(OUT, A1_NOMES[nome_diss]))
+        print('  ->', os.path.join('figuras_artigo1', 'en', A1_NOMES[nome_diss]))
+    else:
+        shutil.copy2(os.path.join(OUT, nome_diss), os.path.join(OUT_A1PT, A1_NOMES[nome_diss]))
+        print('  ->', os.path.join('figuras_artigo1', 'pt', A1_NOMES[nome_diss]))
+
+class _FormatadorVirgula(matplotlib.ticker.ScalarFormatter):
+    """ScalarFormatter padrão com vírgula decimal (usado só em PT)."""
+    def __call__(self, x, pos=None):
+        return super().__call__(x, pos).replace('.', ',')
+
+def dec(v, casas=1):
+    """Número formatado com vírgula (PT) ou ponto (EN)."""
+    t = f'{v:.{casas}f}'
+    return t if EN else t.replace('.', ',')
+
+NOMES_BIOMA_EN = {'MA': 'Atlantic Forest', 'CE': 'Cerrado', 'CA': 'Caatinga'}
 BIOMAS = [('MA', 'Mata Atlântica', '#2CA02C'), ('CE', 'Cerrado', '#FF7F0E'), ('CA', 'Caatinga', '#D62728')]
+if EN: BIOMAS = [(b, NOMES_BIOMA_EN[b], c) for b, _, c in BIOMAS]
 LARGURA_FINAL = 4800   # px (~ 30 cm a 400 dpi; o Word reduz para a largura da página)
 
 def _font(px):
@@ -66,20 +104,22 @@ def compor(arquivos, saida, orientacao='h', rotulos=None, largura=LARGURA_FINAL,
     print('salvo', os.path.basename(saida), tela.size)
 
 # ---------------------------------------------------------------- Fig 3, 4, 6, 7, 8-10
-compor([os.path.join(RES, b, f'yrandomization_{b}.png') for b, _, _ in BIOMAS],
+if not EN:  # figuras só da dissertação (PT)
+  compor([os.path.join(RES, b, f'yrandomization_{b}.png') for b, _, _ in BIOMAS],
        os.path.join(OUT, 'fig07_yrandomization.png'), 'h', ['(a)', '(b)', '(c)'])
-for n, (b, _, _) in zip([8, 9, 10], BIOMAS):
+  for n, (b, _, _) in zip([8, 9, 10], BIOMAS):
     im = Image.open(os.path.join(RES, f'boxplot_enso_{b}.png')).convert('RGB')
     im = im.resize((LARGURA_FINAL, int(im.height * LARGURA_FINAL / im.width)), Image.LANCZOS)
     im.save(os.path.join(OUT, f'fig{n:02d}_enso_{b}.png'), dpi=(300, 300), optimize=True)
     print('salvo', f'fig{n:02d}_enso_{b}.png', im.size)
-Image.open(os.path.join(RES, 'dispersao_psn_variaveis_biomas.png')).convert('RGB').save(
+  Image.open(os.path.join(RES, 'dispersao_psn_variaveis_biomas.png')).convert('RGB').save(
     os.path.join(OUT, 'fig_dispersao.png'), dpi=(200, 200), optimize=True)
-print('salvo fig_dispersao.png')
+  print('salvo fig_dispersao.png')
 
 # ---------------------------------------------------------------- Fig 5: importância relativa
 plt.rcParams.update({'font.size': 13, 'font.family': 'DejaVu Sans'})
 NOMES = {'EV': 'EV', 'PRE': 'PRE', 'TST': 'TST', 'WAI': 'WAI', 'saz_sin': 'SAZsin', 'saz_cos': 'SAZcos'}
+if EN: NOMES['TST'] = 'LST'   # sigla do manuscrito em inglês (Tabela 1 do main.tex)
 fig, axes = plt.subplots(1, 3, figsize=(16, 5.4))
 letras = ['(a)', '(b)', '(c)']
 for ax, (b, nome, cor), letra in zip(axes, BIOMAS, letras):
@@ -93,15 +133,16 @@ for ax, (b, nome, cor), letra in zip(axes, BIOMAS, letras):
     s = pd.Series(imp); s = (s / s.sum() * 100).sort_values()
     ax.barh([NOMES.get(k, k) for k in s.index], s.values, color=cor, height=0.62)
     for i, v in enumerate(s.values):
-        ax.text(v + 0.6, i, f'{v:.1f}%', va='center', fontsize=12.5, fontweight='bold')
+        ax.text(v + 0.6, i, f'{dec(v)}%', va='center', fontsize=12.5, fontweight='bold')
     ax.set_title(f'{letra} {nome}', fontweight='bold', fontsize=15)
     ax.tick_params(labelsize=12)
-    ax.set_xlabel('Importância relativa (%)', fontweight='bold')
+    # rótulo igual ao termo do texto (índice de contribuição relativa)
+    ax.set_xlabel('Relative contribution index (%)' if EN else 'Índice de contribuição relativa (%)', fontweight='bold')
     ax.set_xlim(0, s.max() * 1.22)
     ax.grid(axis='x', alpha=0.3); ax.spines[['top', 'right']].set_visible(False)
 plt.tight_layout()
 plt.savefig(os.path.join(OUT, 'fig05_importancia.png'), dpi=300, bbox_inches='tight')
-plt.close(fig); print('salvo fig05_importancia.png')
+plt.close(fig); print('salvo fig05_importancia.png'); salvar_a1('fig05_importancia.png')
 
 # ---------------------------------------------------------------- Fig 4: seleção do grau (a partir do CSV)
 sg = pd.read_csv(os.path.join(RES, 'selecao_grau.csv'))
@@ -112,123 +153,159 @@ for j, (b, nome, cor) in enumerate(BIOMAS):
     ax = axes[0, j]
     piso = np.floor(min(d['r2_teste'].iloc[:3].min() - d['dp_teste'].iloc[:3].max(), d['r2_treino'].iloc[0]) / 10) * 10 - 10
     piso = max(piso, 0)
-    ax.plot(d['grau'], d['r2_treino'], '-o', color='#555555', lw=2, ms=8, label='R² treino')
+    ax.plot(d['grau'], d['r2_treino'], '-o', color='#555555', lw=2, ms=8, label='Training R²' if EN else 'R² treino')
     ax.errorbar(d['grau'], d['r2_teste'], yerr=d['dp_teste'], fmt='-s', color=cor, lw=2.2, ms=9,
-                capsize=4, label='R² teste (± 1 dp)')
+                capsize=4, label='Test R² (± 1 SD)' if EN else 'R² teste (± 1 dp)')
     for g_, r2_, dp_ in zip(d['grau'], d['r2_teste'], d['dp_teste']):
         if r2_ >= piso:
-            ax.annotate(f'{r2_:.1f}%'.replace('.', ','), (g_, r2_), xytext=(0, -16), textcoords='offset points',
+            ax.annotate(f'{dec(r2_)}%', (g_, r2_), xytext=(0, -16), textcoords='offset points',
                         ha='center', va='top', fontsize=11, fontweight='bold', color=cor,
                         bbox=dict(boxstyle='round,pad=0.15', fc='white', ec='none', alpha=0.85))
         else:
-            ax.annotate(f'{r2_:.0f}%', (g_, piso + (100 - piso) * 0.42), ha='center', va='bottom', fontsize=12,
-                        color=cor, fontweight='bold')
+            # R² abaixo do piso do eixo com 1 casa e vírgula em PT; fundo branco (o mesmo das
+            # demais anotações), para o rótulo não cruzar a barra de erro vertical
+            ax.annotate(f'{dec(r2_)}%', (g_, piso + (100 - piso) * 0.42), ha='center', va='bottom', fontsize=12,
+                        color=cor, fontweight='bold',
+                        bbox=dict(boxstyle='round,pad=0.15', fc='white', ec='none', alpha=0.85))
             ax.plot([g_], [piso + 0.8], marker='v', color=cor, ms=9, clip_on=False)
     ax.axvline(2, color='#999999', ls=':', lw=1.5, zorder=0)
     ax.set_ylim(piso, 100); ax.set_xticks([1, 2, 3, 4, 5]); ax.set_xlim(0.6, 5.4)
+    # vírgula decimal nos números do eixo y em PT (mesmo texto do formatador padrão, só com ','
+    # no lugar de '.'); EN sem mudança
+    if not EN: ax.yaxis.set_major_formatter(_FormatadorVirgula())
     ax.set_title(f'({"abc"[j]}) {nome}', fontweight='bold', fontsize=15)
     ax.set_ylabel('R² (%)' if j == 0 else ''); ax.grid(alpha=0.3)
     if j == 0: ax.legend(loc='lower right', fontsize=11, framealpha=0.95)
     ax = axes[1, j]
-    cores_b = ['#2CA02C' if g_ == 2 else ('#FF7F0E' if v_ <= 10 else '#9E9E9E') for g_, v_ in zip(d['grau'], d['gap_pp'])]
+    # sem limiar fixo de referência; grau 2 em verde (nota), demais em cinza
+    cores_b = ['#2CA02C' if g_ == 2 else '#9E9E9E' for g_ in d['grau']]
     ax.bar(d['grau'], d['gap_pp'], color=cores_b, width=0.6)
-    ax.axhline(10, color='#D62728', ls='--', lw=1.3)
     ax.set_yscale('log'); ax.set_ylim(0.4, 1000)
     ax.set_yticks([1, 10, 100]); ax.set_yticklabels(['1', '10', '100'])
     for g_, v_, t_ in zip(d['grau'], d['gap_pp'], d['termos']):
-        ax.text(g_, v_ * 1.18, f'{v_:.1f}'.replace('.', ','), ha='center', va='bottom', fontsize=11.5,
+        ax.text(g_, v_ * 1.18, dec(v_), ha='center', va='bottom', fontsize=11.5,
                 fontweight='bold' if g_ == 2 else 'normal')
-        ax.text(g_, v_ * 2.3, f'({int(t_)} termos)', ha='center', va='bottom', fontsize=9.5, style='italic', color='#333')
+        ax.text(g_, v_ * 2.3, f'({int(t_)} terms)' if EN else f'({int(t_)} termos)', ha='center', va='bottom', fontsize=9.5, style='italic', color='#333')
     ax.set_xticks([1, 2, 3, 4, 5]); ax.set_xlim(0.6, 5.4)
-    ax.set_xlabel('Grau polinomial', fontsize=13)
-    ax.set_ylabel('Diferença treino − teste (pp, escala log)' if j == 0 else '', fontsize=12)
-    ax.text(5.35, 520, 'referência 10 pp', ha='right', va='bottom', fontsize=10.5, color='#D62728')
+    ax.set_xlabel('Polynomial degree' if EN else 'Grau polinomial', fontsize=13)
+    # "treino menos teste" por extenso
+    ax.set_ylabel(('Train minus test gap (pp, log scale)' if EN else 'Diferença treino menos teste (pp, escala log)') if j == 0 else '', fontsize=12)
     ax.grid(axis='y', alpha=0.3)
-fig.suptitle('Seleção do grau polinomial (1 a 5) — com nº de termos e R² de teste anotados', fontsize=15, fontweight='bold', y=0.995)
-fig.text(0.5, 0.005, 'Grau 2 (verde) escolhido como grau comum: no Cerrado e na Caatinga já supera o grau 3 em R² de teste; na Mata Atlântica,\n'
-         'o grau 3 ganha +0,8 pp às custas de mais que o dobro de termos (55 vs. 20) e maior diferença treino−teste.',
+# título e nota por idioma
+if EN:
+    fig.suptitle('Selection of the polynomial degree (1 to 5), with number of terms and test R² annotated', fontsize=15, fontweight='bold', y=0.995)
+    _nota = ('Degree 2 (green) chosen as the common degree: in the Cerrado and Caatinga it already exceeds degree 3 in test R²; in the Atlantic Forest,\n'
+             'degree 3 gains +0.8 pp at the cost of more than twice as many terms (55 vs. 20) and a larger train minus test gap.')
+else:
+    fig.suptitle('Seleção do grau polinomial (1 a 5), com nº de termos e R² de teste anotados', fontsize=15, fontweight='bold', y=0.995)
+    _nota = ('Grau 2 (verde) escolhido como grau comum: no Cerrado e na Caatinga já supera o grau 3 em R² de teste; na Mata Atlântica,\n'
+             'o grau 3 ganha +0,8 pp às custas de mais que o dobro de termos (55 vs. 20) e maior diferença treino menos teste.')
+fig.text(0.5, 0.005, _nota,
          ha='center', va='bottom', fontsize=11.5, style='italic', color='#333')
 plt.tight_layout(rect=(0, 0.045, 1, 0.97))
 plt.savefig(os.path.join(OUT, 'fig04_selecao_grau.png'), dpi=300, bbox_inches='tight'); plt.close(fig)
-print('salvo fig04_selecao_grau.png (gerada)')
+print('salvo fig04_selecao_grau.png (gerada)'); salvar_a1('fig04_selecao_grau.png')
 
 # ---------------------------------------------------------------- Fig nova: conceito da PSN
-fig, ax = plt.subplots(figsize=(15, 5.8)); ax.set_xlim(0, 15); ax.set_ylim(0, 5.8); ax.axis('off')
-def caixa(x, y, w, h, titulo, sub, cor, tcor='white'):
-    ax.add_patch(FancyBboxPatch((x, y), w, h, boxstyle='round,pad=0.02,rounding_size=0.15', fc=cor, ec='none'))
-    ax.text(x + w / 2, y + h * 0.70, titulo, ha='center', va='center', fontsize=17, fontweight='bold', color=tcor)
-    ax.text(x + w / 2, y + h * 0.30, sub, ha='center', va='center', fontsize=10.5, color=tcor, linespacing=1.3)
-def seta(x0, x1, y, texto):
-    ax.add_patch(FancyArrowPatch((x0, y), (x1, y), arrowstyle='-|>', mutation_scale=24, lw=2.4, color='#333333'))
-    ax.text((x0 + x1) / 2, y + 0.22, texto, ha='center', va='bottom', fontsize=10, color='#8B0000', linespacing=1.25)
-caixa(0.2, 1.7, 2.9, 1.9, 'GPP', 'Produtividade Primária\nBruta: todo o carbono\nfixado pela fotossíntese', '#1B5E20')
-seta(3.2, 5.95, 2.65, '− respiração de\nmanutenção de folhas\ne raízes finas')
-caixa(6.05, 1.7, 2.9, 1.9, 'PSN', 'Fotossíntese Líquida:\nsaldo de carbono em\n8 dias (MOD17A2H)', '#2E7D32')
-seta(9.05, 11.8, 2.65, '− respiração de\nmanutenção do lenho\ne raízes grossas\n− respiração de\ncrescimento')
-caixa(11.9, 1.7, 2.9, 1.9, 'NPP', 'Produtividade Primária\nLíquida: agregação\nanual (MOD17A3)', '#558B2F')
-ax.text(0.2, 1.05, 'Atmosfera (CO₂)  →  fotossíntese  →  GPP  →  PSN  →  NPP: cada etapa desconta uma parcela de respiração.',
-        fontsize=11.5, color='#333')
-ax.text(0.2, 0.5, 'Variável-resposta deste estudo: PSN mensal, por bioma (compostos de 8 dias do MOD17A2H agregados ao mês).',
-        fontsize=11.5, color='#333')
-ax.text(0.2, 5.2, 'Fluxos de carbono estimados pelo algoritmo MODIS/MOD17', fontsize=14, fontweight='bold')
-plt.savefig(os.path.join(OUT, 'fig01_psn_conceito.png'), dpi=300, bbox_inches='tight'); plt.close(fig)
-print('salvo fig01_psn_conceito.png')
+if not EN:  # figura só da dissertação (PT)
+    fig, ax = plt.subplots(figsize=(15, 5.8)); ax.set_xlim(0, 15); ax.set_ylim(0, 5.8); ax.axis('off')
+    def caixa(x, y, w, h, titulo, sub, cor, tcor='white'):
+        ax.add_patch(FancyBboxPatch((x, y), w, h, boxstyle='round,pad=0.02,rounding_size=0.15', fc=cor, ec='none'))
+        ax.text(x + w / 2, y + h * 0.70, titulo, ha='center', va='center', fontsize=17, fontweight='bold', color=tcor)
+        ax.text(x + w / 2, y + h * 0.30, sub, ha='center', va='center', fontsize=10.5, color=tcor, linespacing=1.3)
+    def seta(x0, x1, y, texto):
+        ax.add_patch(FancyArrowPatch((x0, y), (x1, y), arrowstyle='-|>', mutation_scale=24, lw=2.4, color='#333333'))
+        ax.text((x0 + x1) / 2, y + 0.22, texto, ha='center', va='bottom', fontsize=10, color='#8B0000', linespacing=1.25)
+    caixa(0.2, 1.7, 2.9, 1.9, 'GPP', 'Produtividade Primária\nBruta: todo o carbono\nfixado pela fotossíntese', '#1B5E20')
+    seta(3.2, 5.95, 2.65, '− respiração de\nmanutenção de folhas\ne raízes finas')
+    caixa(6.05, 1.7, 2.9, 1.9, 'PSN', 'Fotossíntese Líquida:\nsaldo de carbono em\n8 dias (MOD17A2H)', '#2E7D32')
+    seta(9.05, 11.8, 2.65, '− respiração de\nmanutenção do lenho\ne raízes grossas\n− respiração de\ncrescimento')
+    caixa(11.9, 1.7, 2.9, 1.9, 'NPP', 'Produtividade Primária\nLíquida: agregação\nanual (MOD17A3)', '#558B2F')
+    ax.text(0.2, 1.05, 'Atmosfera (CO₂)  →  fotossíntese  →  GPP  →  PSN  →  NPP: cada etapa desconta uma parcela de respiração.',
+            fontsize=11.5, color='#333')
+    ax.text(0.2, 0.5, 'Variável-resposta deste estudo: PSN mensal, por bioma (compostos de 8 dias do MOD17A2H agregados ao mês).',
+            fontsize=11.5, color='#333')
+    ax.text(0.2, 5.2, 'Fluxos de carbono estimados pelo algoritmo MODIS/MOD17', fontsize=14, fontweight='bold')
+    plt.savefig(os.path.join(OUT, 'fig01_psn_conceito.png'), dpi=300, bbox_inches='tight'); plt.close(fig)
+    print('salvo fig01_psn_conceito.png')
 
 # ---------------------------------------------------------------- Fig nova: esquema de validação
-n = 297
-fig, axes = plt.subplots(3, 1, figsize=(13, 8.6), gridspec_kw={'height_ratios': [5.2, 4, 4]})
-TREINO, TESTE = '#BDBDBD', '#D85A30'
-ax = axes[0]
-rng = np.random.RandomState(42)
-for rep in range(3):
-    perm = rng.permutation(n); folds = np.array_split(perm, 5)
-    for k in range(5):
-        y = rep * 6 + k
-        ax.broken_barh([(0, n)], (y, 0.8), color=TREINO)
-        idx = np.sort(folds[k]); blocos = []; ini = idx[0]; prev = idx[0]
-        for i in idx[1:]:
-            if i != prev + 1: blocos.append((ini, prev - ini + 1)); ini = i
-            prev = i
-        blocos.append((ini, prev - ini + 1))
-        ax.broken_barh(blocos, (y, 0.8), color=TESTE)
-        ax.text(-3, y + 0.4, f'rep. {rep + 1}, fold {k + 1}', ha='right', va='center', fontsize=8)
-ax.text(n / 2, 18.3, '⋯ e assim até a repetição 30, totalizando 150 partições', ha='center', va='center',
-        fontsize=9.5, style='italic')
-ax.set_ylim(-0.5, 19.2); ax.invert_yaxis(); ax.set_xlim(0, n)
-ax.set_yticks([]); ax.set_xlabel('Índice da observação mensal (jan/2001 → set/2025), n = 297', fontsize=9)
-ax.set_title('(a) RepeatedKFold, 5 folds × 30 repetições: em cada partição, 80% treino (cinza) e 20% teste (laranja),\n'
-             'sorteados sem respeitar a ordem temporal; cada mês é teste 30 vezes', fontsize=10.5, loc='left')
-ax.spines[['top', 'right', 'left']].set_visible(False)
-anos_lista = np.arange(2001, 2026); grupos = np.array_split(anos_lista, 5)
-meses_por_ano = {a: 12 for a in anos_lista}; meses_por_ano[2025] = 9
-ini_ano = {}; acc = 0
-for a in anos_lista: ini_ano[a] = acc; acc += meses_por_ano[a]
-ax = axes[1]
-for k, g in enumerate(grupos):
-    ax.broken_barh([(0, n)], (k, 0.8), color=TREINO)
-    ax.broken_barh([(ini_ano[a], meses_por_ano[a]) for a in g], (k, 0.8), color=TESTE)
-    ax.text(-3, k + 0.4, f'fold {k + 1}', ha='right', va='center', fontsize=8)
-    ax.text(ini_ano[g[0]] + sum(meses_por_ano[a] for a in g) / 2, k + 0.4, f'{g[0]}–{g[-1]}',
-            ha='center', va='center', fontsize=8, color='white', fontweight='bold')
-ax.set_ylim(-0.5, 5.3); ax.invert_yaxis(); ax.set_xlim(0, n); ax.set_yticks([])
-ax.set_xticks([ini_ano[a] for a in anos_lista[::4]]); ax.set_xticklabels(anos_lista[::4], fontsize=8)
-ax.set_title('(b) GroupKFold por ano: anos inteiros ficam fora do treino (5 grupos de 5 anos)', fontsize=10.5, loc='left')
-ax.spines[['top', 'right', 'left']].set_visible(False)
-ax = axes[2]
-from sklearn.model_selection import TimeSeriesSplit
-for k, (tr, te) in enumerate(TimeSeriesSplit(n_splits=5).split(np.arange(n))):
-    ax.broken_barh([(tr[0], len(tr))], (k, 0.8), color=TREINO)
-    ax.broken_barh([(te[0], len(te))], (k, 0.8), color=TESTE)
-    ax.text(-3, k + 0.4, f'fold {k + 1}', ha='right', va='center', fontsize=8)
-    ax.text(te[0] + len(te) / 2, k + 0.4, f'teste: {len(te)} meses', ha='center', va='center', fontsize=8, color='white', fontweight='bold')
-    ax.text(tr[0] + len(tr) / 2, k + 0.4, f'treino: {len(tr)} meses', ha='center', va='center', fontsize=8, color='#333')
-ax.set_ylim(-0.5, 5.3); ax.invert_yaxis(); ax.set_xlim(0, n); ax.set_yticks([])
-ax.set_xticks([ini_ano[a] for a in anos_lista[::4]]); ax.set_xticklabels(anos_lista[::4], fontsize=8)
-ax.set_title('(c) TimeSeriesSplit com janela expansível: treina no passado (cinza) e testa no bloco seguinte (laranja)', fontsize=10.5, loc='left')
-ax.spines[['top', 'right', 'left']].set_visible(False)
-plt.tight_layout()
-plt.savefig(os.path.join(OUT, 'fig_validacao_esquema.png'), dpi=300, bbox_inches='tight'); plt.close(fig)
-print('salvo fig_validacao_esquema.png')
+if not EN:  # figura só da dissertação (PT); o artigo do modelo não tem esta figura
+    n = 297
+    fig, axes = plt.subplots(3, 1, figsize=(13, 8.6), gridspec_kw={'height_ratios': [5.2, 4, 4]})
+    TREINO, TESTE = '#BDBDBD', '#D85A30'
+    ax = axes[0]
+    rng = np.random.RandomState(42)
+    for rep in range(3):
+        perm = rng.permutation(n); folds = np.array_split(perm, 5)
+        for k in range(5):
+            y = rep * 6 + k
+            ax.broken_barh([(0, n)], (y, 0.8), color=TREINO)
+            idx = np.sort(folds[k]); blocos = []; ini = idx[0]; prev = idx[0]
+            for i in idx[1:]:
+                if i != prev + 1: blocos.append((ini, prev - ini + 1)); ini = i
+                prev = i
+            blocos.append((ini, prev - ini + 1))
+            ax.broken_barh(blocos, (y, 0.8), color=TESTE)
+            ax.text(-3, y + 0.4, f'rep. {rep + 1}, fold {k + 1}', ha='right', va='center', fontsize=8)
+    ax.text(n / 2, 18.3, '⋯ e assim até a repetição 30, totalizando 150 partições', ha='center', va='center',
+            fontsize=9.5, style='italic')
+    ax.set_ylim(-0.5, 19.2); ax.invert_yaxis(); ax.set_xlim(0, n)
+    ax.set_yticks([]); ax.set_xlabel('Índice da observação mensal (jan/2001 → set/2025), n = 297', fontsize=9)
+    ax.set_title('(a) RepeatedKFold, 5 folds × 30 repetições: em cada partição, 80% treino (cinza) e 20% teste (laranja),\n'
+                 'sorteados sem respeitar a ordem temporal; cada mês é teste 30 vezes', fontsize=10.5, loc='left')
+    ax.spines[['top', 'right', 'left']].set_visible(False)
+    anos_lista = np.arange(2001, 2026)
+    meses_por_ano = {a: 12 for a in anos_lista}; meses_por_ano[2025] = 9
+    ini_ano = {}; acc = 0
+    for a in anos_lista: ini_ano[a] = acc; acc += meses_por_ano[a]
+    # Figura 4b: a partição dos anos usada nos resultados é INTERCALADA (não são 5 blocos
+    # consecutivos de 5 anos). É a regra do GroupKFold(n_splits=5) com os anos como grupos e
+    # ordenação estável (anos ordenados por nº de meses, invertida; cada ano vai ao fold de
+    # menor peso), conferida contra a lista registrada abaixo.
+    GKF_REGISTRADA = [[2004, 2009, 2014, 2019, 2024], [2003, 2008, 2013, 2018, 2023], [2002, 2007, 2012, 2017, 2022],
+                      [2001, 2006, 2011, 2016, 2021], [2005, 2010, 2015, 2020, 2025]]
+    # O painel usa a mesma lista fixa do Modelo_PSN.py (GKF_FOLDS_ANOS), com
+    # conferência de que ela coincide com a registrada e de que os folds têm 60, 60, 60, 60 e 57 meses.
+    # A lista é lida do código-fonte por ast (sem importar o Modelo_PSN.py, que executaria a
+    # leitura dos dados no nível do módulo).
+    import ast
+    with open(os.path.join(BASE, 'Modelo_PSN.py'), encoding='utf-8') as _fm:
+        _arv = ast.parse(_fm.read())
+    GKF_FOLDS_ANOS = next(ast.literal_eval(_n.value) for _n in _arv.body if isinstance(_n, ast.Assign)
+                          and any(getattr(_t, 'id', None) == 'GKF_FOLDS_ANOS' for _t in _n.targets))
+    grupos = [sorted(g) for g in GKF_FOLDS_ANOS]
+    assert grupos == GKF_REGISTRADA, (grupos, GKF_REGISTRADA)
+    assert [sum(meses_por_ano[a] for a in g) for g in grupos] == [60, 60, 60, 60, 57]
+    ax = axes[1]
+    for k, g in enumerate(grupos):
+        ax.broken_barh([(0, n)], (k, 0.8), color=TREINO)
+        ax.broken_barh([(ini_ano[a], meses_por_ano[a]) for a in g], (k, 0.8), color=TESTE)
+        ax.text(-3, k + 0.4, f'fold {k + 1}', ha='right', va='center', fontsize=8)
+        for a in g:
+            ax.text(ini_ano[a] + meses_por_ano[a] / 2, k + 0.4, str(a), ha='center', va='center',
+                    fontsize=6.5, color='white', fontweight='bold')
+        ax.text(n + 3, k + 0.4, f'{sum(meses_por_ano[a] for a in g)} meses', ha='left', va='center', fontsize=7.5, color='#333')
+    ax.set_ylim(-0.5, 5.3); ax.invert_yaxis(); ax.set_xlim(0, n); ax.set_yticks([])
+    ax.set_xticks([ini_ano[a] for a in anos_lista[::4]]); ax.set_xticklabels(anos_lista[::4], fontsize=8)
+    ax.set_title('(b) GroupKFold por ano: em cada fold, 5 anos inteiros e intercalados (um a cada 5 anos) ficam fora do treino;\n'
+                 'partição usada nos resultados (o último fold inclui 2025, com 9 meses)', fontsize=10.5, loc='left')
+    ax.spines[['top', 'right', 'left']].set_visible(False)
+    ax = axes[2]
+    from sklearn.model_selection import TimeSeriesSplit
+    for k, (tr, te) in enumerate(TimeSeriesSplit(n_splits=5).split(np.arange(n))):
+        ax.broken_barh([(tr[0], len(tr))], (k, 0.8), color=TREINO)
+        ax.broken_barh([(te[0], len(te))], (k, 0.8), color=TESTE)
+        ax.text(-3, k + 0.4, f'fold {k + 1}', ha='right', va='center', fontsize=8)
+        ax.text(te[0] + len(te) / 2, k + 0.4, f'teste: {len(te)} meses', ha='center', va='center', fontsize=8, color='white', fontweight='bold')
+        ax.text(tr[0] + len(tr) / 2, k + 0.4, f'treino: {len(tr)} meses', ha='center', va='center', fontsize=8, color='#333')
+    ax.set_ylim(-0.5, 5.3); ax.invert_yaxis(); ax.set_xlim(0, n); ax.set_yticks([])
+    ax.set_xticks([ini_ano[a] for a in anos_lista[::4]]); ax.set_xticklabels(anos_lista[::4], fontsize=8)
+    ax.set_title('(c) TimeSeriesSplit com janela expansível: treina no passado (cinza) e testa no bloco seguinte (laranja)', fontsize=10.5, loc='left')
+    ax.spines[['top', 'right', 'left']].set_visible(False)
+    plt.tight_layout()
+    plt.savefig(os.path.join(OUT, 'fig_validacao_esquema.png'), dpi=300, bbox_inches='tight'); plt.close(fig)
+    print('salvo fig_validacao_esquema.png')
 
 # ---------------------------------------------------------------- Fig: fluxo metodológico (refeito, base 2001-2025)
 fig, ax = plt.subplots(figsize=(14, 8.6)); ax.set_xlim(0, 14); ax.set_ylim(0, 8.6); ax.axis('off')
@@ -243,22 +320,51 @@ def seta_h(x0, x1, y): ax.add_patch(FancyArrowPatch((x0, y), (x1, y), arrowstyle
 W, H, G = 3.05, 1.55, 0.35; xs = [0.3 + i * (W + G) for i in range(4)]
 y1, y2, y3 = 6.6, 4.0, 1.3
 azul, azul_c = '#1F3B5C', '#D6E2F0'; verde, verde_c = '#1B5E3A', '#D5EADF'; marrom, marrom_c = '#5C4632', '#E8DED2'; roxo, roxo_c = '#3B2A5C', '#DED6EC'
-bloco(xs[0], y1, W, H, 1, 'Base de dados', 'MODIS (PSN, EV, TST, BURN)\nIMERG (PRE) · ONI (NOAA)\n2001–2025, n = 297 meses', azul, azul_c)
-bloco(xs[1], y1, W, H, 2, 'Pré-processamento', 'Agregação mensal por bioma\nlog(1 + área queimada)\nexclusão da PET (r = 0,73–0,80)', azul, azul_c)
-bloco(xs[2], y1, W, H, 3, 'Eng. de variáveis', 'Sazonalidade harmônica\n(SAZsin, SAZcos) fixa\nem todos os modelos', verde, verde_c)
-bloco(xs[3], y1, W, H, 4, 'Seleção de variáveis', '10 combinações C(5,3)\nde EV, PRE, TST, WAI, BURN\nmaior R² de teste', verde, verde_c)
+# textos por idioma
+if EN:
+    TX = {1: ('Database', 'MODIS (PSN, EV, LST, BURN)\nIMERG (PRE) · ONI (NOAA)\n2001 to 2025, n = 297 months'),
+          2: ('Preprocessing', 'Monthly aggregation by biome\nlog(1 + burned area)\nPET excluded (r = 0.73 to 0.80)'),
+          3: ('Feature engineering', 'Harmonic seasonality\n(SAZsin, SAZcos) fixed\nin all models'),
+          4: ('Variable selection', '10 combinations C(5,3)\nof EV, PRE, LST, WAI, BURN\nhighest test R²'),
+          5: ('Winsorization', '3rd percentile of PSN\ncomputed on training only'),
+          6: ('Standardization', 'StandardScaler\nμ = 0, σ = 1 (fit on training)'),
+          7: ('Polynomial expansion', 'Degree 2 (20 terms),\nchosen between 1 and 5'),
+          8: ('Ridge regression', 'L2 penalty\nα by GridSearchCV (5 folds)'),
+          9: ('Cross-validation', 'RepeatedKFold 5 × 30\nR², RMSE, MAE (mean ± SD)'),
+          10: ('Temporal validation', 'GroupKFold by year\nExpanding TimeSeriesSplit'),
+          11: ('Diagnostics', 'VIF · Shapiro-Wilk\nLjung-Box · ACF'),
+          12: ('Y-randomization', '100 permutations of PSN\nΔ (pp) and empirical p-value')}
+    TX_CAIXA = 'Executed within each cross-validation partition (no information leakage)'
+else:
+    TX = {1: ('Base de dados', 'MODIS (PSN, EV, TST, BURN)\nIMERG (PRE) · ONI (NOAA)\n2001 a 2025, n = 297 meses'),
+          2: ('Pré-processamento', 'Agregação mensal por bioma\nlog(1 + área queimada)\nexclusão da PET (r = 0,73 a 0,80)'),
+          3: ('Eng. de variáveis', 'Sazonalidade harmônica\n(SAZsin, SAZcos) fixa\nem todos os modelos'),
+          4: ('Seleção de variáveis', '10 combinações C(5,3)\nde EV, PRE, TST, WAI, BURN\nmaior R² de teste'),
+          5: ('Winsorização', 'Percentil 3 da PSN\ncalculado só no treino'),
+          6: ('Padronização', 'StandardScaler\nμ = 0, σ = 1 (ajustado no treino)'),
+          7: ('Expansão polinomial', 'Grau 2 (20 termos),\nescolhido entre 1 e 5'),
+          8: ('Regressão Ridge', 'Penalização L2\nα por GridSearchCV (5 folds)'),
+          9: ('Validação cruzada', 'RepeatedKFold 5 × 30\nR², RMSE, MAE (média ± dp)'),
+          10: ('Validação temporal', 'GroupKFold por ano\nTimeSeriesSplit expansível'),
+          11: ('Diagnóstico', 'VIF · Shapiro-Wilk\nLjung-Box · ACF'),
+          12: ('Y-randomization', '100 permutações da PSN\nΔ (pp) e p-valor empírico')}
+    TX_CAIXA = 'Executado dentro de cada partição da validação cruzada (sem vazamento de informação)'
+bloco(xs[0], y1, W, H, 1, *TX[1], azul, azul_c)
+bloco(xs[1], y1, W, H, 2, *TX[2], azul, azul_c)
+bloco(xs[2], y1, W, H, 3, *TX[3], verde, verde_c)
+bloco(xs[3], y1, W, H, 4, *TX[4], verde, verde_c)
 for i in range(3): seta_h(xs[i] + W, xs[i + 1], y1 + H / 2)
 ax.add_patch(FancyBboxPatch((0.12, y2 - 0.35), 13.76, H + 1.05, boxstyle='round,pad=0.02,rounding_size=0.15', fc='#FBF4E8', ec='#B08A50', lw=1.3, ls='--'))
-ax.text(7, y2 + H + 0.42, 'Executado dentro de cada partição da validação cruzada (sem vazamento de informação)', ha='center', va='center', fontsize=10, style='italic', color='#7A5A20', fontweight='bold')
-bloco(xs[0], y2, W, H, 5, 'Winsorização', 'Percentil 3 da PSN\ncalculado só no treino', marrom, marrom_c)
-bloco(xs[1], y2, W, H, 6, 'Padronização', 'StandardScaler\nμ = 0, σ = 1 (ajustado no treino)', marrom, marrom_c)
-bloco(xs[2], y2, W, H, 7, 'Expansão polinomial', 'Grau 2 (20 termos),\nescolhido entre 1 e 5', marrom, marrom_c)
-bloco(xs[3], y2, W, H, 8, 'Regressão Ridge', 'Penalização L2\nα por GridSearchCV (5 folds)', marrom, marrom_c)
+ax.text(7, y2 + H + 0.42, TX_CAIXA, ha='center', va='center', fontsize=10, style='italic', color='#7A5A20', fontweight='bold')
+bloco(xs[0], y2, W, H, 5, *TX[5], marrom, marrom_c)
+bloco(xs[1], y2, W, H, 6, *TX[6], marrom, marrom_c)
+bloco(xs[2], y2, W, H, 7, *TX[7], marrom, marrom_c)
+bloco(xs[3], y2, W, H, 8, *TX[8], marrom, marrom_c)
 for i in range(3): seta_h(xs[i] + W, xs[i + 1], y2 + H / 2)
-bloco(xs[0], y3, W, H, 9, 'Validação cruzada', 'RepeatedKFold 5 × 30\nR², RMSE, MAE (média ± dp)', roxo, roxo_c)
-bloco(xs[1], y3, W, H, 10, 'Validação temporal', 'GroupKFold por ano\nTimeSeriesSplit expansível', roxo, roxo_c)
-bloco(xs[2], y3, W, H, 11, 'Diagnóstico', 'VIF · Shapiro-Wilk\nLjung-Box · ACF', roxo, roxo_c)
-bloco(xs[3], y3, W, H, 12, 'Y-randomization', '100 permutações da PSN\nΔ (pp) e p-valor empírico', roxo, roxo_c)
+bloco(xs[0], y3, W, H, 9, *TX[9], roxo, roxo_c)
+bloco(xs[1], y3, W, H, 10, *TX[10], roxo, roxo_c)
+bloco(xs[2], y3, W, H, 11, *TX[11], roxo, roxo_c)
+bloco(xs[3], y3, W, H, 12, *TX[12], roxo, roxo_c)
 for i in range(3): seta_h(xs[i] + W, xs[i + 1], y3 + H / 2)
 # setas verticais entre linhas (última caixa da linha -> primeira da seguinte)
 for ya, yb in [(y1, y2), (y2, y3)]:
@@ -266,7 +372,7 @@ for ya, yb in [(y1, y2), (y2, y3)]:
     ax.plot([xm, xm, xs[0] + W / 2, xs[0] + W / 2], [ya, ym + 0.02, ym + 0.02, yb + H + 0.12], color='#333', lw=1.6)
     ax.add_patch(FancyArrowPatch((xs[0] + W / 2, yb + H + 0.3), (xs[0] + W / 2, yb + H + 0.02), arrowstyle='-|>', mutation_scale=16, lw=1.6, color='#333'))
 plt.savefig(os.path.join(OUT, 'fig_fluxo.png'), dpi=300, bbox_inches='tight'); plt.close(fig)
-print('salvo fig_fluxo.png')
+print('salvo fig_fluxo.png'); salvar_a1('fig_fluxo.png')
 
 # ---------------------------------------------------------------- Fig 6 (obs vs pred, OOF) e Fig 9 (resíduos) gerados dos dados
 import json
@@ -282,7 +388,7 @@ df = pd.read_excel(os.path.join(BASE, 'Dados_base_nova_2001_2025.xlsx')); df.col
 df['saz_sin'] = np.sin(2 * np.pi * df['MÊS'] / 12); df['saz_cos'] = np.cos(2 * np.pi * df['MÊS'] / 12)
 plt.rcParams.update({'font.size': 13, 'axes.titlesize': 15, 'axes.labelsize': 13, 'xtick.labelsize': 11.5,
                      'ytick.labelsize': 11.5, 'legend.fontsize': 11.5})
-UN = r'gC$\cdot$m$^{-2}\cdot$mês$^{-1}$'
+UN = r'gC$\cdot$m$^{-2}\cdot$month$^{-1}$' if EN else r'gC$\cdot$m$^{-2}\cdot$mês$^{-1}$'
 fig6, ax6 = plt.subplots(1, 3, figsize=(17, 5.8))
 fig9, ax9 = plt.subplots(3, 3, figsize=(17, 15))
 for k, (b, nome, cor) in enumerate(BIOMAS):
@@ -299,12 +405,13 @@ for k, (b, nome, cor) in enumerate(BIOMAS):
     r2oof = r2_score(y, pred) * 100
     ax = ax6[k]
     lim = [min(y.min(), pred.min()) - 5, max(y.max(), pred.max()) + 5]
-    ax.plot(lim, lim, 'k--', lw=1.3, label='Predição perfeita (1:1)')
+    ax.plot(lim, lim, 'k--', lw=1.3, label='Perfect prediction (1:1)' if EN else 'Predição perfeita (1:1)')
     ax.scatter(y, pred, s=26, color=cor, alpha=0.6, edgecolors='none')
     ax.set_xlim(lim); ax.set_ylim(lim); ax.set_aspect('equal', adjustable='box')
     ax.set_title(f'({"abc"[k]}) {nome}', fontweight='bold')
-    ax.set_xlabel(f'PSN observada ({UN})', fontweight='bold'); ax.set_ylabel(f'PSN predita ({UN})' if k == 0 else '', fontweight='bold')
-    ax.text(0.04, 0.95, f'R² fora da amostra = {r2oof:.1f}%'.replace('.', ','), transform=ax.transAxes, va='top',
+    ax.set_xlabel(f'Observed PSN ({UN})' if EN else f'PSN observada ({UN})', fontweight='bold')
+    ax.set_ylabel((f'Predicted PSN ({UN})' if EN else f'PSN predita ({UN})') if k == 0 else '', fontweight='bold')
+    ax.text(0.04, 0.95, f'Out-of-sample R² = {dec(r2oof)}%' if EN else f'R² fora da amostra = {dec(r2oof)}%', transform=ax.transAxes, va='top',
             fontsize=13, fontweight='bold', bbox=dict(boxstyle='round,pad=0.35', fc='white', ec=cor, lw=2))
     ax.legend(loc='lower right'); ax.grid(alpha=0.3); ax.spines[['top', 'right']].set_visible(False)
     # diagnóstico: ajuste completo, y não winsorizado, alpha médio
@@ -327,5 +434,8 @@ for k, (b, nome, cor) in enumerate(BIOMAS):
     a0.text(-0.32, 0.5, nome, transform=a0.transAxes, rotation=90, va='center', ha='center', fontsize=17, fontweight='bold', color=cor)
     print(f'{b}: R² OOF {r2oof:.2f} | Shapiro p {pW:.4f} | LB p {float(lb["lb_pvalue"].iloc[0]):.4f} | ACF1 {ac[1]:.3f}')
 fig6.tight_layout(); fig6.savefig(os.path.join(OUT, 'fig03_obs_vs_pred.png'), dpi=300, bbox_inches='tight'); plt.close(fig6)
-fig9.tight_layout(); fig9.savefig(os.path.join(OUT, 'fig06_residuos.png'), dpi=300, bbox_inches='tight'); plt.close(fig9)
-print('salvo fig03_obs_vs_pred.png e fig06_residuos.png (gerados)')
+salvar_a1('fig03_obs_vs_pred.png')
+if not EN:  # resíduos só na dissertação (PT)
+    fig9.tight_layout(); fig9.savefig(os.path.join(OUT, 'fig06_residuos.png'), dpi=300, bbox_inches='tight')
+plt.close(fig9)
+print('salvo fig03_obs_vs_pred.png e fig06_residuos.png (gerados)' if not EN else 'salvo fig03_obs_vs_pred.png (EN)')
