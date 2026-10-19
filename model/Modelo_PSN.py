@@ -10,7 +10,7 @@ PPGCTA - Programa de Pós-Graduação em Ciências e Tecnologia Ambiental
 BASE DE DADOS DE ENTRADA
 -------------------------------------------------------------------------------
 Basta colocar o CSV bruto atualizado (base_final_2001_2025_plan1_excel_ptbr.csv)
-na mesma pasta do script e rodar — nada mais precisa ser feito manualmente. O
+na mesma pasta do script e rodar: nada mais precisa ser feito manualmente. O
 script detecta o CSV sozinho, renomeia as colunas para o padrão interno,
 remove as linhas com precipitação ainda não publicada pela NASA, e salva o
 Excel (Dados_base_nova_2001_2025.xlsx) que o modelo de fato usa. Se você
@@ -21,10 +21,10 @@ COMO ESCOLHER O(S) BIOMA(S) A RODAR
 -------------------------------------------------------------------------------
 BIOMA_ATIVO = os.environ.get('BIOMA_ATIVO', 'CE')
 
-- Rodar só um bioma: dê o "Run" normal — ele cai no padrão 'CE'. Para rodar
+- Rodar só um bioma: dê o "Run" normal: ele cai no padrão 'CE'. Para rodar
   outro, troque o 'CE' logo abaixo por 'MA' ou 'CA' e rode novamente.
 - Rodar os 3 de uma vez: troque o 'CE' abaixo por 'TODOS'. Por padrão os três
-  rodam EM PARALELO (RODAR_EM_PARALELO = os.environ.get('RODAR_EM_PARALELO', '1') == '1'   # 0 = biomas em sequência (log ordenado), um processo por núcleo) — cada
+  rodam EM PARALELO (RODAR_EM_PARALELO = os.environ.get('RODAR_EM_PARALELO', '1') == '1'   # 0 = biomas em sequência (log ordenado), um processo por núcleo); cada
   bioma já lê/escreve só na própria subpasta, então não há conflito. Para
   rodar em sequência em vez de paralelo, troque RODAR_EM_PARALELO para False.
 - Também dá pra rodar pelo terminal sem editar nada, definindo a variável de
@@ -47,7 +47,7 @@ Cada bioma tem sua própria subpasta dentro de "saidas_figuras/":
     │   └── ...
     ├── CA/
     │   └── ...
-    └── resumo_geral_1.csv   (só quando roda 'TODOS' — tabela comparativa)
+    └── resumo_geral_1.csv   (só quando roda 'TODOS', tabela comparativa)
 
 Nenhum arquivo é sobrescrito: a cada nova execução, o número no final do
 nome (_1, _2, _3...) avança automaticamente. O histórico de rodadas antigas
@@ -56,8 +56,8 @@ fica preservado.
 -------------------------------------------------------------------------------
 TOGGLES DE VALIDAÇÃO (mantidos do script original)
 -------------------------------------------------------------------------------
-TESTAR_GRAUS          — compara os graus polinomiais 1 a GRAU_MAXIMO_TESTE.
-RODAR_YRANDOMIZATION  — roda as 100 permutações com validação cruzada
+TESTAR_GRAUS          : compara os graus polinomiais 1 a GRAU_MAXIMO_TESTE.
+RODAR_YRANDOMIZATION  : roda as 100 permutações com validação cruzada
                          (Y-randomization fora da amostra, conforme a
                          metodologia descrita no texto da dissertação).
 Ambos aplicam-se igualmente a todos os biomas selecionados.
@@ -72,7 +72,7 @@ import json
 import pandas as pd
 import numpy as np
 import matplotlib
-matplotlib.use('Agg')  # backend não-interativo — necessário para rodar em paralelo (vários processos)
+matplotlib.use('Agg')  # backend não-interativo, necessário para rodar em paralelo (vários processos)
 import matplotlib.pyplot as plt
 import scipy.stats as stats
 
@@ -83,7 +83,41 @@ from concurrent.futures import ProcessPoolExecutor, as_completed
 from sklearn.metrics import r2_score, mean_squared_error, mean_absolute_error
 from sklearn.preprocessing import StandardScaler, PolynomialFeatures
 from sklearn.linear_model import Ridge
-from sklearn.model_selection import RepeatedKFold, GridSearchCV, TimeSeriesSplit, GroupKFold, KFold
+# A validação agrupada por ano não usa o GroupKFold do scikit-learn: usa a
+# partição fixa ANO_PARA_FOLD definida abaixo.
+from sklearn.model_selection import RepeatedKFold, GridSearchCV, TimeSeriesSplit, KFold
+
+# =============================================================================
+# PARTIÇÃO FIXA DOS ANOS NA VALIDAÇÃO AGRUPADA POR ANO
+# O GroupKFold(n_splits=5) do scikit-learn atribui os anos aos folds ordenando-os pelo
+# número de meses com np.argsort não estável; como 24 anos empatam com 12 meses, a
+# partição dependia da versão e da CPU (numpy 2.4.2 com SIMD X86_V3 dava outra). A
+# partição abaixo é a da mesma regra com ordenação estável, a usada nos resultados e
+# descrita nos métodos da dissertação (seção 5.5) e do artigo do modelo. A ordem dos
+# folds (0 a 4) é a da rodada que gerou os resultados, para que os valores por fold
+# saiam na mesma ordem do log. Folds com 60, 60, 60, 60 e 57 meses (2025 tem 9 meses).
+# =============================================================================
+GKF_FOLDS_ANOS = [
+    [2004, 2009, 2014, 2019, 2024],   # fold 1
+    [2003, 2008, 2013, 2018, 2023],   # fold 2
+    [2002, 2007, 2012, 2017, 2022],   # fold 3
+    [2001, 2006, 2011, 2016, 2021],   # fold 4
+    [2005, 2010, 2015, 2020, 2025],   # fold 5
+]
+ANO_PARA_FOLD = {ano: k for k, anos_k in enumerate(GKF_FOLDS_ANOS) for ano in anos_k}
+
+
+def split_por_ano_fixo(anos):
+    """Devolve [(treino, teste), ...] nos 5 folds de
+    ANO_PARA_FOLD, com índices posicionais em ordem crescente (mesmo formato do
+    GroupKFold.split). Erro se aparecer ano fora do dicionário."""
+    anos = np.asarray(anos)
+    faltando = sorted(set(int(a) for a in np.unique(anos)) - set(ANO_PARA_FOLD))
+    if faltando:
+        raise ValueError(f"anos sem fold definido em ANO_PARA_FOLD: {faltando}")
+    fold = np.array([ANO_PARA_FOLD[int(a)] for a in anos])
+    idx = np.arange(len(anos))
+    return [(idx[fold != k], idx[fold == k]) for k in range(len(GKF_FOLDS_ANOS))]
 
 from statsmodels.stats.outliers_influence import variance_inflation_factor
 
@@ -97,7 +131,7 @@ def caminho(nome):
     return os.path.join(BASE_DIR, nome)
 
 # =============================================================================
-# PASTA DE SAÍDA DAS FIGURAS — uma subpasta por bioma, nomes numerados
+# PASTA DE SAÍDA DAS FIGURAS: uma subpasta por bioma, nomes numerados
 # A cada execução é garantida a existência de uma pasta 'saidas_figuras/<bioma>'
 # na mesma pasta do script. Nenhum arquivo é sobrescrito: o número final do
 # nome (_1, _2, _3...) avança sozinho a cada nova rodada.
@@ -150,7 +184,7 @@ plt.rcParams.update({
 })
 
 # =============================================================================
-# PREPARAÇÃO DA BASE A PARTIR DO CSV BRUTO (opcional — só roda se o CSV existir)
+# PREPARAÇÃO DA BASE A PARTIR DO CSV BRUTO (opcional: só roda se o CSV existir)
 # -----------------------------------------------------------------------------
 # Se o arquivo base_final_2001_2025_plan1_excel_ptbr.csv estiver na pasta do
 # script, ele é lido, as colunas são renomeadas para o padrão que o modelo
@@ -188,7 +222,7 @@ RENOME_COLUNAS_CSV = {
     'FMA_AreaQueimada':      'BURN_MA',
     'Cerrado_AreaQueimada':  'BURN_CE',
     'Caatinga_AreaQueimada': 'BURN_CA',
-    # FMA_PET, Cerrado_PET, Caatinga_PET não são usadas pelo modelo —
+    # FMA_PET, Cerrado_PET, Caatinga_PET não são usadas pelo modelo:
     # mantidas com o nome original e simplesmente ignoradas.
 }
 
@@ -223,7 +257,7 @@ def preparar_base_a_partir_do_csv():
     print(f"Arquivo lido: {NOME_CSV_BRUTO}")
     print(f"Linhas originais: {antes}")
     if depois < antes:
-        print("Linhas removidas (precipitação ausente — dado ainda não publicado pela NASA):")
+        print("Linhas removidas (precipitação ausente: dado ainda não publicado pela NASA):")
         print(linhas_removidas.to_string(index=False))
     print(f"Linhas finais usadas no modelo: {depois}")
 
@@ -232,10 +266,42 @@ def preparar_base_a_partir_do_csv():
     return True
 
 
+# Registro do ambiente de software. Só imprime e grava versões; não altera nenhum
+# cálculo. Chamado apenas no processo principal.
+def registrar_ambiente_software(pasta_saida):
+    import sys, platform, importlib
+    pacotes = ['numpy', 'scikit-learn', 'scipy', 'statsmodels', 'pandas', 'matplotlib',
+               'openpyxl', 'joblib', 'threadpoolctl']
+    modulos = {'scikit-learn': 'sklearn'}
+    amb = {'python': sys.version.split()[0], 'python_completo': sys.version,
+           'plataforma': platform.platform(), 'executavel': sys.executable,
+           'data_hora': datetime.now().isoformat(timespec='seconds'), 'pacotes': {}}
+    for p in pacotes:
+        try:
+            amb['pacotes'][p] = importlib.import_module(modulos.get(p, p)).__version__
+        except Exception as e:  # pacote ausente: registra o motivo
+            amb['pacotes'][p] = f'indisponível ({e})'
+    amb['groupkfold_particao'] = 'fixa (ANO_PARA_FOLD)'
+    amb['groupkfold_folds_anos'] = [list(map(int, g)) for g in GKF_FOLDS_ANOS]
+    print("\n===== AMBIENTE DE SOFTWARE =====")
+    print(f"Python      : {amb['python']}")
+    for p, v in amb['pacotes'].items():
+        print(f"{p:<12}: {v}")
+    print(f"Validação agrupada por ano: partição fixa (ANO_PARA_FOLD): "
+          f"{' | '.join('-'.join(str(a) for a in g) for g in GKF_FOLDS_ANOS)}")
+    os.makedirs(pasta_saida, exist_ok=True)
+    caminho_amb = os.path.join(pasta_saida, 'ambiente_software.json')
+    with open(caminho_amb, 'w', encoding='utf-8') as f:
+        json.dump(amb, f, ensure_ascii=False, indent=1)
+    print(f"Ambiente gravado em {caminho_amb}\n")
+    return amb
+
+
 if __name__ == '__main__':
+    registrar_ambiente_software(os.path.join(BASE_DIR, 'saidas_figuras'))
     csv_processado = preparar_base_a_partir_do_csv()
     if not csv_processado:
-        print(f"\n(CSV '{NOME_CSV_BRUTO}' não encontrado na pasta — "
+        print(f"\n(CSV '{NOME_CSV_BRUTO}' não encontrado na pasta; "
               f"usando '{NOME_XLSX_MODELO}' existente diretamente.)\n")
 
 # =============================================================================
@@ -309,7 +375,7 @@ config_biomas = {
 #
 # GRAU_MAXIMO_TESTE: até qual grau comparar quando TESTAR_GRAUS = True.
 #                     Recomendado: máximo 5 (acima disso há overfitting severo
-#                     com cerca de 300 meses e 5 variáveis preditoras).
+#                     com n=240 e 5 variáveis preditoras).
 #
 # RODAR_YRANDOMIZATION: True roda as 100 permutações com validação cruzada
 #                        (mais lento); False pula a Y-randomization.
@@ -352,7 +418,7 @@ else:
 
 
 # =============================================================================
-# FUNÇÃO PRINCIPAL — roda o modelo completo para UM bioma
+# FUNÇÃO PRINCIPAL: roda o modelo completo para UM bioma
 # (mesma lógica do script original; caminhos de arquivo e nomes de variável
 # adaptados para pasta própria por bioma e numeração incremental)
 # =============================================================================
@@ -666,9 +732,9 @@ def rodar_modelo_bioma(bioma, dados_total):
     # --- (1) GroupKFold por ANO -------------------------------------------------
     # Requer a coluna ANO na planilha; agrupa observações do mesmo ano.
     anos_grupo = dados_total.loc[dados_x.index, 'ANO'].values
-    gkf = GroupKFold(n_splits=5)
+    # Partição fixa ANO_PARA_FOLD (ver o início do arquivo) no lugar de GroupKFold(n_splits=5)
     r2_gkf = []
-    for tr_idx, te_idx in gkf.split(dados_x, dados_y, groups=anos_grupo):
+    for tr_idx, te_idx in split_por_ano_fixo(anos_grupo):
         r2_gkf.append(_fit_eval_fold(
             dados_x.iloc[tr_idx], dados_x.iloc[te_idx],
             dados_y.iloc[tr_idx], dados_y.iloc[te_idx]))
@@ -692,12 +758,7 @@ def rodar_modelo_bioma(bioma, dados_total):
     gap_tss = np.mean(lista_r2_teste) - np.mean(r2_tss)
     print(f"\nQueda RKF:GroupKFold  : {gap_gkf:+.2f} pp")
     print(f"Queda RKF:TimeSeries  : {gap_tss:+.2f} pp")
-    if max(gap_gkf, gap_tss) < 10:
-        print("Desempenho ROBUSTO à validação temporal (quedas < 10 pp): "
-              "o R² não é artefato de vazamento por autocorrelação.")
-    else:
-        print("Queda relevante sob validação temporal: parte do desempenho "
-              "dependia da estrutura temporal. Interpretar como modelo diagnóstico.")
+    # Só as duas quedas são impressas, sem limiar fixo para julgá-las.
 
     # =============================================================================
     # DIAGNÓSTICO DE MULTICOLINEARIDADE - VIF (Variance Inflation Factor)
@@ -720,7 +781,7 @@ def rodar_modelo_bioma(bioma, dados_total):
 
     # =============================================================================
     # ANÁLISE DE RESÍDUOS - MODELO AJUSTADO EM TODOS OS DADOS
-    # O modelo é ajustado no conjunto completo (todos os meses da base; 297 na série 2001-2025) apenas para diagnóstico visual.
+    # O modelo é ajustado no conjunto completo (n=240) apenas para diagnóstico visual.
     # A avaliação preditiva real é feita pela validação cruzada acima.
     # =============================================================================
 
@@ -936,16 +997,14 @@ def rodar_modelo_bioma(bioma, dados_total):
     # comparação é internamente consistente. Medido fora da amostra, o modelo
     # permutado se comporta como modelo nulo (R² próximo de zero ou negativo), sem
     # a inflação por sobreajuste que ocorreria numa medida in-sample.
-    # Dois critérios são reportados:
-    #   (1) Delta = R²_CV(original) - R²_CV(permutado médio) >= 60 pp, critério
-    #       operacional adotado por Guimarães et al. (2024) para modelos QSAR.
+    # São reportados:
+    #   (1) Delta = R²_CV(original) - R²_CV(permutado médio), em pp;
     #   (2) p-valor empírico unilateral: proporção de permutações cujo R²_CV iguala
     #       ou supera o do modelo original; significativo quando p < 0,05.
     # =============================================================================
 
     yrand_diferenca = np.nan
     yrand_p_empirico = np.nan
-    yrand_status = 'NAO_RODADO'
 
     if RODAR_YRANDOMIZATION:
         print("\n===== Y-RANDOMIZATION COM VALIDAÇÃO CRUZADA =====")
@@ -1014,17 +1073,11 @@ def rodar_modelo_bioma(bioma, dados_total):
         print(f"Diferença (Δ CV)                     : {diferenca:.2f} pp")
         print(f"p-valor empírico unilateral          : {p_empirico:.4f}")
 
-        criterio_delta = diferenca >= 60
         criterio_p     = p_empirico < 0.05
 
         yrand_diferenca  = diferenca
         yrand_p_empirico = p_empirico
-        yrand_status     = 'APROVADO' if (criterio_delta and criterio_p) else 'VERIFICAR'
 
-        if criterio_delta:
-            print(f"Critério operacional de 60 pp ATINGIDO - diferença de {diferenca:.2f} pp")
-        else:
-            print(f"Critério operacional de 60 pp NÃO atingido - diferença de {diferenca:.2f} pp")
         if criterio_p:
             print(f"p-valor < 0,05 - desempenho estatisticamente significativo")
         else:
@@ -1040,18 +1093,24 @@ def rodar_modelo_bioma(bioma, dados_total):
         COR_MEDIA    = '#1DB954'   # verde vivo - média dos permutados
         COR_BARRAS   = '#9AA0A6'   # cinza médio - distribuição permutada
 
+        # Rótulos da figura com vírgula decimal: R² e Δ com 1 casa e negativo com o sinal de
+        # menos U+2212 (como os ticks do eixo). Só o texto da figura; valores e log intactos.
+        _vd = lambda v, casas=1: f'{v:.{casas}f}'.replace('.', ',').replace('-', '−')
+        # p com 4 casas, para o p mínimo com 100 permutações (1/101) aparecer como "p = 0,0099".
+        _vp = lambda p: 'p < 0,001' if p < 0.001 else f'p = {p:.4f}'.replace('.', ',')
+
         fig_yr, ax_yr = plt.subplots(figsize=(9.5, 6.0))
 
         ax_yr.hist(lista_r2_cv_perm, bins=25, color=COR_BARRAS,
                    edgecolor='white', linewidth=0.6,
                    label='R² CV modelos permutados')
         ax_yr.axvline(r2_perm_medio, color=COR_MEDIA, linestyle='--',
-                      linewidth=3.0, label=f'Média permutados ({r2_perm_medio:.2f}%)')
+                      linewidth=3.0, label=f'Média permutados ({_vd(r2_perm_medio)}%)')
         ax_yr.axvline(r2_cv_original, color=COR_ORIGINAL, linestyle='-',
-                      linewidth=3.5, label=f'R² CV modelo original ({r2_cv_original:.2f}%)')
+                      linewidth=3.5, label=f'R² CV modelo original ({_vd(r2_cv_original)}%)')
 
         # Rótulo do valor original destacado junto da linha
-        ax_yr.annotate(f'{r2_cv_original:.2f}%',
+        ax_yr.annotate(f'{_vd(r2_cv_original)}%',
                        xy=(r2_cv_original, ax_yr.get_ylim()[1]*0.92),
                        xytext=(-10, 0), textcoords='offset points',
                        ha='right', va='top', fontsize=16, fontweight='bold',
@@ -1062,14 +1121,14 @@ def rodar_modelo_bioma(bioma, dados_total):
         ax_yr.set_ylabel('Frequência', fontsize=16, fontweight='bold')
         ax_yr.tick_params(axis='both', labelsize=13)
 
-        status   = 'APROVADO' if (criterio_delta and criterio_p) else 'VERIFICAR'
-        cor_stat = '#0B5FA5' if status == 'APROVADO' else '#C0392B'
+        # Cor fixa; título com dois-pontos como separador.
+        cor_stat = '#0B5FA5'
 
-        # Título em duas linhas: nome do bioma e, abaixo, Δ / p / status coloridos
-        ax_yr.set_title(f'Y-Randomization (CV) - {cfg["nome"]}',
+        # Título em duas linhas: nome do bioma e, abaixo, Δ e p
+        ax_yr.set_title(f'Y-randomization (CV): {cfg["nome"]}',
                         fontsize=18, fontweight='bold', pad=34, color='#202124')
         ax_yr.text(0.5, 1.015,
-                   f'Δ = {diferenca:.2f} pp    |    p = {p_empirico:.4f}    |    {status}',
+                   f'Δ = {_vd(diferenca)} pp    |    {_vp(p_empirico)}',
                    transform=ax_yr.transAxes, ha='center', va='bottom',
                    fontsize=15, fontweight='bold', color=cor_stat)
 
@@ -1081,7 +1140,7 @@ def rodar_modelo_bioma(bioma, dados_total):
         print(f"Gráfico salvo em {os.path.basename(caminho_yr)} (600 dpi)")
     else:
         print("\n===== Y-RANDOMIZATION DESATIVADA (RODAR_YRANDOMIZATION = False) =====")
-        print("Bloco de Y-randomization pulado. Defina RODAR_YRANDOMIZATION = False para rodar.")
+        print("Bloco de Y-randomization pulado. Defina RODAR_YRANDOMIZATION=1 (True) para rodar.")
 
     # =============================================================================
     # SELEÇÃO DO GRAU POLINOMIAL
@@ -1218,20 +1277,16 @@ def rodar_modelo_bioma(bioma, dados_total):
         axes2[0].set_xticks(graus)
 
         # Painel 2 - Gap de overfitting
-        cores_ov = ['#2ca02c' if o < 10 else '#ff7f0e' if o < 20 else '#d62728'
-                    for o in overfits]
-        bars2 = axes2[1].bar(graus, overfits, color=cores_ov,
+        # Figura auxiliar sem limiar fixo de referência; cor única; "treino menos teste" por extenso.
+        bars2 = axes2[1].bar(graus, overfits, color='#7f7f7f',
                              edgecolor='white', width=0.5)
         for bar, val in zip(bars2, overfits):
             axes2[1].text(bar.get_x() + bar.get_width()/2,
                           bar.get_height() + 0.3,
                           f'{val:.1f}', ha='center', va='bottom', fontsize=9)
-        axes2[1].axhline(10, color='orange', linestyle='--',
-                         alpha=0.7, label='Limite aceitável (10p.p.)')
         axes2[1].set_xlabel('Grau Polinomial')
-        axes2[1].set_ylabel('Treino − Teste (p.p.)')
+        axes2[1].set_ylabel('Treino menos teste (p.p.)')
         axes2[1].set_title('Gap de Overfitting por Grau')
-        axes2[1].legend(fontsize=8)
         axes2[1].grid(alpha=0.3)
         axes2[1].set_xticks(graus)
 
@@ -1287,7 +1342,6 @@ def rodar_modelo_bioma(bioma, dados_total):
         'acf_lag1':           round(acf_lag1, 3) if not np.isnan(acf_lag1) else None,
         'yrand_diferenca_pp': round(yrand_diferenca, 2) if not np.isnan(yrand_diferenca) else None,
         'yrand_p_empirico':   round(yrand_p_empirico, 4) if not np.isnan(yrand_p_empirico) else None,
-        'yrand_status':       yrand_status,
         'arquivo_coef':       os.path.basename(caminho_coef),
         'alpha_medio':        round(float(alpha_medio), 4),
     }
@@ -1338,7 +1392,8 @@ def _rob_fit(x_tr, y_tr, grau=2, alpha=None):
 def _rob_pred(sc, pf, m, x): return m.predict(pf.transform(sc.transform(x)))
 
 def _rob_splits(esquema, x, anos):
-    if esquema == 'GroupKFold':      return list(GroupKFold(n_splits=5).split(x, groups=anos))
+    # Partição fixa ANO_PARA_FOLD (ver o início do arquivo) no lugar de GroupKFold(n_splits=5)
+    if esquema == 'GroupKFold':      return split_por_ano_fixo(anos)
     if esquema == 'TimeSeriesSplit': return list(TimeSeriesSplit(n_splits=5).split(x))
     return list(RepeatedKFold(n_splits=5, n_repeats=30, random_state=42).split(x))
 
@@ -1470,10 +1525,10 @@ def rodar_robustez(dados_total, config, alphas, biomas, pasta_saida, max_workers
     return js
 
 # =============================================================================
-# EXECUÇÃO — roda 1 bioma, ou os 3 em sequência, ou os 3 em paralelo
+# EXECUÇÃO: roda 1 bioma, ou os 3 em sequência, ou os 3 em paralelo
 #
 # O bloco "if __name__ == '__main__':" é obrigatório no Windows quando se usa
-# multiprocessing/ProcessPoolExecutor — sem ele, cada processo filho tentaria
+# multiprocessing/ProcessPoolExecutor: sem ele, cada processo filho tentaria
 # reimportar o script e disparar o Pool de novo, entrando em loop infinito.
 # =============================================================================
 
@@ -1483,9 +1538,9 @@ if __name__ == '__main__':
 
     if len(biomas_para_rodar) > 1 and RODAR_EM_PARALELO:
         print(f"\n>>> Rodando {len(biomas_para_rodar)} biomas EM PARALELO "
-              f"({', '.join(biomas_para_rodar)}) — um processo por núcleo.\n"
+              f"({', '.join(biomas_para_rodar)}) - um processo por núcleo.\n"
               f">>> Os prints de cada bioma podem aparecer intercalados no console;\n"
-              f">>> isso não afeta o resultado — cada bioma calcula de forma independente.\n")
+              f">>> isso não afeta o resultado: cada bioma calcula de forma independente.\n")
 
         with ProcessPoolExecutor(max_workers=len(biomas_para_rodar)) as executor:
             futuros = {
@@ -1514,7 +1569,7 @@ if __name__ == '__main__':
     # =========================================================================
     if len(resumos) > 1:
         df_resumo = pd.DataFrame(resumos)
-        print("\n\n===== RESUMO COMPARATIVO — TODOS OS BIOMAS =====")
+        print("\n\n===== RESUMO COMPARATIVO - TODOS OS BIOMAS =====")
         print(df_resumo.to_string(index=False))
 
         caminho_resumo = proximo_nome(PASTA_SAIDA, 'resumo_geral', 'csv')
